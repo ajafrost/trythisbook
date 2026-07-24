@@ -16,8 +16,8 @@ const config: Config = {
         ink: "#2c2a26",
         "ink-soft": "#6b655c",
         "ink-faint": "#9a9488",
-        accent: "#e5641e", // vivid orange — the pop/accent color
-        "accent-deep": "#c4530f", // darker orange for links, text, hover
+        accent: "#b1774a", // muted clay — a deeper sibling of the sand/beige
+        "accent-deep": "#8f5d36", // darker clay for links, text, hover
         "accent-2": "#9fbecd", // powder blue
         sand: "#d9d1c1", // warm beige — primary button surface
         "sand-deep": "#cbc1af", // beige button hover
