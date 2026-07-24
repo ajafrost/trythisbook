@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Fraunces } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 
 // Display serif — a free stand-in for Larken (the reference site's face):
-// high-contrast, elegant, with expressive italics. Body — a clean geometric
-// grotesk standing in for Matter.
+// high-contrast, elegant, with expressive italics.
 const serif = Fraunces({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -14,11 +14,13 @@ const serif = Fraunces({
   axes: ["opsz", "SOFT"],
 });
 
-const sans = Hanken_Grotesk({
-  subsets: ["latin"],
+// Body/UI — Matter (licensed local font). Only the Regular weight is on hand,
+// so heavier UI text (buttons, labels) is synthesized until more weights land.
+const sans = localFont({
+  src: "./fonts/Matter-Regular.woff2",
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
