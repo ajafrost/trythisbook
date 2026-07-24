@@ -2734,7 +2734,7 @@
     {
       "slug": "texted-me",
       "name": "Books people text me about",
-      "description": "My highest-conviction recs — the ones that get a reaction.",
+      "description": "Out of all the books I've recommended, these have generated the most follow-up texts from friends and family.",
       "bookIds": [
         "223001257",
         "63256933",
@@ -2759,7 +2759,7 @@
     {
       "slug": "smart-but-easy",
       "name": "Smart but easy",
-      "description": "Substantial, but a breeze to read.",
+      "description": "My favorite category of book. Smart enough to keep you interested but not so difficult you're wading through.",
       "bookIds": [
         "228110489",
         "218460347",
@@ -2787,7 +2787,7 @@
     {
       "slug": "weird-good",
       "name": "Weird in a great way",
-      "description": "Literary fiction with one speculative twist.",
+      "description": "Read one of these when you're feeling bored with everything else.",
       "bookIds": [
         "52702097",
         "195372149",
@@ -2801,7 +2801,7 @@
     {
       "slug": "library-instock",
       "name": "In-stock at the library",
-      "description": "Older favorites your library definitely has a copy of.",
+      "description": "These were all written before 2005, which means you won't have to wait in an infinite queue to check them out.",
       "bookIds": [
         "113744",
         "2471029",
@@ -2895,7 +2895,7 @@
     {
       "slug": "short-devastating",
       "name": "When you're in the mood to cry",
-      "description": "Tearjerkers worth the ugly cry — quiet gut-punches and full-on sob sessions alike.",
+      "description": "Tears release oxytocin and endorphins! Get a good cry in with one of these books.",
       "bookIds": [
         "8143909",
         "59016923",
@@ -2928,7 +2928,7 @@
     {
       "slug": "platonic-love",
       "name": "Platonic love stories",
-      "description": "Friendship, fiction and non.",
+      "description": "Because friendship is just as beautiful and complex as romance!",
       "bookIds": [
         "3686",
         "50536943",
@@ -2954,7 +2954,7 @@
     {
       "slug": "campus-novels",
       "name": "Campus novels",
-      "description": "Secrets, seminars, and people who peaked at 20.",
+      "description": "I'll never be too old for a book set in high school or college.",
       "bookIds": [
         "29044",
         "32874746",
@@ -2967,7 +2967,7 @@
     {
       "slug": "reality-tv",
       "name": "For reality TV lovers",
-      "description": "Messy, addictive, can't-look-away.",
+      "description": "If you know who Nicolandria and Parvati are, this category is for you.",
       "bookIds": [
         "60277011",
         "218460337",
@@ -2980,7 +2980,7 @@
     {
       "slug": "trusted-authors",
       "name": "Authors who never let me down",
-      "description": "The writers I'll follow anywhere.",
+      "description": "These writers are my go-tos; I'll read whatever they write (and never regret it).",
       "bookIds": [
         "242693052",
         "9118135",
