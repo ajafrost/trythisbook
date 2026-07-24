@@ -280,18 +280,10 @@ export default function Wall({ books, shelves }: Props) {
                     </button>
                     <p className="text-sm text-ink-soft">{b.author}</p>
                     {b.blurb && (
-                      <p className="mt-1 text-sm text-ink-soft line-clamp-2">
+                      <p className="mt-1 text-sm text-ink-soft line-clamp-4">
                         {b.blurb}
                       </p>
                     )}
-                    <a
-                      href={b.goodreadsUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-1.5 inline-block text-xs text-ink-faint hover:text-ink"
-                    >
-                      Goodreads ↗
-                    </a>
                   </div>
                 </li>
               ))}

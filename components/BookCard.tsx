@@ -65,23 +65,10 @@ export default function BookCard({
         <p className="text-xs text-ink-soft">{book.author}</p>
 
         {blurb && (
-          <p className="mt-1.5 text-sm leading-snug text-ink-soft line-clamp-3">
+          <p className="mt-1.5 text-sm leading-snug text-ink-soft line-clamp-4">
             {blurb}
           </p>
         )}
-
-        <div className="mt-2 flex-1" />
-
-        <div className="mt-2 border-t border-line pt-2">
-          <a
-            href={book.goodreadsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block text-xs text-ink-faint hover:text-ink"
-          >
-            Goodreads ↗
-          </a>
-        </div>
       </div>
     </div>
   );
