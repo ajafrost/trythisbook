@@ -3,8 +3,7 @@ import Link from "next/link";
 import Cover from "./Cover";
 import type { Book } from "@/lib/library";
 
-// The card is the unit everywhere: cover, title, author, Aja's blurb, and a
-// Goodreads link out.
+// The card is the unit everywhere: cover, title, author, and Aja's blurb.
 export default function BookCard({
   book,
   blurb,

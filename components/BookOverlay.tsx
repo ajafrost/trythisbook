@@ -4,8 +4,7 @@ import Cover from "./Cover";
 import type { WallBook } from "@/lib/library";
 
 // Book detail as an overlay/panel, not a page load (spec 2.4): cover, blurb,
-// clickable shelf chips, Goodreads link, and prev/next through the current
-// filtered set.
+// clickable shelf chips, and prev/next through the current filtered set.
 export default function BookOverlay({
   book,
   shelfNames,
@@ -83,8 +82,10 @@ export default function BookOverlay({
               <span className="text-accent-deep">
                 {"★".repeat(book.myRating)}
               </span>
-              {book.yearPublished && <span>· {book.yearPublished}</span>}
-              {book.pages && <span>· {book.pages} pp</span>}
+              {book.yearPublished && (
+                <span>· Published {book.yearPublished}</span>
+              )}
+              {book.pages && <span>· {book.pages} pages</span>}
               {book.readYear && <span>· read {book.readYear}</span>}
             </div>
 
@@ -107,15 +108,6 @@ export default function BookOverlay({
                 ))}
               </div>
             )}
-
-            <a
-              href={book.goodreadsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-block text-sm text-ink-faint hover:text-ink"
-            >
-              See it on Goodreads ↗
-            </a>
           </div>
         </div>
 
