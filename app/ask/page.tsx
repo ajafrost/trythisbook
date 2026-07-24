@@ -96,7 +96,7 @@ export default function AskPage() {
           <button
             type="submit"
             disabled={!value.trim() || phase === "loading"}
-            className="rounded-full bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-deep disabled:opacity-40"
+            className="rounded-full bg-sand px-6 py-3 font-medium text-ink transition-colors hover:bg-sand-deep disabled:opacity-40"
           >
             {phase === "loading" ? "Thinking…" : "Find me three"}
           </button>
@@ -169,7 +169,7 @@ export default function AskPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <button
               onClick={() => go(lastQuery)}
-              className="rounded-full bg-accent px-5 py-2.5 font-medium text-white hover:bg-accent-deep"
+              className="rounded-full bg-sand px-5 py-2.5 font-medium text-ink hover:bg-sand-deep"
             >
               Try again
             </button>
