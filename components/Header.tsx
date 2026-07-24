@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-start gap-x-4 gap-y-3 px-4 py-3 sm:items-center sm:px-6">
         <Link
           href="/"
           className="font-serif text-2xl font-semibold tracking-tight text-ink whitespace-nowrap sm:text-3xl"
@@ -24,7 +24,7 @@ export default function Header() {
           Try This Book
         </Link>
 
-        <nav className="ml-auto flex flex-wrap items-center justify-end gap-x-1 gap-y-1.5 sm:gap-x-2">
+        <nav className="ml-auto flex flex-col items-end gap-y-1.5 sm:flex-row sm:items-center sm:gap-x-2">
           {NAV.map((n) => (
             <Link
               key={n.href}
