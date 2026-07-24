@@ -1,4 +1,19 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="16" y="23.5" text-anchor="middle" textLength="30" lengthAdjust="spacingAndGlyphs"
-        font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="21" fill="#c0784c">TTB</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <style>
+    /* Default (light browser bar) */
+    .bg { fill: #fbf9f1; }   /* warm cream tile */
+    .icon { fill: #2c2a26; } /* charcoal T */
+
+    /* Dark browser bar override */
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #2c2a26; }   /* charcoal tile */
+      .icon { fill: #fbf9f1; } /* warm cream T */
+    }
+  </style>
+
+  <!-- Background tile -->
+  <rect class="bg" width="32" height="32" rx="6" />
+
+  <!-- High-weight bookmark T -->
+  <path class="icon" d="M 5 4 H 27 V 9 H 21 V 28 L 16 23 L 11 28 V 9 H 5 Z" />
 </svg>
