@@ -1,0 +1,2276 @@
+{
+ "929": [
+  "historical-fiction"
+ ],
+ "1097": [
+  "narrative-nonfiction",
+  "food"
+ ],
+ "1103": [
+  "historical-fiction"
+ ],
+ "1232": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "1618": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "1848": [
+  "memoir",
+  "history"
+ ],
+ "1885": [
+  "literary-fiction",
+  "romance"
+ ],
+ "2156": [
+  "literary-fiction",
+  "romance"
+ ],
+ "2187": [
+  "literary-fiction"
+ ],
+ "3008": [
+  "young-adult"
+ ],
+ "3636": [
+  "young-adult",
+  "scifi-fantasy"
+ ],
+ "3686": [
+  "memoir"
+ ],
+ "3711": [
+  "literary-fiction"
+ ],
+ "3867": [
+  "literary-fiction"
+ ],
+ "3985": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "4214": [
+  "literary-fiction"
+ ],
+ "4953": [
+  "memoir"
+ ],
+ "5439": [
+  "literary-fiction",
+  "short-stories"
+ ],
+ "5826": [
+  "literary-fiction"
+ ],
+ "5890": [
+  "mystery-thriller",
+  "historical-fiction"
+ ],
+ "6185": [
+  "literary-fiction",
+  "romance"
+ ],
+ "6334": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "7445": [
+  "memoir"
+ ],
+ "9791": [
+  "memoir",
+  "narrative-nonfiction"
+ ],
+ "10210": [
+  "literary-fiction",
+  "romance"
+ ],
+ "10441": [
+  "literary-fiction"
+ ],
+ "13831": [
+  "scifi-fantasy",
+  "young-adult"
+ ],
+ "14935": [
+  "literary-fiction",
+  "romance"
+ ],
+ "14963": [
+  "literary-fiction"
+ ],
+ "15764": [
+  "literary-fiction"
+ ],
+ "16527": [
+  "historical-fiction"
+ ],
+ "29044": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "29579": [
+  "scifi-fantasy"
+ ],
+ "29580": [
+  "scifi-fantasy"
+ ],
+ "29581": [
+  "scifi-fantasy"
+ ],
+ "31661": [
+  "short-stories"
+ ],
+ "33917": [
+  "literary-fiction"
+ ],
+ "37095": [
+  "literary-fiction"
+ ],
+ "39963": [
+  "young-adult",
+  "historical-fiction"
+ ],
+ "41977": [
+  "literary-fiction"
+ ],
+ "43641": [
+  "historical-fiction",
+  "romance"
+ ],
+ "45376": [
+  "literary-fiction"
+ ],
+ "51108": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "51114": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "62291": [
+  "scifi-fantasy"
+ ],
+ "77156": [
+  "literary-fiction"
+ ],
+ "95961": [
+  "memoir"
+ ],
+ "113744": [
+  "short-stories",
+  "literary-fiction"
+ ],
+ "114447": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "126849": [
+  "literary-fiction"
+ ],
+ "138556": [
+  "literary-fiction"
+ ],
+ "144977": [
+  "memoir"
+ ],
+ "150739": [
+  "scifi-fantasy",
+  "young-adult"
+ ],
+ "167216": [
+  "literary-fiction"
+ ],
+ "187020": [
+  "literary-fiction"
+ ],
+ "201651": [
+  "literary-fiction"
+ ],
+ "234225": [
+  "scifi-fantasy"
+ ],
+ "235773": [
+  "literary-fiction"
+ ],
+ "248704": [
+  "young-adult"
+ ],
+ "256008": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "306010": [
+  "literary-fiction"
+ ],
+ "355862": [
+  "literary-fiction"
+ ],
+ "408837": [
+  "literary-fiction"
+ ],
+ "430156": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "448873": [
+  "young-adult",
+  "scifi-fantasy"
+ ],
+ "495395": [
+  "memoir"
+ ],
+ "500743": [
+  "scifi-fantasy",
+  "young-adult"
+ ],
+ "701738": [
+  "literary-fiction"
+ ],
+ "897867": [
+  "literary-fiction"
+ ],
+ "1379961": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "1432370": [
+  "memoir"
+ ],
+ "1627267": [
+  "young-adult",
+  "romance"
+ ],
+ "1736739": [
+  "literary-fiction",
+  "short-stories"
+ ],
+ "1796643": [
+  "literary-fiction"
+ ],
+ "1902241": [
+  "young-adult",
+  "scifi-fantasy"
+ ],
+ "2277185": [
+  "literary-fiction"
+ ],
+ "2429135": [
+  "mystery-thriller"
+ ],
+ "2471029": [
+  "literary-fiction"
+ ],
+ "2696181": [
+  "young-adult",
+  "scifi-fantasy"
+ ],
+ "2964456": [
+  "narrative-nonfiction",
+  "history"
+ ],
+ "2967752": [
+  "literary-fiction"
+ ],
+ "3525894": [
+  "narrative-nonfiction",
+  "memoir"
+ ],
+ "3591262": [
+  "literary-fiction"
+ ],
+ "5633771": [
+  "literary-fiction"
+ ],
+ "6033525": [
+  "narrative-nonfiction",
+  "history"
+ ],
+ "6081088": [
+  "narrative-nonfiction",
+  "memoir"
+ ],
+ "6101138": [
+  "historical-fiction"
+ ],
+ "6240770": [
+  "memoir"
+ ],
+ "6366437": [
+  "historical-fiction",
+  "biography"
+ ],
+ "6401660": [
+  "historical-fiction",
+  "mystery-thriller"
+ ],
+ "6432774": [
+  "memoir"
+ ],
+ "6456073": [
+  "literary-fiction"
+ ],
+ "6567412": [
+  "memoir"
+ ],
+ "6573443": [
+  "narrative-nonfiction"
+ ],
+ "6586497": [
+  "memoir",
+  "food"
+ ],
+ "7117958": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "7141642": [
+  "historical-fiction"
+ ],
+ "7331435": [
+  "literary-fiction",
+  "short-stories"
+ ],
+ "7905092": [
+  "literary-fiction"
+ ],
+ "7937843": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "8143909": [
+  "literary-fiction"
+ ],
+ "8172058": [
+  "literary-fiction",
+  "romance"
+ ],
+ "8175835": [
+  "memoir"
+ ],
+ "8177569": [
+  "literary-fiction"
+ ],
+ "8218432": [
+  "narrative-nonfiction",
+  "history"
+ ],
+ "8550573": [
+  "literary-fiction"
+ ],
+ "8909152": [
+  "romance"
+ ],
+ "9118135": [
+  "literary-fiction"
+ ],
+ "9361589": [
+  "scifi-fantasy",
+  "historical-fiction"
+ ],
+ "9402168": [
+  "self-help"
+ ],
+ "9684523": [
+  "historical-fiction"
+ ],
+ "9938498": [
+  "narrative-nonfiction",
+  "history"
+ ],
+ "10054335": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "10062688": [
+  "memoir"
+ ],
+ "10762469": [
+  "literary-fiction"
+ ],
+ "10996342": [
+  "literary-fiction"
+ ],
+ "11501957": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "11535564": [
+  "narrative-nonfiction",
+  "food"
+ ],
+ "11886692": [
+  "literary-fiction"
+ ],
+ "12168274": [
+  "mystery-thriller"
+ ],
+ "12415486": [
+  "literary-fiction",
+  "food"
+ ],
+ "12965338": [
+  "literary-fiction"
+ ],
+ "13158800": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "13325079": [
+  "literary-fiction"
+ ],
+ "13400892": [
+  "literary-fiction"
+ ],
+ "13507212": [
+  "historical-fiction"
+ ],
+ "13526165": [
+  "literary-fiction"
+ ],
+ "13537029": [
+  "historical-fiction",
+  "romance"
+ ],
+ "13593564": [
+  "narrative-nonfiction"
+ ],
+ "14781494": [
+  "short-stories"
+ ],
+ "15507958": [
+  "romance"
+ ],
+ "15745753": [
+  "young-adult",
+  "romance"
+ ],
+ "15790842": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "15797715": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "15798782": [
+  "literary-fiction"
+ ],
+ "15815333": [
+  "literary-fiction"
+ ],
+ "15818333": [
+  "literary-fiction"
+ ],
+ "15819028": [
+  "scifi-fantasy",
+  "historical-fiction"
+ ],
+ "15990489": [
+  "literary-fiction"
+ ],
+ "16066896": [
+  "literary-fiction"
+ ],
+ "16068905": [
+  "young-adult",
+  "romance"
+ ],
+ "16077150": [
+  "literary-fiction"
+ ],
+ "16115612": [
+  "literary-fiction"
+ ],
+ "16126596": [
+  "literary-fiction"
+ ],
+ "16131025": [
+  "literary-fiction"
+ ],
+ "16158542": [
+  "narrative-nonfiction",
+  "history"
+ ],
+ "16181775": [
+  "romance",
+  "literary-fiction"
+ ],
+ "17333223": [
+  "literary-fiction"
+ ],
+ "17380041": [
+  "historical-fiction"
+ ],
+ "17383921": [
+  "narrative-nonfiction"
+ ],
+ "17465515": [
+  "literary-fiction"
+ ],
+ "17884042": [
+  "literary-fiction"
+ ],
+ "17899948": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "17910118": [
+  "literary-fiction"
+ ],
+ "17934513": [
+  "literary-fiction"
+ ],
+ "18006389": [
+  "literary-fiction"
+ ],
+ "18039963": [
+  "memoir"
+ ],
+ "18054175": [
+  "literary-fiction"
+ ],
+ "18081809": [
+  "romance",
+  "literary-fiction"
+ ],
+ "18104725": [
+  "narrative-nonfiction"
+ ],
+ "18143977": [
+  "historical-fiction"
+ ],
+ "18209290": [
+  "literary-fiction"
+ ],
+ "18240211": [
+  "literary-fiction"
+ ],
+ "18295861": [
+  "scifi-fantasy"
+ ],
+ "18490557": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "18490619": [
+  "literary-fiction"
+ ],
+ "18619684": [
+  "scifi-fantasy",
+  "romance"
+ ],
+ "18630531": [
+  "memoir"
+ ],
+ "18641982": [
+  "literary-fiction"
+ ],
+ "18668008": [
+  "memoir"
+ ],
+ "18693716": [
+  "romance",
+  "literary-fiction"
+ ],
+ "18867590": [
+  "narrative-nonfiction"
+ ],
+ "18892366": [
+  "self-help"
+ ],
+ "18914754": [
+  "literary-fiction"
+ ],
+ "19048697": [
+  "literary-fiction"
+ ],
+ "19062459": [
+  "literary-fiction"
+ ],
+ "19100997": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "19104786": [
+  "literary-fiction"
+ ],
+ "19486412": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "19792897": [
+  "literary-fiction"
+ ],
+ "20873740": [
+  "history",
+  "narrative-nonfiction"
+ ],
+ "20910157": [
+  "memoir"
+ ],
+ "20928835": [
+  "literary-fiction",
+  "romance"
+ ],
+ "21423525": [
+  "literary-fiction"
+ ],
+ "22015256": [
+  "literary-fiction"
+ ],
+ "22085568": [
+  "self-help"
+ ],
+ "22318513": [
+  "literary-fiction"
+ ],
+ "22367526": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "22749994": [
+  "literary-fiction"
+ ],
+ "22822858": [
+  "literary-fiction"
+ ],
+ "22929602": [
+  "literary-fiction"
+ ],
+ "23156040": [
+  "literary-fiction"
+ ],
+ "23398625": [
+  "literary-fiction",
+  "food"
+ ],
+ "23444482": [
+  "scifi-fantasy"
+ ],
+ "23492673": [
+  "memoir",
+  "narrative-nonfiction"
+ ],
+ "23602552": [
+  "literary-fiction"
+ ],
+ "24612118": [
+  "literary-fiction"
+ ],
+ "24911006": [
+  "narrative-nonfiction"
+ ],
+ "25242224": [
+  "literary-fiction"
+ ],
+ "25667449": [
+  "essays",
+  "narrative-nonfiction"
+ ],
+ "25781157": [
+  "literary-fiction"
+ ],
+ "25814219": [
+  "literary-fiction"
+ ],
+ "25852870": [
+  "literary-fiction",
+  "romance"
+ ],
+ "25899336": [
+  "memoir"
+ ],
+ "26114644": [
+  "literary-fiction"
+ ],
+ "26155161": [
+  "literary-fiction"
+ ],
+ "26192646": [
+  "literary-fiction",
+  "food"
+ ],
+ "26256492": [
+  "literary-fiction"
+ ],
+ "26811738": [
+  "self-help"
+ ],
+ "26890725": [
+  "literary-fiction"
+ ],
+ "27071490": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "27209486": [
+  "literary-fiction"
+ ],
+ "27831371": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "27868408": [
+  "mystery-thriller"
+ ],
+ "28007954": [
+  "literary-fiction"
+ ],
+ "28214365": [
+  "literary-fiction"
+ ],
+ "28251002": [
+  "literary-fiction"
+ ],
+ "28390369": [
+  "literary-fiction"
+ ],
+ "28449270": [
+  "literary-fiction"
+ ],
+ "28585691": [
+  "literary-fiction"
+ ],
+ "29503306": [
+  "literary-fiction"
+ ],
+ "29588376": [
+  "scifi-fantasy"
+ ],
+ "29774026": [
+  "scifi-fantasy"
+ ],
+ "29864343": [
+  "literary-fiction"
+ ],
+ "30319590": [
+  "essays"
+ ],
+ "30555488": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "30827125": [
+  "literary-fiction"
+ ],
+ "31204493": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "31429678": [
+  "literary-fiction"
+ ],
+ "31434883": [
+  "literary-fiction"
+ ],
+ "31675787": [
+  "literary-fiction"
+ ],
+ "31948742": [
+  "memoir"
+ ],
+ "32187419": [
+  "literary-fiction"
+ ],
+ "32619967": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "32874746": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "33009976": [
+  "literary-fiction"
+ ],
+ "33021339": [
+  "literary-fiction"
+ ],
+ "33119956": [
+  "memoir"
+ ],
+ "33396171": [
+  "scifi-fantasy"
+ ],
+ "33411229": [
+  "literary-fiction"
+ ],
+ "33525783": [
+  "literary-fiction"
+ ],
+ "33549194": [
+  "essays"
+ ],
+ "33574273": [
+  "young-adult",
+  "scifi-fantasy"
+ ],
+ "33590210": [
+  "literary-fiction"
+ ],
+ "33602148": [
+  "literary-fiction",
+  "young-adult"
+ ],
+ "33643501": [
+  "literary-fiction"
+ ],
+ "33670452": [
+  "literary-fiction"
+ ],
+ "33778610": [
+  "literary-fiction"
+ ],
+ "33822888": [
+  "literary-fiction",
+  "romance"
+ ],
+ "33984894": [
+  "scifi-fantasy"
+ ],
+ "34267285": [
+  "mystery-thriller"
+ ],
+ "34273236": [
+  "literary-fiction"
+ ],
+ "34376766": [
+  "narrative-nonfiction"
+ ],
+ "34503571": [
+  "literary-fiction"
+ ],
+ "34555464": [
+  "literary-fiction"
+ ],
+ "34603596": [
+  "literary-fiction"
+ ],
+ "34616805": [
+  "self-help"
+ ],
+ "34620503": [
+  "scifi-fantasy"
+ ],
+ "34647940": [
+  "literary-fiction"
+ ],
+ "34675006": [
+  "literary-fiction"
+ ],
+ "34740065": [
+  "memoir"
+ ],
+ "34818584": [
+  "literary-fiction"
+ ],
+ "34834241": [
+  "memoir",
+  "food"
+ ],
+ "34873421": [
+  "literary-fiction"
+ ],
+ "34912895": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "35036409": [
+  "literary-fiction"
+ ],
+ "35068581": [
+  "narrative-nonfiction"
+ ],
+ "35172649": [
+  "literary-fiction"
+ ],
+ "35397072": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "35414653": [
+  "narrative-nonfiction"
+ ],
+ "35443774": [
+  "memoir"
+ ],
+ "35520980": [
+  "literary-fiction"
+ ],
+ "35526438": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "35569704": [
+  "narrative-nonfiction"
+ ],
+ "35631386": [
+  "narrative-nonfiction"
+ ],
+ "35999155": [
+  "literary-fiction"
+ ],
+ "36113496": [
+  "literary-fiction"
+ ],
+ "36147701": [
+  "literary-fiction"
+ ],
+ "36193439": [
+  "essays",
+  "memoir"
+ ],
+ "36247169": [
+  "memoir"
+ ],
+ "36288143": [
+  "narrative-nonfiction"
+ ],
+ "36315211": [
+  "essays"
+ ],
+ "36336614": [
+  "self-help"
+ ],
+ "36373648": [
+  "literary-fiction"
+ ],
+ "36412963": [
+  "romance"
+ ],
+ "36453992": [
+  "literary-fiction"
+ ],
+ "36458393": [
+  "narrative-nonfiction"
+ ],
+ "36483183": [
+  "literary-fiction"
+ ],
+ "36506644": [
+  "literary-fiction"
+ ],
+ "36509935": [
+  "mystery-thriller"
+ ],
+ "36513424": [
+  "literary-fiction"
+ ],
+ "36521370": [
+  "literary-fiction"
+ ],
+ "36531861": [
+  "literary-fiction"
+ ],
+ "36531862": [
+  "essays"
+ ],
+ "36615105": [
+  "literary-fiction"
+ ],
+ "36645972": [
+  "literary-fiction"
+ ],
+ "36680804": [
+  "literary-fiction"
+ ],
+ "36685039": [
+  "literary-fiction"
+ ],
+ "36692478": [
+  "literary-fiction"
+ ],
+ "36693524": [
+  "memoir"
+ ],
+ "36862147": [
+  "young-adult"
+ ],
+ "36978953": [
+  "memoir"
+ ],
+ "37362213": [
+  "short-stories"
+ ],
+ "37539457": [
+  "literary-fiction"
+ ],
+ "37655127": [
+  "narrative-nonfiction"
+ ],
+ "37662025": [
+  "mystery-thriller"
+ ],
+ "37801132": [
+  "literary-fiction"
+ ],
+ "38205614": [
+  "literary-fiction"
+ ],
+ "38350979": [
+  "essays",
+  "memoir"
+ ],
+ "38456024": [
+  "young-adult",
+  "mystery-thriller"
+ ],
+ "38474560": [
+  "literary-fiction"
+ ],
+ "38490978": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "38593165": [
+  "literary-fiction"
+ ],
+ "38734171": [
+  "narrative-nonfiction"
+ ],
+ "38799469": [
+  "narrative-nonfiction"
+ ],
+ "38819868": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "39355963": [
+  "memoir"
+ ],
+ "39788660": [
+  "mystery-thriller"
+ ],
+ "39807070": [
+  "memoir"
+ ],
+ "39903265": [
+  "memoir"
+ ],
+ "39926661": [
+  "romance",
+  "literary-fiction"
+ ],
+ "39989153": [
+  "literary-fiction"
+ ],
+ "40041238": [
+  "literary-fiction"
+ ],
+ "40046059": [
+  "literary-fiction"
+ ],
+ "40099418": [
+  "memoir"
+ ],
+ "40135584": [
+  "literary-fiction"
+ ],
+ "40164365": [
+  "literary-fiction"
+ ],
+ "40189879": [
+  "scifi-fantasy"
+ ],
+ "40195463": [
+  "scifi-fantasy",
+  "historical-fiction"
+ ],
+ "40195518": [
+  "memoir",
+  "narrative-nonfiction"
+ ],
+ "40203647": [
+  "memoir",
+  "self-help"
+ ],
+ "40514364": [
+  "scifi-fantasy"
+ ],
+ "40514431": [
+  "romance"
+ ],
+ "40519546": [
+  "mystery-thriller"
+ ],
+ "40520251": [
+  "literary-fiction"
+ ],
+ "40552730": [
+  "memoir"
+ ],
+ "40611244": [
+  "self-help"
+ ],
+ "40611758": [
+  "literary-fiction"
+ ],
+ "40792951": [
+  "mystery-thriller",
+  "scifi-fantasy"
+ ],
+ "40810032": [
+  "narrative-nonfiction"
+ ],
+ "41015038": [
+  "young-adult",
+  "mystery-thriller"
+ ],
+ "41160292": [
+  "scifi-fantasy",
+  "short-stories"
+ ],
+ "41189557": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "41392364": [
+  "literary-fiction"
+ ],
+ "41443985": [
+  "young-adult",
+  "scifi-fantasy"
+ ],
+ "41583190": [
+  "memoir"
+ ],
+ "41644326": [
+  "memoir",
+  "food"
+ ],
+ "41796283": [
+  "memoir"
+ ],
+ "41880608": [
+  "literary-fiction"
+ ],
+ "41948137": [
+  "narrative-nonfiction"
+ ],
+ "41971463": [
+  "memoir",
+  "essays"
+ ],
+ "42076369": [
+  "literary-fiction"
+ ],
+ "42103980": [
+  "literary-fiction"
+ ],
+ "42259917": [
+  "literary-fiction"
+ ],
+ "42368149": [
+  "romance"
+ ],
+ "42379020": [
+  "literary-fiction"
+ ],
+ "42379031": [
+  "literary-fiction"
+ ],
+ "42516739": [
+  "literary-fiction"
+ ],
+ "42634735": [
+  "literary-fiction"
+ ],
+ "42641164": [
+  "literary-fiction"
+ ],
+ "42731449": [
+  "literary-fiction",
+  "food"
+ ],
+ "42731455": [
+  "literary-fiction"
+ ],
+ "42776244": [
+  "self-help"
+ ],
+ "42844800": [
+  "memoir",
+  "food"
+ ],
+ "42863111": [
+  "narrative-nonfiction"
+ ],
+ "43074556": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "43082329": [
+  "memoir"
+ ],
+ "43175254": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "43188104": [
+  "literary-fiction"
+ ],
+ "43261201": [
+  "narrative-nonfiction"
+ ],
+ "43266426": [
+  "literary-fiction"
+ ],
+ "43303106": [
+  "literary-fiction"
+ ],
+ "43425171": [
+  "literary-fiction"
+ ],
+ "43426912": [
+  "literary-fiction"
+ ],
+ "43517590": [
+  "literary-fiction"
+ ],
+ "43666435": [
+  "literary-fiction"
+ ],
+ "43744322": [
+  "literary-fiction"
+ ],
+ "43838464": [
+  "narrative-nonfiction",
+  "food"
+ ],
+ "43859826": [
+  "memoir"
+ ],
+ "44074800": [
+  "scifi-fantasy",
+  "mystery-thriller"
+ ],
+ "44131035": [
+  "literary-fiction"
+ ],
+ "44149572": [
+  "narrative-nonfiction"
+ ],
+ "44300042": [
+  "self-help"
+ ],
+ "44527740": [
+  "literary-fiction"
+ ],
+ "44569767": [
+  "literary-fiction"
+ ],
+ "44599442": [
+  "narrative-nonfiction"
+ ],
+ "44652554": [
+  "literary-fiction"
+ ],
+ "44778085": [
+  "literary-fiction"
+ ],
+ "45025308": [
+  "narrative-nonfiction"
+ ],
+ "45030090": [
+  "literary-fiction"
+ ],
+ "45186556": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "45289222": [
+  "literary-fiction"
+ ],
+ "45306328": [
+  "self-help"
+ ],
+ "45415035": [
+  "literary-fiction"
+ ],
+ "45416895": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "45729929": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "45835845": [
+  "literary-fiction"
+ ],
+ "45999201": [
+  "literary-fiction"
+ ],
+ "46014983": [
+  "literary-fiction"
+ ],
+ "46136224": [
+  "memoir"
+ ],
+ "46259991": [
+  "literary-fiction"
+ ],
+ "48566502": [
+  "literary-fiction"
+ ],
+ "48589362": [
+  "literary-fiction"
+ ],
+ "48668176": [
+  "literary-fiction"
+ ],
+ "48669113": [
+  "literary-fiction"
+ ],
+ "48753829": [
+  "literary-fiction"
+ ],
+ "48888274": [
+  "memoir",
+  "food"
+ ],
+ "48912823": [
+  "literary-fiction"
+ ],
+ "48914611": [
+  "literary-fiction"
+ ],
+ "48990389": [
+  "scifi-fantasy"
+ ],
+ "48999153": [
+  "self-help"
+ ],
+ "49100158": [
+  "literary-fiction"
+ ],
+ "49201438": [
+  "mystery-thriller"
+ ],
+ "49447605": [
+  "literary-fiction"
+ ],
+ "49856101": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "49914109": [
+  "memoir",
+  "food"
+ ],
+ "49982087": [
+  "historical-fiction",
+  "romance"
+ ],
+ "50027315": [
+  "literary-fiction"
+ ],
+ "50042494": [
+  "literary-fiction",
+  "romance"
+ ],
+ "50045075": [
+  "literary-fiction"
+ ],
+ "50065605": [
+  "historical-fiction"
+ ],
+ "50130587": [
+  "memoir"
+ ],
+ "50158413": [
+  "memoir"
+ ],
+ "50196744": [
+  "memoir"
+ ],
+ "50209521": [
+  "memoir"
+ ],
+ "50240841": [
+  "literary-fiction"
+ ],
+ "50408097": [
+  "literary-fiction"
+ ],
+ "50536943": [
+  "memoir",
+  "self-help"
+ ],
+ "50888243": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "51003468": [
+  "romance"
+ ],
+ "51046755": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "51117957": [
+  "memoir"
+ ],
+ "51226935": [
+  "literary-fiction"
+ ],
+ "51340472": [
+  "literary-fiction"
+ ],
+ "51375432": [
+  "narrative-nonfiction",
+  "memoir"
+ ],
+ "51457980": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "51608211": [
+  "romance"
+ ],
+ "51837291": [
+  "short-stories",
+  "literary-fiction"
+ ],
+ "51907346": [
+  "literary-fiction"
+ ],
+ "52085140": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "52141950": [
+  "literary-fiction"
+ ],
+ "52194898": [
+  "narrative-nonfiction"
+ ],
+ "52195151": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "52237660": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "52358404": [
+  "literary-fiction"
+ ],
+ "52476830": [
+  "mystery-thriller"
+ ],
+ "52545816": [
+  "literary-fiction"
+ ],
+ "52593527": [
+  "self-help"
+ ],
+ "52597312": [
+  "literary-fiction"
+ ],
+ "52696974": [
+  "literary-fiction"
+ ],
+ "52702097": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "52759167": [
+  "memoir"
+ ],
+ "52873094": [
+  "scifi-fantasy",
+  "historical-fiction"
+ ],
+ "52894214": [
+  "memoir"
+ ],
+ "52918279": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "53011908": [
+  "narrative-nonfiction"
+ ],
+ "53341634": [
+  "literary-fiction"
+ ],
+ "53507736": [
+  "literary-fiction"
+ ],
+ "53677457": [
+  "narrative-nonfiction",
+  "mystery-thriller"
+ ],
+ "53746844": [
+  "literary-fiction",
+  "romance"
+ ],
+ "53867504": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "53923958": [
+  "literary-fiction"
+ ],
+ "54310999": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "54383963": [
+  "mystery-thriller"
+ ],
+ "54385373": [
+  "literary-fiction"
+ ],
+ "54640667": [
+  "literary-fiction",
+  "short-stories"
+ ],
+ "54746196": [
+  "literary-fiction"
+ ],
+ "54846475": [
+  "mystery-thriller"
+ ],
+ "55071877": [
+  "young-adult"
+ ],
+ "55360284": [
+  "memoir",
+  "food"
+ ],
+ "55372861": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "55434914": [
+  "literary-fiction"
+ ],
+ "55468002": [
+  "literary-fiction"
+ ],
+ "55556143": [
+  "mystery-thriller"
+ ],
+ "55577549": [
+  "memoir",
+  "food"
+ ],
+ "55590431": [
+  "mystery-thriller"
+ ],
+ "55758388": [
+  "literary-fiction"
+ ],
+ "55886036": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "55939506": [
+  "mystery-thriller"
+ ],
+ "55985254": [
+  "literary-fiction"
+ ],
+ "56007910": [
+  "mystery-thriller"
+ ],
+ "56050608": [
+  "literary-fiction"
+ ],
+ "56124750": [
+  "literary-fiction"
+ ],
+ "56247202": [
+  "literary-fiction"
+ ],
+ "56343711": [
+  "narrative-nonfiction",
+  "history"
+ ],
+ "56378432": [
+  "literary-fiction"
+ ],
+ "56519331": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "56665711": [
+  "literary-fiction"
+ ],
+ "56665713": [
+  "literary-fiction"
+ ],
+ "56665714": [
+  "literary-fiction"
+ ],
+ "56691215": [
+  "literary-fiction"
+ ],
+ "56748012": [
+  "memoir"
+ ],
+ "56761975": [
+  "historical-fiction"
+ ],
+ "56787087": [
+  "essays"
+ ],
+ "56894210": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "57012630": [
+  "literary-fiction"
+ ],
+ "57108122": [
+  "literary-fiction"
+ ],
+ "57123268": [
+  "literary-fiction"
+ ],
+ "57182435": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "57196244": [
+  "literary-fiction"
+ ],
+ "57329182": [
+  "literary-fiction"
+ ],
+ "57356972": [
+  "literary-fiction"
+ ],
+ "57378707": [
+  "romance"
+ ],
+ "57452610": [
+  "literary-fiction"
+ ],
+ "57602357": [
+  "literary-fiction",
+  "romance"
+ ],
+ "57640897": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "57675954": [
+  "literary-fiction"
+ ],
+ "57696105": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "57768107": [
+  "literary-fiction"
+ ],
+ "58061810": [
+  "literary-fiction"
+ ],
+ "58184393": [
+  "literary-fiction"
+ ],
+ "58256450": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "58262351": [
+  "literary-fiction"
+ ],
+ "58268352": [
+  "literary-fiction"
+ ],
+ "58283993": [
+  "literary-fiction"
+ ],
+ "58395053": [
+  "literary-fiction"
+ ],
+ "58416952": [
+  "scifi-fantasy"
+ ],
+ "58448487": [
+  "literary-fiction"
+ ],
+ "58460887": [
+  "literary-fiction"
+ ],
+ "58533799": [
+  "literary-fiction"
+ ],
+ "58556596": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "58596754": [
+  "literary-fiction"
+ ],
+ "58601245": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "58706017": [
+  "literary-fiction"
+ ],
+ "58794688": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "58804393": [
+  "memoir",
+  "essays"
+ ],
+ "58812692": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "58812701": [
+  "literary-fiction"
+ ],
+ "58864196": [
+  "young-adult",
+  "romance"
+ ],
+ "58916147": [
+  "literary-fiction"
+ ],
+ "58941191": [
+  "memoir",
+  "narrative-nonfiction"
+ ],
+ "58949321": [
+  "literary-fiction"
+ ],
+ "59016923": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "59055336": [
+  "mystery-thriller"
+ ],
+ "59109017": [
+  "literary-fiction"
+ ],
+ "59142475": [
+  "literary-fiction"
+ ],
+ "59227941": [
+  "literary-fiction",
+  "romance"
+ ],
+ "59363539": [
+  "literary-fiction"
+ ],
+ "59422043": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "59425313": [
+  "mystery-thriller"
+ ],
+ "59438099": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "59557275": [
+  "food",
+  "memoir"
+ ],
+ "59563482": [
+  "biography"
+ ],
+ "59603040": [
+  "mystery-thriller"
+ ],
+ "59722217": [
+  "literary-fiction"
+ ],
+ "59767161": [
+  "literary-fiction"
+ ],
+ "59771967": [
+  "narrative-nonfiction",
+  "biography"
+ ],
+ "59788021": [
+  "literary-fiction"
+ ],
+ "59808037": [
+  "literary-fiction"
+ ],
+ "59912890": [
+  "literary-fiction"
+ ],
+ "60065460": [
+  "literary-fiction"
+ ],
+ "60194162": [
+  "literary-fiction"
+ ],
+ "60197744": [
+  "literary-fiction"
+ ],
+ "60277011": [
+  "literary-fiction"
+ ],
+ "60372100": [
+  "scifi-fantasy",
+  "mystery-thriller"
+ ],
+ "60394519": [
+  "historical-fiction"
+ ],
+ "60396325": [
+  "memoir"
+ ],
+ "60417006": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "60429621": [
+  "memoir"
+ ],
+ "60466391": [
+  "mystery-thriller",
+  "scifi-fantasy"
+ ],
+ "60582779": [
+  "memoir",
+  "essays"
+ ],
+ "60607196": [
+  "literary-fiction",
+  "food"
+ ],
+ "60699135": [
+  "literary-fiction"
+ ],
+ "60755035": [
+  "literary-fiction"
+ ],
+ "60867170": [
+  "narrative-nonfiction"
+ ],
+ "61055826": [
+  "literary-fiction"
+ ],
+ "61077851": [
+  "literary-fiction"
+ ],
+ "61090779": [
+  "self-help"
+ ],
+ "61118631": [
+  "literary-fiction"
+ ],
+ "61133361": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "61189184": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "61190770": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "61192679": [
+  "literary-fiction"
+ ],
+ "61310894": [
+  "literary-fiction"
+ ],
+ "61313251": [
+  "romance"
+ ],
+ "61322427": [
+  "literary-fiction"
+ ],
+ "61660241": [
+  "romance",
+  "literary-fiction"
+ ],
+ "61854923": [
+  "narrative-nonfiction",
+  "history"
+ ],
+ "61986846": [
+  "literary-fiction"
+ ],
+ "62039166": [
+  "literary-fiction"
+ ],
+ "62067054": [
+  "literary-fiction"
+ ],
+ "62084507": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "62601701": [
+  "literary-fiction"
+ ],
+ "62606735": [
+  "literary-fiction"
+ ],
+ "62646531": [
+  "memoir",
+  "essays"
+ ],
+ "62886088": [
+  "young-adult",
+  "romance"
+ ],
+ "62902483": [
+  "narrative-nonfiction"
+ ],
+ "63222079": [
+  "mystery-thriller"
+ ],
+ "63247365": [
+  "romance"
+ ],
+ "63256933": [
+  "literary-fiction"
+ ],
+ "63853404": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "63892606": [
+  "short-stories"
+ ],
+ "65648032": [
+  "literary-fiction",
+  "romance"
+ ],
+ "73971348": [
+  "literary-fiction"
+ ],
+ "74831628": [
+  "memoir"
+ ],
+ "74891998": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "74896591": [
+  "literary-fiction"
+ ],
+ "85323183": [
+  "literary-fiction"
+ ],
+ "101404407": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "122892583": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "125622460": [
+  "memoir"
+ ],
+ "127282939": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "127463471": [
+  "literary-fiction"
+ ],
+ "133287167": [
+  "memoir"
+ ],
+ "135984288": [
+  "narrative-nonfiction",
+  "biography"
+ ],
+ "138505710": [
+  "narrative-nonfiction",
+  "essays"
+ ],
+ "155685405": [
+  "memoir"
+ ],
+ "177058836": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "177328214": [
+  "literary-fiction",
+  "romance"
+ ],
+ "195372149": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "195391626": [
+  "self-help"
+ ],
+ "195853578": [
+  "literary-fiction"
+ ],
+ "195888551": [
+  "essays",
+  "memoir"
+ ],
+ "198123433": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "198701985": [
+  "literary-fiction",
+  "romance"
+ ],
+ "199124697": [
+  "literary-fiction"
+ ],
+ "199345782": [
+  "literary-fiction"
+ ],
+ "199531966": [
+  "literary-fiction"
+ ],
+ "199698485": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "199796715": [
+  "literary-fiction"
+ ],
+ "199797799": [
+  "biography",
+  "narrative-nonfiction"
+ ],
+ "199897935": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "199897944": [
+  "literary-fiction",
+  "historical-fiction"
+ ],
+ "201102398": [
+  "literary-fiction"
+ ],
+ "201626978": [
+  "literary-fiction"
+ ],
+ "201750794": [
+  "scifi-fantasy",
+  "historical-fiction"
+ ],
+ "203200544": [
+  "literary-fiction"
+ ],
+ "203578896": [
+  "narrative-nonfiction"
+ ],
+ "205524927": [
+  "memoir"
+ ],
+ "206340426": [
+  "scifi-fantasy"
+ ],
+ "208474799": [
+  "scifi-fantasy"
+ ],
+ "208511270": [
+  "literary-fiction",
+  "scifi-fantasy"
+ ],
+ "208931300": [
+  "literary-fiction"
+ ],
+ "211025449": [
+  "literary-fiction"
+ ],
+ "211399784": [
+  "mystery-thriller",
+  "literary-fiction"
+ ],
+ "212806569": [
+  "narrative-nonfiction"
+ ],
+ "213870076": [
+  "literary-fiction",
+  "mystery-thriller"
+ ],
+ "213870083": [
+  "short-stories",
+  "literary-fiction"
+ ],
+ "214151301": [
+  "literary-fiction"
+ ],
+ "214152261": [
+  "literary-fiction"
+ ],
+ "214269337": [
+  "memoir"
+ ],
+ "214269394": [
+  "literary-fiction"
+ ],
+ "214312329": [
+  "memoir",
+  "essays"
+ ],
+ "215362651": [
+  "literary-fiction"
+ ],
+ "216247518": [
+  "literary-fiction"
+ ],
+ "216384422": [
+  "literary-fiction"
+ ],
+ "216497043": [
+  "literary-fiction",
+  "food"
+ ],
+ "217245582": [
+  "literary-fiction"
+ ],
+ "217245609": [
+  "narrative-nonfiction",
+  "memoir"
+ ],
+ "217245618": [
+  "literary-fiction"
+ ],
+ "217387701": [
+  "literary-fiction"
+ ],
+ "218460289": [
+  "literary-fiction"
+ ],
+ "218460337": [
+  "scifi-fantasy",
+  "literary-fiction"
+ ],
+ "218460342": [
+  "memoir"
+ ],
+ "218460347": [
+  "literary-fiction"
+ ],
+ "218539300": [
+  "literary-fiction"
+ ],
+ "219301719": [
+  "literary-fiction"
+ ],
+ "220114865": [
+  "literary-fiction"
+ ],
+ "220160387": [
+  "historical-fiction",
+  "literary-fiction"
+ ],
+ "220160925": [
+  "memoir"
+ ],
+ "220239049": [
+  "memoir"
+ ],
+ "220239083": [
+  "narrative-nonfiction"
+ ],
+ "221188099": [
+  "literary-fiction"
+ ],
+ "222658339": [
+  "literary-fiction"
+ ],
+ "223001257": [
+  "literary-fiction"
+ ],
+ "223436601": [
+  "memoir",
+  "narrative-nonfiction"
+ ],
+ "224003127": [
+  "literary-fiction"
+ ],
+ "224076369": [
+  "literary-fiction"
+ ],
+ "227967141": [
+  "literary-fiction"
+ ],
+ "228110489": [
+  "literary-fiction",
+  "romance"
+ ],
+ "231108670": [
+  "memoir"
+ ],
+ "231127175": [
+  "literary-fiction"
+ ],
+ "234943545": [
+  "literary-fiction"
+ ],
+ "235672456": [
+  "literary-fiction"
+ ],
+ "235992501": [
+  "literary-fiction"
+ ],
+ "235992675": [
+  "literary-fiction"
+ ],
+ "235992685": [
+  "literary-fiction"
+ ],
+ "238226942": [
+  "literary-fiction"
+ ],
+ "238226950": [
+  "literary-fiction",
+  "short-stories"
+ ],
+ "238766796": [
+  "literary-fiction"
+ ],
+ "239744702": [
+  "literary-fiction"
+ ],
+ "240114287": [
+  "literary-fiction"
+ ],
+ "240688584": [
+  "literary-fiction"
+ ],
+ "241392662": [
+  "literary-fiction"
+ ],
+ "242252957": [
+  "literary-fiction"
+ ],
+ "242518677": [
+  "literary-fiction"
+ ],
+ "242693052": [
+  "literary-fiction"
+ ],
+ "242978423": [
+  "literary-fiction"
+ ],
+ "243039897": [
+  "literary-fiction"
+ ],
+ "243497082": [
+  "literary-fiction"
+ ]
+}
