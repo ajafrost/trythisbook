@@ -1,12 +1,5 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="32" height="32" rx="7" fill="#a5623b"/>
-  <g stroke="#fbf9f1" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <!-- gathered ropes at each end -->
-    <path d="M6 7 L5 14 M6 7 L9 13" stroke-width="2.1" />
-    <path d="M26 7 L27 14 M26 7 L23 13" stroke-width="2.1" />
-    <!-- the hammock bed, sagging in the middle -->
-    <path d="M5 14 Q16 27 27 14" stroke-width="3.4" />
-  </g>
-  <circle cx="6" cy="7" r="1.9" fill="#fbf9f1"/>
-  <circle cx="26" cy="7" r="1.9" fill="#fbf9f1"/>
+  <text x="16" y="22" text-anchor="middle" textLength="23" lengthAdjust="spacingAndGlyphs"
+        font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="15" fill="#fbf9f1">TTB</text>
 </svg>
