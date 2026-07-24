@@ -42,8 +42,8 @@ export default function Header() {
           {/* The AI feature — the standout CTA */}
           <Link
             href="/ask"
-            className={`cta-glow whitespace-nowrap rounded-full px-4 py-1.5 text-[0.95rem] font-semibold text-white shadow-sm transition-colors ${
-              askActive ? "bg-accent-deep" : "bg-accent hover:bg-accent-deep"
+            className={`cta-glow whitespace-nowrap rounded-full px-4 py-1.5 text-[0.95rem] font-semibold text-ink shadow-sm transition-colors ${
+              askActive ? "bg-sand-deep" : "bg-sand hover:bg-sand-deep"
             }`}
           >
             Get a custom rec

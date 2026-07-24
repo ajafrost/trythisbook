@@ -400,7 +400,7 @@ function EmptyState({ onClear }: { onClear: () => void }) {
       </p>
       <button
         onClick={onClear}
-        className="mt-4 rounded-full bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent-deep"
+        className="mt-4 rounded-full bg-sand px-4 py-2 text-sm font-medium text-ink hover:bg-sand-deep"
       >
         Clear all filters
       </button>

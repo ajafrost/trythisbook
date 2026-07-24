@@ -39,10 +39,10 @@ body {
 @keyframes cta-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(192, 120, 76, 0);
+    box-shadow: 0 0 0 0 rgba(229, 100, 30, 0);
   }
   50% {
-    box-shadow: 0 0 0 5px rgba(192, 120, 76, 0.22);
+    box-shadow: 0 0 0 5px rgba(229, 100, 30, 0.28);
   }
 }
 .cta-glow {
