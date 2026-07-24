@@ -153,14 +153,6 @@ export default function AskPage() {
                   <p className="mt-2 text-[0.95rem] leading-relaxed text-ink">
                     {p.why}
                   </p>
-                  <a
-                    href={p.goodreadsUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-2 inline-block text-xs text-ink-faint hover:text-ink"
-                  >
-                    Goodreads ↗
-                  </a>
                 </div>
               </div>
             ))}

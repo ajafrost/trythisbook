@@ -55,12 +55,12 @@ body {
   padding: 1.75px; /* ring thickness */
   background: conic-gradient(
     from var(--cta-angle),
-    rgba(229, 100, 30, 0.12) 0deg,
-    #e5641e 24deg,
-    #ffd7ac 42deg,
-    #e5641e 60deg,
-    rgba(229, 100, 30, 0.12) 90deg,
-    rgba(229, 100, 30, 0.12) 360deg
+    rgba(177, 119, 74, 0.14) 0deg,
+    #b1774a 24deg,
+    #e4cdad 42deg,
+    #b1774a 60deg,
+    rgba(177, 119, 74, 0.14) 90deg,
+    rgba(177, 119, 74, 0.14) 360deg
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
