@@ -24,7 +24,7 @@ export default function Header() {
           Try This Book
         </Link>
 
-        <nav className="ml-auto flex items-center gap-1 overflow-x-auto sm:gap-2">
+        <nav className="ml-auto flex flex-wrap items-center justify-end gap-x-1 gap-y-1.5 sm:gap-x-2">
           {NAV.map((n) => (
             <Link
               key={n.href}
