@@ -158,7 +158,7 @@ export default function Wall({ books, shelves }: Props) {
               </button>
             ) : null}
 
-            <FilterGroup title="Shelves">
+            <FilterGroup title="Shelves" collapseOnMobile>
               {shelves.map((s) => (
                 <Chip
                   key={s.slug}
@@ -324,18 +324,58 @@ function FilterGroup({
   title,
   children,
   defaultOpen = true,
+  collapseOnMobile = false,
 }: {
   title: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
+  // When true, the group is collapsed below the `lg` breakpoint but open on
+  // desktop — until the user toggles it, after which their choice wins on
+  // both. Done with CSS classes so there's no hydration flash.
+  collapseOnMobile?: boolean;
 }) {
-  const [open, setOpen] = useState(defaultOpen);
+  // null = untouched (use the responsive default); true/false = user's choice.
+  const [userOpen, setUserOpen] = useState<boolean | null>(null);
+  const touched = userOpen !== null;
+
+  const contentClass = !touched
+    ? collapseOnMobile
+      ? "hidden lg:flex"
+      : defaultOpen
+        ? "flex"
+        : "hidden"
+    : userOpen
+      ? "flex"
+      : "hidden";
+
+  const chevronClass = !touched
+    ? collapseOnMobile
+      ? "-rotate-90 lg:rotate-0"
+      : defaultOpen
+        ? ""
+        : "-rotate-90"
+    : userOpen
+      ? ""
+      : "-rotate-90";
+
+  const toggle = () => {
+    const isMobile =
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 1023px)").matches;
+    const current = touched
+      ? (userOpen as boolean)
+      : collapseOnMobile && isMobile
+        ? false
+        : defaultOpen;
+    setUserOpen(!current);
+  };
+
   return (
     <div className="mt-5">
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
+        onClick={toggle}
+        aria-expanded={touched ? (userOpen as boolean) : defaultOpen}
         className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wide text-ink-faint transition-colors hover:text-ink-soft"
       >
         {title}
@@ -344,7 +384,7 @@ function FilterGroup({
           height="11"
           viewBox="0 0 10 10"
           aria-hidden
-          className={`transition-transform duration-200 ${open ? "" : "-rotate-90"}`}
+          className={`transition-transform duration-200 ${chevronClass}`}
         >
           <path
             d="M2 3.5 5 6.5 8 3.5"
@@ -356,7 +396,7 @@ function FilterGroup({
           />
         </svg>
       </button>
-      {open && <div className="mt-2 flex flex-col gap-1.5">{children}</div>}
+      <div className={`mt-2 flex-col gap-1.5 ${contentClass}`}>{children}</div>
     </div>
   );
 }
