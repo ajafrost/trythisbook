@@ -58,11 +58,6 @@ export default async function ShelfPage({
           {shelf.description}
         </p>
         <p className="mt-2 text-sm text-ink-faint">{books.length} books</p>
-        {shelf.needsReview && (
-          <p className="mt-4 inline-block rounded-md bg-accent/10 px-3 py-1.5 text-xs text-accent-deep">
-            Draft shelf — Aja hasn&apos;t done her edit pass yet.
-          </p>
-        )}
       </div>
 
       <div className="mt-10">
