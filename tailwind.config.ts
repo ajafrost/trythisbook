@@ -23,10 +23,25 @@ const config: Config = {
         "sand-deep": "#cbc1af", // beige button hover
         line: "#e6dfce",
         peach: "#f2d6b3", // soft decorative peach (the hero circle)
+
+        // ── "Editorial Signal" palette (PREVIEW — header + card only) ──────
+        canvas: "#F6F3EB", // warm paper canvas
+        "ink-muted": "#52504C", // secondary text
+        signal: {
+          DEFAULT: "#E04A2C", // vermilion CTA / active accent
+          hover: "#C83B1E",
+          cobalt: "#1D4ED8", // secondary vivid accent
+        },
+        surface: {
+          DEFAULT: "#EFECE4", // card container background
+          butter: "#F4E8C1", // highlight tag / callout background
+        },
+        moss: "#3B5249", // taxonomy / subtle metadata text
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "Cambria", "serif"],
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       // subtle honeycomb pattern for the paper ground (from the sage inspiration)
       backgroundImage: {

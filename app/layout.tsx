@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
-import { Fraunces } from "next/font/google";
+import { Fraunces, IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
+
+// Mono — for nav details, badges, and CTA labels (Editorial Signal preview).
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500", "600"],
+});
 
 // Display serif — a free stand-in for Larken (the reference site's face):
 // high-contrast, elegant, with expressive italics.
@@ -45,7 +53,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html
+      lang="en"
+      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
+    >
       <body className="min-h-screen antialiased">
         <Header />
         <main>{children}</main>
