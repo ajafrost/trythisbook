@@ -64,7 +64,7 @@ export default function AskPage() {
       <header className="text-center">
         <h1 className="font-serif text-5xl font-normal tracking-tight text-ink sm:text-6xl">
           Tell me what you&apos;re{" "}
-          <em className="italic text-accent-deep">in the mood</em> for
+          <em className="not-italic text-accent-deep">in the mood</em> for
         </h1>
         <p className="mt-4 text-lg text-ink-soft">
           Describe it however you like — a vibe, a comparison, a constraint —
