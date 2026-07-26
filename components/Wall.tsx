@@ -145,7 +145,7 @@ export default function Wall({ books, shelves }: Props) {
                 What are you in the mood for?
               </h2>
             </div>
-            <p className="mt-1 text-sm font-medium text-accent-deep">
+            <p className="mt-1 font-mono text-sm font-medium text-accent-deep">
               {filtered.length} book{filtered.length === 1 ? "" : "s"} match
               {anyFilter ? "" : " (all of them)"}
             </p>
@@ -201,30 +201,32 @@ export default function Wall({ books, shelves }: Props) {
           <div className="mb-5 flex flex-wrap items-center justify-end gap-3">
             <div className="flex items-center gap-3">
               <label className="flex items-center gap-1.5 text-sm text-ink-soft">
-                <span className="text-ink-faint">Sort</span>
+                <span className="font-mono text-xs uppercase tracking-wider text-ink-faint">
+                  Sort
+                </span>
                 <select
                   value={sort}
                   onChange={(e) => setSort(e.target.value)}
-                  className="rounded-full border border-line bg-white/60 px-3 py-1 text-sm text-ink focus:border-accent focus:outline-none"
+                  className="rounded-full border border-ink/15 bg-canvas px-3 py-1 text-sm text-ink focus:border-accent focus:outline-none"
                 >
                   <option value="">Recently read</option>
                   <option value="pub">Publication date</option>
                   <option value="title">Title (A–Z)</option>
                 </select>
               </label>
-              <div className="flex rounded-full border border-line bg-white/60 p-0.5 text-sm">
+              <div className="flex rounded-full border border-ink/15 bg-canvas p-0.5">
                 <button
                   onClick={() => setView("covers")}
-                  className={`rounded-full px-3 py-1 ${
-                    view === "covers" ? "bg-accent text-white" : "text-ink-soft"
+                  className={`rounded-full px-3 py-1 font-mono text-xs uppercase tracking-wider ${
+                    view === "covers" ? "bg-accent text-canvas" : "text-ink-soft"
                   }`}
                 >
                   Covers
                 </button>
                 <button
                   onClick={() => setView("list")}
-                  className={`rounded-full px-3 py-1 ${
-                    view === "list" ? "bg-accent text-white" : "text-ink-soft"
+                  className={`rounded-full px-3 py-1 font-mono text-xs uppercase tracking-wider ${
+                    view === "list" ? "bg-accent text-canvas" : "text-ink-soft"
                   }`}
                 >
                   List
@@ -376,7 +378,7 @@ function FilterGroup({
         type="button"
         onClick={toggle}
         aria-expanded={touched ? (userOpen as boolean) : defaultOpen}
-        className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wide text-ink-faint transition-colors hover:text-ink-soft"
+        className="flex w-full items-center justify-between font-mono text-xs font-semibold uppercase tracking-wider text-ink-faint transition-colors hover:text-ink-soft"
       >
         {title}
         <svg
@@ -416,8 +418,8 @@ function Chip({
       aria-pressed={on}
       className={`w-full rounded-lg border px-3 py-1.5 text-left text-sm transition-colors ${
         on
-          ? "border-accent bg-accent text-white"
-          : "border-line bg-white/60 text-ink-soft hover:border-accent/40"
+          ? "border-accent bg-accent text-canvas"
+          : "border-ink/15 bg-canvas text-ink-soft hover:border-accent/50"
       }`}
     >
       {children}

@@ -13,11 +13,12 @@ const config: Config = {
         // a muted apricot as the one warm accent, powder blue as the soft second.
         paper: "#fbf9f1",
         "paper-deep": "#f1ecdd",
-        ink: "#2c2a26",
+        ink: "#181715", // sharp primary text (Editorial Signal)
         "ink-soft": "#6b655c",
         "ink-faint": "#9a9488",
-        accent: "#b1774a", // muted clay — a deeper sibling of the sand/beige
-        "accent-deep": "#8f5d36", // darker clay for links, text, hover
+        // Body accent is now the editorial vermilion (matches the signal CTA).
+        accent: "#E04A2C",
+        "accent-deep": "#C83B1E", // hover / links / text
         "accent-2": "#9fbecd", // powder blue
         sand: "#d9d1c1", // warm beige — primary button surface
         "sand-deep": "#cbc1af", // beige button hover
