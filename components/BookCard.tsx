@@ -16,7 +16,7 @@ export default function BookCard({
   href?: string;
 }) {
   const coverClasses =
-    "relative block aspect-[2/3] w-full overflow-hidden rounded-lg bg-canvas shadow-inner ring-1 ring-ink/10 transition-transform duration-200";
+    "relative block aspect-[2/3] w-full overflow-hidden rounded-md shadow-[0_6px_18px_-8px_rgba(43,38,32,0.45)] ring-1 ring-black/5 transition-transform duration-200";
   const cover = (
     <>
       <Cover
@@ -27,7 +27,7 @@ export default function BookCard({
         className="h-full w-full"
       />
       {book.myRating === 5 && (
-        <span className="absolute right-1.5 top-1.5 rounded-full bg-surface-butter px-1.5 py-0.5 font-mono text-[0.65rem] font-semibold text-ink shadow-sm">
+        <span className="absolute right-1.5 top-1.5 rounded-full bg-paper/90 px-1.5 py-0.5 text-[0.65rem] font-semibold text-accent-deep shadow-sm">
           ★ 5
         </span>
       )}
@@ -35,7 +35,7 @@ export default function BookCard({
   );
 
   return (
-    <div className="group flex flex-col rounded-xl bg-surface p-3">
+    <div className="group flex flex-col">
       {onOpen ? (
         <button
           type="button"
@@ -61,10 +61,10 @@ export default function BookCard({
         <h3 className="font-serif text-[0.95rem] font-semibold leading-snug text-ink">
           {book.title}
         </h3>
-        <p className="font-sans text-xs text-ink-muted">{book.author}</p>
+        <p className="text-xs text-ink-soft">{book.author}</p>
 
         {blurb && (
-          <p className="mt-1.5 font-sans text-sm italic leading-snug text-moss line-clamp-4">
+          <p className="mt-1.5 text-sm leading-snug text-ink-soft line-clamp-4">
             {blurb}
           </p>
         )}
