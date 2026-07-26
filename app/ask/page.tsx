@@ -21,14 +21,6 @@ const LOADING_LINES = [
   "narrowing it down…",
 ];
 
-// Quick-prompt presets — one click fills the box and runs the search.
-const PROMPTS = [
-  "something that will wreck me, under 300 pages",
-  "a smart page-turner for a long flight",
-  "nonfiction that reads like a novel",
-  "a cozy friendship story",
-];
-
 export default function AskPage() {
   const [value, setValue] = useState("");
   const [phase, setPhase] = useState<"input" | "loading" | "result">("input");
@@ -69,13 +61,10 @@ export default function AskPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6">
-      <header className="rounded-2xl bg-surface-butter p-8 text-center sm:p-10">
-        <p className="font-mono text-xs uppercase tracking-widest text-moss">
-          Custom recs
-        </p>
-        <h1 className="mt-3 font-serif text-5xl font-normal tracking-tight text-ink sm:text-6xl">
+      <header className="text-center">
+        <h1 className="font-serif text-5xl font-normal tracking-tight text-ink sm:text-6xl">
           Tell me what you&apos;re{" "}
-          <em className="italic text-signal">in the mood</em> for
+          <em className="italic text-accent-deep">in the mood</em> for
         </h1>
         <p className="mt-4 text-lg text-ink-soft">
           Describe it however you like — a vibe, a comparison, a constraint —
@@ -90,55 +79,29 @@ export default function AskPage() {
         }}
         className="mt-8"
       >
-        <div className="rounded-2xl border border-ink/15 bg-surface p-6 shadow-sm transition-all focus-within:border-ink">
-          <textarea
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) go(value);
-            }}
-            placeholder="e.g. a twisty thriller I can finish in a weekend, or something like The Secret History…"
-            rows={3}
-            maxLength={500}
-            className="w-full resize-none bg-transparent text-lg text-ink font-sans placeholder:text-ink-muted/60 focus:outline-none"
-            aria-label="Describe what you're looking for"
-          />
-          <div className="mt-4 flex items-center justify-between gap-3">
-            <span className="rounded-md border border-ink/10 bg-canvas/60 px-2 py-1 font-mono text-xs text-ink-muted">
-              ⌘/Ctrl + Enter
-            </span>
-            <button
-              type="submit"
-              disabled={!value.trim() || phase === "loading"}
-              className={`rounded-xl px-6 py-3 font-mono text-sm transition-colors ${
-                !value.trim() || phase === "loading"
-                  ? "cursor-not-allowed bg-ink/10 text-ink-muted/50"
-                  : "bg-signal font-semibold text-canvas shadow-sm hover:bg-signal-hover"
-              }`}
-            >
-              {phase === "loading" ? "Thinking…" : "Find me three"}
-            </button>
-          </div>
+        <textarea
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) go(value);
+          }}
+          placeholder="e.g. a twisty thriller I can finish in a weekend, or something like The Secret History…"
+          rows={3}
+          maxLength={500}
+          className="w-full resize-none rounded-2xl border border-line bg-white px-5 py-4 text-lg text-ink shadow-sm placeholder:text-ink-faint focus:border-accent focus:outline-none"
+          aria-label="Describe what you're looking for"
+        />
+        <div className="mt-3 flex items-center justify-between gap-3">
+          <span className="text-xs text-ink-faint">⌘/Ctrl + Enter</span>
+          <button
+            type="submit"
+            disabled={!value.trim() || phase === "loading"}
+            className="rounded-full bg-sand px-6 py-3 font-medium text-ink transition-colors hover:bg-sand-deep disabled:opacity-40"
+          >
+            {phase === "loading" ? "Thinking…" : "Find me three"}
+          </button>
         </div>
       </form>
-
-      {phase === "input" && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {PROMPTS.map((p) => (
-            <button
-              key={p}
-              type="button"
-              onClick={() => {
-                setValue(p);
-                go(p);
-              }}
-              className="cursor-pointer rounded-full bg-surface-butter px-3 py-1.5 font-mono text-xs text-ink transition-colors hover:bg-surface-butter/80"
-            >
-              {p}
-            </button>
-          ))}
-        </div>
-      )}
 
       {phase === "loading" && (
         <div className="mt-10 flex flex-col items-center gap-4 py-10 text-center">
@@ -168,7 +131,7 @@ export default function AskPage() {
             {result.picks.map((p, i) => (
               <div
                 key={p.id}
-                className="flex gap-4 rounded-2xl border border-ink/10 bg-surface p-4 sm:p-5"
+                className="flex gap-4 rounded-2xl border border-line bg-white/60 p-4 shadow-sm sm:p-5"
               >
                 <div className="w-20 shrink-0 sm:w-24">
                   <div className="aspect-[2/3] overflow-hidden rounded-md shadow-md ring-1 ring-black/10">
@@ -198,7 +161,7 @@ export default function AskPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <button
               onClick={() => go(lastQuery)}
-              className="rounded-full bg-ink px-5 py-2.5 font-mono text-sm font-semibold uppercase tracking-wider text-canvas transition-colors hover:bg-signal"
+              className="rounded-full bg-sand px-5 py-2.5 font-medium text-ink hover:bg-sand-deep"
             >
               Try again
             </button>
@@ -208,13 +171,13 @@ export default function AskPage() {
                 setResult(null);
                 setValue("");
               }}
-              className="rounded-full border border-ink/15 bg-canvas px-5 py-2.5 font-mono text-sm uppercase tracking-wider text-ink transition-colors hover:border-accent"
+              className="rounded-full border border-line bg-white px-5 py-2.5 font-medium text-ink hover:border-accent/40"
             >
               New search
             </button>
             <Link
               href="/"
-              className="rounded-full px-5 py-2.5 font-mono text-sm uppercase tracking-wider text-ink-soft transition-colors hover:text-signal"
+              className="rounded-full px-5 py-2.5 font-medium text-ink-soft hover:text-ink"
             >
               Browse all books
             </Link>
