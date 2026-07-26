@@ -15,7 +15,7 @@ export default function Header() {
   const askActive = pathname.startsWith("/ask");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-ink/10 bg-canvas">
       <div className="mx-auto flex max-w-6xl items-center gap-x-4 px-4 py-3 sm:px-6">
         {/* Wordmark: hidden on mobile to make room for a single-row nav */}
         <Link
@@ -25,27 +25,25 @@ export default function Header() {
           Try This Book
         </Link>
 
-        <nav className="flex w-full items-center justify-between gap-x-1 sm:ml-auto sm:w-auto sm:justify-end sm:gap-x-2">
+        <nav className="flex w-full items-center justify-between gap-x-2 sm:ml-auto sm:w-auto sm:justify-end sm:gap-x-5">
           {NAV.map((n) => (
             <Link
               key={n.href}
               href={n.href}
-              className={`whitespace-nowrap rounded-full px-2.5 py-1.5 text-sm font-medium transition-colors sm:px-3.5 sm:text-[0.95rem] ${
+              className={`whitespace-nowrap font-mono text-sm transition-colors ${
                 isActive(n.href)
-                  ? "bg-accent/10 text-accent-deep"
-                  : "text-ink-soft hover:text-ink"
+                  ? "text-signal"
+                  : "text-ink hover:text-signal"
               }`}
             >
               {n.label}
             </Link>
           ))}
 
-          {/* The AI feature — the standout CTA (shortened label on mobile) */}
+          {/* The AI feature — the standout signal CTA (shortened on mobile) */}
           <Link
             href="/ask"
-            className={`cta-glow whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold text-ink shadow-sm transition-colors sm:px-4 sm:text-[0.95rem] ${
-              askActive ? "bg-sand-deep" : "bg-sand hover:bg-sand-deep"
-            }`}
+            className="whitespace-nowrap rounded-full bg-signal px-4 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-canvas transition-colors hover:bg-signal-hover"
           >
             <span className="sm:hidden">Custom recs</span>
             <span className="hidden sm:inline">Get a custom rec</span>
