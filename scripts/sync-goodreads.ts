@@ -105,7 +105,10 @@ async function resolveCover(b: Book): Promise<string | undefined> {
   return b.coverUrl; // fall back to the Goodreads image already on the record
 }
 
-// ── RSS → candidate new books ─────────────────────────────────────────────────
+// ── RSS → parsed books (ALL ratings; caller filters to 4–5★) ──────────────────
+// Returns every readable <item> so the caller can report the feed's rating
+// spread — a 4–5★-only filter here would hide whether ratings are being parsed
+// at all (vs. the feed simply having no loved books in its recent window).
 function parseFeed(xml: string): Book[] {
   const out: Book[] = [];
   const items = xml.split(/<item>/i).slice(1);
@@ -114,7 +117,6 @@ function parseFeed(xml: string): Book[] {
     const id = tag(block, "book_id");
     if (!id) continue;
     const rating = Math.round(Number(tag(block, "user_rating") ?? "0"));
-    if (rating < 4) continue; // ← only books Aja loved
 
     const title = (tag(block, "title") ?? "").trim();
     if (!title) continue;
@@ -198,10 +200,18 @@ async function main() {
     removed.ids.has(b.id) ||
     removed.authors.some((a) => b.author.toLowerCase().includes(a));
 
-  const candidates = parseFeed(xml);
-  const fresh = candidates.filter(
-    (b) => !known.has(b.id) && !isRemoved(b)
-  );
+  const parsed = parseFeed(xml);
+
+  // Diagnostic: how big is the feed and what's its rating spread? This makes a
+  // "nothing to add" result self-explanatory — 0 loved books in the window vs.
+  // ratings not being read at all look identical without it.
+  const spread = [0, 1, 2, 3, 4, 5]
+    .map((s) => `${s === 0 ? "unrated" : `${s}★`}:${parsed.filter((b) => b.myRating === s).length}`)
+    .join("  ");
+  console.log(`Feed: ${parsed.length} item(s) parsed · ${spread}`);
+
+  const candidates = parsed.filter((b) => b.myRating >= 4);
+  const fresh = candidates.filter((b) => !known.has(b.id) && !isRemoved(b));
 
   console.log(
     `RSS: ${candidates.length} book(s) rated 4–5★ in the feed · ${fresh.length} new to the site.`
