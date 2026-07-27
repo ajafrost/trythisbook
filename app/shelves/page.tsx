@@ -22,12 +22,6 @@ export default function ShelvesPage() {
           Collections I actually reach for when someone asks what to read. Pick
           a mood and dig in.
         </p>
-        <Link
-          href="/genre"
-          className="mt-3 inline-block text-sm font-medium text-accent-deep underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
-        >
-          Or browse by genre →
-        </Link>
       </header>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
