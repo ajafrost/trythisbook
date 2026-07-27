@@ -26,5 +26,14 @@
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
-  }
+  },
+  "browserslist": [
+    "since 2022",
+    "not dead",
+    "not op_mini all",
+    "not and_qq > 0",
+    "not and_uc > 0",
+    "not kaios > 0",
+    "not baidu > 0"
+  ]
 }
