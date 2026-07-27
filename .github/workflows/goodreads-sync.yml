@@ -1,0 +1,53 @@
+name: Goodreads sync
+
+# Once a day, look for books Aja has newly rated 4 or 5 stars on Goodreads and
+# add them to the site. If any were found, commit the updated library.json —
+# that push triggers a fresh Vercel deploy, so the new books go live on their
+# own. If nothing new is loved, the job is a clean no-op (no commit).
+#
+# Setup required (one-time):
+#   • Repo secret GOODREADS_RSS_URL — Aja's "read" shelf RSS feed URL
+#     (Settings → Secrets and variables → Actions → New repository secret).
+#   • Settings → Actions → General → Workflow permissions → "Read and write".
+
+on:
+  schedule:
+    - cron: "0 13 * * *" # 13:00 UTC daily (~6–9am US Pacific/Eastern)
+  workflow_dispatch: {} # allow a manual run from the Actions tab
+
+concurrency:
+  group: goodreads-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed to push the updated library.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync newly-loved books from Goodreads
+        env:
+          GOODREADS_RSS_URL: ${{ secrets.GOODREADS_RSS_URL }}
+        run: npm run sync
+
+      - name: Commit & push if the library changed
+        run: |
+          if git diff --quiet -- data/library.json; then
+            echo "No new books — nothing to commit."
+            exit 0
+          fi
+          git config user.name "goodreads-sync[bot]"
+          git config user.email "actions@github.com"
+          git add data/library.json
+          added=$(git diff --cached --numstat -- data/library.json | awk '{print $1}')
+          git commit -m "Add newly-loved Goodreads books ($(date -u +%Y-%m-%d))"
+          git push

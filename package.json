@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "data": "tsx scripts/build-library.ts && tsx scripts/build-curation.ts",
+    "sync": "tsx scripts/sync-goodreads.ts",
     "covers": "tsx scripts/fetch-covers.ts",
     "blurbs": "tsx scripts/merge-blurbs.ts"
   },
