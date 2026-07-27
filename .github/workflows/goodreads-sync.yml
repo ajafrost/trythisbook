@@ -44,14 +44,22 @@ jobs:
       - name: Localize covers for new books
         run: npm run covers:localize
 
+      # Draft a short blurb (in Aja's voice, flagged needsReview) for any new
+      # book with no Goodreads review to fall back on, so it doesn't render
+      # blank. Soft no-op if ANTHROPIC_API_KEY isn't set as a repo secret.
+      - name: Draft blurbs for new books
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npm run blurbs:generate
+
       - name: Commit & push if anything changed
         run: |
-          if git diff --quiet -- data/library.json public/covers; then
+          if git diff --quiet -- data/library.json data/curation.json public/covers; then
             echo "Nothing new — nothing to commit."
             exit 0
           fi
           git config user.name "goodreads-sync[bot]"
           git config user.email "actions@github.com"
-          git add data/library.json public/covers
+          git add data/library.json data/curation.json public/covers
           git commit -m "Add newly-loved Goodreads books ($(date -u +%Y-%m-%d))"
           git push

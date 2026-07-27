@@ -11,7 +11,8 @@
     "sync": "tsx scripts/sync-goodreads.ts",
     "covers": "tsx scripts/fetch-covers.ts",
     "covers:localize": "tsx scripts/localize-covers.ts",
-    "blurbs": "tsx scripts/merge-blurbs.ts"
+    "blurbs": "tsx scripts/merge-blurbs.ts",
+    "blurbs:generate": "tsx scripts/generate-blurbs.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.68.0",
