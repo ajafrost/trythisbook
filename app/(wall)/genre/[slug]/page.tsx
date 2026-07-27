@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
+import SeoBookList from "@/components/SeoBookList";
 import { GENRES, genreBooks, genreLabel } from "@/lib/library";
 import { genreCollectionJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
@@ -49,6 +50,7 @@ export default async function GenreWallPage({
           { name: genreLabel(slug), path: `/genre/${slug}` },
         ])}
       />
+      <SeoBookList books={books} heading={`${genreLabel(slug)} books`} />
     </>
   );
 }
