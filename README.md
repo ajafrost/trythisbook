@@ -37,6 +37,18 @@ npm run dev                  # http://localhost:3000
 
 To refresh from a new Goodreads export: drop the new CSV in as `goodreads_export.csv`, then `npm run data && npm run covers`. Blurbs and covers for existing books carry over.
 
+### Daily auto-sync of newly-loved books
+
+`.github/workflows/goodreads-sync.yml` runs once a day and adds any book Aja has **newly rated 4 or 5 stars** on Goodreads to the site — no CSV re-export needed. It runs `npm run sync` (`scripts/sync-goodreads.ts`), which reads the Goodreads "read" shelf RSS feed, appends only 4–5★ books not already in `data/library.json` (skipping anything in `data/removed.json`), fetches a cover for each, and commits the updated `library.json`. That push triggers a fresh Vercel deploy, so new books go live on their own. If nothing new is loved, the job is a clean no-op.
+
+The sync is **purely additive** — it never rewrites `curation.json` (so hand-picked shelves are safe) and never removes existing books, so it's safe to run forever.
+
+**One-time setup:**
+1. Add a repo secret `GOODREADS_RSS_URL` (Settings → Secrets and variables → Actions) — Aja's "read" shelf RSS URL, the same value as `.env.example`.
+2. Settings → Actions → General → Workflow permissions → **Read and write permissions**.
+
+You can also trigger it manually from the Actions tab, or run it locally with `GOODREADS_RSS_URL=… npm run sync`.
+
 ### Library stats
 
 1,314 read · **736 recommendable (4–5★)** · 256 are 5★.
@@ -46,7 +58,7 @@ To refresh from a new Goodreads export: drop the new CSV in as `goodreads_export
 1. Push this folder to a Git repo, import it in Vercel.
 2. Set the env vars above in the Vercel project settings (both optional).
 3. Point `trythisbook.com` at the project (Vercel handles SSL).
-4. The daily cron (`vercel.json`) hits `/api/sync` to revalidate pages.
+4. New 4–5★ books are added automatically by the daily GitHub Actions sync (see "Daily auto-sync" above), which commits to the repo and lets Vercel redeploy. `/api/sync` remains available as an optional cron-protected revalidation hook.
 
 ## ✍️ Copy flagged for Aja's edit pass
 
