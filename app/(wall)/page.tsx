@@ -17,10 +17,13 @@ export const metadata: Metadata = {
   },
 };
 
+// Render "/" dynamically so the wall's useSearchParams resolves server-side and
+// the grid is server-rendered into the HTML (fast LCP, crawlable) instead of the
+// "Loading…" client shell. Genre/book pages don't set this, so they stay static.
+export const dynamic = "force-dynamic";
+
 // "/" — the interactive wall lives in the shared (wall) layout so it can persist
-// underneath book modals. This page adds only a crawlable, no-JS list of every
-// book (in <noscript>) so non-JS bots get real content instead of the wall's
-// "Loading…" shell.
+// underneath book modals.
 export default function Home() {
   const { books } = wallData();
   return <SeoBookList books={books} heading="Every book Aja recommends" />;
