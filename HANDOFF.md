@@ -63,5 +63,6 @@ Deploy: push `trythisbook/` to a Git repo → import in Vercel → set `ANTHROPI
 - **Copy pass:** shelf names/descriptions, About, and AI-drafted blurbs are flagged for Aja's edit pass.
 - **Real fonts:** swap Fraunces/Hanken → Larken/Matter if purchased.
 - **Genre spot-fixes:** the 690 genre tags are auto-classified; some may be debatable.
-- **Not built:** the Top-10-of-the-year scroll page (spec v1.1), any real Goodreads live sync (build-time only for now).
+- **Goodreads sync:** a daily GitHub Actions job (`.github/workflows/goodreads-sync.yml` → `npm run sync`) adds newly 4–5★-rated books from the "read" shelf RSS feed and commits `library.json`, so Vercel redeploys with them. Additive only — never touches `curation.json` or removes books. Needs the `GOODREADS_RSS_URL` repo secret + write-enabled workflow permissions (see README).
+- **Not built:** the Top-10-of-the-year scroll page (spec v1.1).
 - **Remaining covers/blurbs:** none missing — the set is complete as of this handoff.
