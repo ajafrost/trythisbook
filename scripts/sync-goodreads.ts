@@ -202,13 +202,30 @@ async function main() {
 
   const parsed = parseFeed(xml);
 
+  // Sanity check the feed *type*. The sync needs the review-list shelf feed
+  // (review/list_rss/<id>?key=…&shelf=read), whose <item>s carry <book_id> and
+  // <user_rating>. Point it at the wrong feed (e.g. user/updates_rss, the
+  // activity stream) and you get plenty of <item>s but zero book records — an
+  // easy misconfiguration that otherwise looks identical to "nothing new".
+  const rawItemCount = (xml.match(/<item>/gi) ?? []).length;
+  if (rawItemCount > 0 && parsed.length === 0) {
+    console.error(
+      `✗ Feed had ${rawItemCount} item(s) but none contained a <book_id>.\n` +
+        "  GOODREADS_RSS_URL is probably the wrong feed. It must be the 'read'\n" +
+        "  shelf review feed, e.g.:\n" +
+        "    https://www.goodreads.com/review/list_rss/<USER_ID>?key=<KEY>&shelf=read\n" +
+        "  (the user/updates_rss activity feed won't work — it has no book data)."
+    );
+    process.exit(1);
+  }
+
   // Diagnostic: how big is the feed and what's its rating spread? This makes a
   // "nothing to add" result self-explanatory — 0 loved books in the window vs.
   // ratings not being read at all look identical without it.
   const spread = [0, 1, 2, 3, 4, 5]
     .map((s) => `${s === 0 ? "unrated" : `${s}★`}:${parsed.filter((b) => b.myRating === s).length}`)
     .join("  ");
-  console.log(`Feed: ${parsed.length} item(s) parsed · ${spread}`);
+  console.log(`Feed: ${parsed.length} book(s) parsed from ${rawItemCount} item(s) · ${spread}`);
 
   const candidates = parsed.filter((b) => b.myRating >= 4);
   const fresh = candidates.filter((b) => !known.has(b.id) && !isRemoved(b));
