@@ -22,7 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   push("/", 1);
   push("/ask", 0.6);
   push("/shelves", 0.7);
-  push("/genre", 0.7);
   push("/about", 0.5);
 
   for (const g of GENRES) {

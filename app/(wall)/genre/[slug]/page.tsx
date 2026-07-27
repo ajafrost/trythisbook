@@ -46,7 +46,6 @@ export default async function GenreWallPage({
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "All books", path: "/" },
-          { name: "Genres", path: "/genre" },
           { name: genreLabel(slug), path: `/genre/${slug}` },
         ])}
       />
