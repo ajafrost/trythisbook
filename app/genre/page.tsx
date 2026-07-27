@@ -1,55 +1,47 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { shelves, shelfBooks } from "@/lib/library";
 import Cover from "@/components/Cover";
+import { GENRES, genreBooks } from "@/lib/library";
 
 export const metadata: Metadata = {
-  title: "Shelves",
+  title: "Browse by genre",
   description:
-    "Browsable collections from Aja's library — page-turners, campus novels, short but devastating, and more.",
+    "Every genre in Aja's library — literary fiction, memoir, mystery, sci-fi, and more. All books rated 4 or 5 stars.",
+  alternates: { canonical: "/genre" },
 };
 
-export default function ShelvesPage() {
-  const populated = shelves.filter((s) => shelfBooks(s.slug).length > 0);
+export default function GenreIndexPage() {
+  // Only genres that actually have loved books, most-stocked first.
+  const populated = GENRES.map((g) => ({ ...g, books: genreBooks(g.slug) }))
+    .filter((g) => g.books.length > 0)
+    .sort((a, b) => b.books.length - a.books.length);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <header className="max-w-2xl animate-fade-up">
         <h1 className="font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-          Shelves
+          Browse by genre
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Collections I actually reach for when someone asks what to read. Pick
-          a mood and dig in.
+          Pick a lane. Every book here is one I rated 4 or 5 stars.
         </p>
-        <Link
-          href="/genre"
-          className="mt-3 inline-block text-sm font-medium text-accent-deep underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
-        >
-          Or browse by genre →
-        </Link>
       </header>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
-        {populated.map((shelf) => {
-          const books = shelfBooks(shelf.slug).slice(0, 5);
+        {populated.map((g) => {
+          const covers = g.books.slice(0, 5);
           return (
             <Link
-              key={shelf.slug}
-              href={`/shelves/${shelf.slug}`}
+              key={g.slug}
+              href={`/genre/${g.slug}`}
               className="group flex flex-col justify-between rounded-xl border border-line bg-white/40 p-5 transition-colors hover:border-accent/40 hover:bg-white/70"
             >
-              <div>
-                <h2 className="font-serif text-xl font-semibold text-ink group-hover:text-accent-deep">
-                  {shelf.name}
-                </h2>
-                <p className="mt-1 text-sm text-ink-soft">
-                  {shelf.description}
-                </p>
-              </div>
+              <h2 className="font-serif text-xl font-semibold text-ink group-hover:text-accent-deep">
+                {g.label}
+              </h2>
               <div className="mt-4 flex items-end gap-2">
                 <div className="flex -space-x-3">
-                  {books.map((b) => (
+                  {covers.map((b) => (
                     <div
                       key={b.id}
                       className="h-16 w-11 overflow-hidden rounded-sm shadow-md ring-1 ring-black/10"
@@ -65,7 +57,7 @@ export default function ShelvesPage() {
                   ))}
                 </div>
                 <span className="ml-auto text-xs font-medium text-ink-faint">
-                  {shelfBooks(shelf.slug).length} books →
+                  {g.books.length} books →
                 </span>
               </div>
             </Link>

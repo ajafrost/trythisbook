@@ -3,6 +3,8 @@ import { Fraunces, IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
+import { websiteGraph } from "@/lib/jsonld";
 
 // Mono — for nav details, badges, and CTA labels (Editorial Signal preview).
 const mono = IBM_Plex_Mono({
@@ -58,6 +60,7 @@ export default function RootLayout({
       className={`${serif.variable} ${sans.variable} ${mono.variable}`}
     >
       <body className="min-h-screen antialiased">
+        <JsonLd data={websiteGraph} />
         <Header />
         <main>{children}</main>
         <footer className="mx-auto max-w-6xl border-t border-line px-4 py-10 text-sm text-ink-faint sm:px-6">

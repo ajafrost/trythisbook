@@ -1,34 +1,42 @@
 "use client";
 import { useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Cover from "./Cover";
-import type { WallBook } from "@/lib/library";
+import BookCard from "./BookCard";
+import { genreLabel, bookPath, type Book } from "@/lib/library";
 
-// Book detail as an overlay/panel, not a page load (spec 2.4): cover, blurb,
-// clickable shelf chips, and prev/next through the current filtered set.
+// Book detail as a modal over the wall. Rendered by app/(wall)/book/[slug], which
+// shares its layout with the wall — so the wall stays mounted behind it. The URL
+// is always the clean /book/<slug> (no filter query), so this looks and behaves
+// the same whether you clicked in, refreshed, or opened a shared link. Closing
+// returns to the wall at "/"; content is server-rendered for search/AI crawlers.
 export default function BookOverlay({
   book,
-  shelfNames,
-  hasPrev,
-  hasNext,
-  onPrev,
-  onNext,
-  onClose,
-  onShelf,
+  blurb,
+  genres,
+  shelves,
+  comps,
+  prevHref,
+  nextHref,
 }: {
-  book: WallBook;
-  shelfNames: Record<string, string>;
-  hasPrev: boolean;
-  hasNext: boolean;
-  onPrev: () => void;
-  onNext: () => void;
-  onClose: () => void;
-  onShelf: (slug: string) => void;
+  book: Book;
+  blurb?: string;
+  genres: string[];
+  shelves: { slug: string; name: string }[];
+  comps: { book: Book; blurb?: string }[];
+  prevHref: string | null;
+  nextHref: string | null;
 }) {
+  const router = useRouter();
+  const close = () => router.push("/");
+  const readYear = book.dateRead ? book.dateRead.slice(0, 4) : null;
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      else if (e.key === "ArrowLeft" && hasPrev) onPrev();
-      else if (e.key === "ArrowRight" && hasNext) onNext();
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft" && prevHref) router.push(prevHref);
+      else if (e.key === "ArrowRight" && nextHref) router.push(nextHref);
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -36,12 +44,13 @@ export default function BookOverlay({
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [hasPrev, hasNext, onPrev, onNext, onClose]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prevHref, nextHref]);
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-end justify-center bg-ink/40 backdrop-blur-sm sm:items-center"
-      onClick={onClose}
+      onClick={close}
       role="dialog"
       aria-modal="true"
       aria-label={`${book.title} by ${book.author}`}
@@ -51,7 +60,7 @@ export default function BookOverlay({
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          onClick={onClose}
+          onClick={close}
           className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-ink-soft hover:bg-line/60"
           aria-label="Close"
         >
@@ -73,9 +82,9 @@ export default function BookOverlay({
           </div>
 
           <div className="min-w-0 flex-1">
-            <h2 className="font-serif text-2xl font-semibold leading-tight text-ink">
+            <h1 className="font-serif text-2xl font-semibold leading-tight text-ink">
               {book.title}
-            </h2>
+            </h1>
             <p className="mt-0.5 text-ink-soft">{book.author}</p>
 
             <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-ink-faint">
@@ -86,46 +95,92 @@ export default function BookOverlay({
                 <span>· Published {book.yearPublished}</span>
               )}
               {book.pages && <span>· {book.pages} pages</span>}
-              {book.readYear && <span>· read {book.readYear}</span>}
+              {readYear && <span>· read {readYear}</span>}
             </div>
 
-            {book.blurb && (
+            {blurb && (
               <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
-                {book.blurb}
+                {blurb}
               </p>
             )}
 
-            {book.shelfSlugs.length > 0 && (
+            {genres.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-1.5">
-                {book.shelfSlugs.map((slug) => (
-                  <button
-                    key={slug}
-                    onClick={() => onShelf(slug)}
+                {genres.map((g) => (
+                  <Link
+                    key={g}
+                    href={`/genre/${g}`}
                     className="rounded-full bg-accent/10 px-2.5 py-1 text-xs text-accent-deep transition-colors hover:bg-accent/20"
                   >
-                    {shelfNames[slug] ?? slug}
-                  </button>
+                    {genreLabel(g)}
+                  </Link>
                 ))}
               </div>
             )}
+
+            {shelves.length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {shelves.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/shelves/${s.slug}`}
+                    className="rounded-full border border-line px-2.5 py-1 text-xs text-ink-soft transition-colors hover:border-accent/40 hover:text-ink"
+                  >
+                    {s.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <a
+              href={book.goodreadsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-block text-sm text-ink-faint underline decoration-line underline-offset-4 hover:text-ink"
+            >
+              View on Goodreads ↗
+            </a>
           </div>
         </div>
 
+        {comps.length > 0 && (
+          <section className="mt-8 border-t border-line pt-6">
+            <h2 className="font-serif text-lg font-semibold text-ink">
+              If you liked this, try…
+            </h2>
+            <div className="mt-4 grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-5">
+              {comps.map(({ book: b, blurb: cb }) => (
+                <BookCard key={b.id} book={b} blurb={cb} href={bookPath(b.id)} />
+              ))}
+            </div>
+          </section>
+        )}
+
         <div className="mt-6 flex items-center justify-between border-t border-line pt-4">
-          <button
-            onClick={onPrev}
-            disabled={!hasPrev}
-            className="rounded-full px-3 py-1.5 text-sm text-ink-soft enabled:hover:bg-line/50 disabled:opacity-30"
-          >
-            ← Previous
-          </button>
-          <button
-            onClick={onNext}
-            disabled={!hasNext}
-            className="rounded-full px-3 py-1.5 text-sm text-ink-soft enabled:hover:bg-line/50 disabled:opacity-30"
-          >
-            Next →
-          </button>
+          {prevHref ? (
+            <Link
+              href={prevHref}
+              className="rounded-full px-3 py-1.5 text-sm text-ink-soft hover:bg-line/50"
+            >
+              ← Previous
+            </Link>
+          ) : (
+            <span className="rounded-full px-3 py-1.5 text-sm text-ink-soft opacity-30">
+              ← Previous
+            </span>
+          )}
+          {nextHref ? (
+            <Link
+              href={nextHref}
+              className="rounded-full px-3 py-1.5 text-sm text-ink-soft hover:bg-line/50"
+            >
+              Next →
+            </Link>
+          ) : (
+            <span className="rounded-full px-3 py-1.5 text-sm text-ink-soft opacity-30">
+              Next →
+            </span>
+          )}
         </div>
       </div>
     </div>

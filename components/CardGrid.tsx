@@ -1,22 +1,22 @@
 "use client";
 import BookCard from "./BookCard";
-import type { Book } from "@/lib/library";
+import { bookPath, type Book } from "@/lib/library";
 
 export type CardData = {
   book: Book;
   blurb?: string;
 };
 
-// Responsive grid of book cards. Covers link into the wall overlay so any card
-// can flip you into the full browse experience.
+// Responsive grid of book cards. Covers link to each book's page (/book/<slug>),
+// which opens as a modal in-app and a full page on direct load.
 export default function CardGrid({
   items,
   onOpen,
-  linkToWall = true,
+  linkToPage = true,
 }: {
   items: CardData[];
   onOpen?: (id: string) => void;
-  linkToWall?: boolean;
+  linkToPage?: boolean;
 }) {
   return (
     <div className="grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -26,7 +26,7 @@ export default function CardGrid({
           book={book}
           blurb={blurb}
           onOpen={onOpen}
-          href={!onOpen && linkToWall ? `/?book=${book.id}` : undefined}
+          href={!onOpen && linkToPage ? bookPath(book.id) : undefined}
         />
       ))}
     </div>
