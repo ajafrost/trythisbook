@@ -39,15 +39,19 @@ jobs:
           GOODREADS_RSS_URL: ${{ secrets.GOODREADS_RSS_URL }}
         run: npm run sync
 
-      - name: Commit & push if the library changed
+      # Download + compress covers for any new books so they're served locally
+      # (fast, same-origin, prioritizable) instead of from covers.openlibrary.org.
+      - name: Localize covers for new books
+        run: npm run covers:localize
+
+      - name: Commit & push if anything changed
         run: |
-          if git diff --quiet -- data/library.json; then
-            echo "No new books — nothing to commit."
+          if git diff --quiet -- data/library.json public/covers; then
+            echo "Nothing new — nothing to commit."
             exit 0
           fi
           git config user.name "goodreads-sync[bot]"
           git config user.email "actions@github.com"
-          git add data/library.json
-          added=$(git diff --cached --numstat -- data/library.json | awk '{print $1}')
+          git add data/library.json public/covers
           git commit -m "Add newly-loved Goodreads books ($(date -u +%Y-%m-%d))"
           git push
