@@ -8,7 +8,8 @@ type Props = {
   author: string;
   coverUrl?: string;
   className?: string;
-  priority?: boolean;
+  priority?: boolean; // eager-load (above the fold) instead of lazy
+  fetchPriority?: "high" | "low" | "auto";
 };
 
 // Book cover with a graceful pastel typographic fallback — never a broken image
@@ -21,6 +22,7 @@ export default function Cover({
   coverUrl,
   className = "",
   priority,
+  fetchPriority,
 }: Props) {
   const [failed, setFailed] = useState(false);
   const showPlaceholder = !coverUrl || failed;
@@ -49,6 +51,8 @@ export default function Cover({
       src={coverUrl}
       alt={`${title} by ${author}`}
       loading={priority ? "eager" : "lazy"}
+      fetchPriority={fetchPriority}
+      decoding="async"
       onError={() => setFailed(true)}
       className={`object-cover ${className}`}
     />

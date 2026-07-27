@@ -248,7 +248,7 @@ export default function Wall({ books, shelves }: Props) {
             <EmptyState onClear={clearAll} />
           ) : view === "covers" ? (
             <div className="grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
-              {shown.map((b) => (
+              {shown.map((b, i) => (
                 <Link
                   key={b.id}
                   href={bookHref(b.slug)}
@@ -262,6 +262,10 @@ export default function Wall({ books, shelves }: Props) {
                     author={b.author}
                     coverUrl={b.coverUrl}
                     className="h-full w-full"
+                    // Above-the-fold rows: load eagerly (not lazy) so the LCP
+                    // cover isn't deferred; prioritize the very first few.
+                    priority={i < 12}
+                    fetchPriority={i < 6 ? "high" : undefined}
                   />
                 </Link>
               ))}
