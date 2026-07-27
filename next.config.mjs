@@ -22,6 +22,17 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // "/" is dynamically rendered (force-dynamic) so the wall grid is in
+        // the HTML. It's identical for everyone, so let the CDN cache it.
+        source: "/",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
     ];
   },
 };
