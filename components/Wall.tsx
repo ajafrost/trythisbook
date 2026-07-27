@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Cover from "./Cover";
 import { GENRES, type WallBook } from "@/lib/library";
 import { LENGTHS, orderWall } from "@/lib/wall";
+import { setWallUrl } from "@/lib/wallState";
 
 type Props = {
   books: WallBook[];
@@ -18,40 +19,59 @@ export default function Wall({ books, shelves }: Props) {
   const params = useSearchParams();
   const pathname = usePathname();
 
-  // ── read filter state from the URL (deep-linkable) ─────────────────────────
-  const list = (key: string) =>
-    (params.get(key) ?? "").split(",").filter(Boolean);
-  const single = (key: string) => params.get(key) ?? "";
+  // The wall's OWN url is its full filter state: genre in the path (/genre/<slug>,
+  // a clean static URL) + shelf/length/sort/view in the query. Every filter is
+  // STICKY — while a book modal (/book/<slug>, an intentionally filter-free url)
+  // is open over the wall, we FREEZE the last wall url so the wall stays filtered
+  // underneath and close returns to that exact filtered wall.
+  const onBook = pathname.startsWith("/book/");
+  const liveHref = `${pathname}${
+    params.toString() ? `?${params.toString()}` : ""
+  }`;
+  const [savedHref, setSavedHref] = useState(() => (onBook ? "/" : liveHref));
+  useEffect(() => {
+    if (!onBook) setSavedHref(liveHref);
+  }, [onBook, liveHref]);
+  const effHref = onBook ? savedHref : liveHref;
+  useEffect(() => {
+    setWallUrl(effHref); // so the book modal can restore the wall on close
+  }, [effHref]);
 
-  // Genre lives in the PATH: /genre/<slug> is the wall filtered to one genre,
-  // its own clean static URL. Every other filter stays a query param, layered
-  // on whichever base path (/ or /genre/<slug>) we're on.
-  const genreFromPath = pathname.startsWith("/genre/")
-    ? decodeURIComponent(pathname.slice("/genre/".length))
+  // ── read filter state from the effective (possibly frozen) wall url ────────
+  const eff = new URL(effHref, "http://wall");
+  const effPath = eff.pathname;
+  const q = eff.searchParams;
+  const list = (key: string) => (q.get(key) ?? "").split(",").filter(Boolean);
+  const single = (key: string) => q.get(key) ?? "";
+
+  const genre = effPath.startsWith("/genre/")
+    ? decodeURIComponent(effPath.slice("/genre/".length))
     : null;
-  const wallBase = genreFromPath ? `/genre/${genreFromPath}` : "/";
+  const wallBase = genre ? `/genre/${genre}` : "/";
 
   const shelfSel = list("shelf");
-  const genreSel = genreFromPath ? [genreFromPath] : [];
+  const genreSel = genre ? [genre] : [];
   const lengthSel = single("length"); // "" | short | medium | long | project
   const sort = single("sort"); // "" (recently read) | "pub" | "title"
   const view = single("view") === "list" ? "list" : "covers";
 
+  // Mutate the query and navigate to wallBase?qs (only fires on wall paths).
   const setParams = useCallback(
     (mut: (p: URLSearchParams) => void) => {
-      const p = new URLSearchParams(params.toString());
+      const p = new URLSearchParams(q.toString());
       mut(p);
       const qs = p.toString();
       router.replace(qs ? `${wallBase}?${qs}` : wallBase, { scroll: false });
     },
-    [params, router, wallBase]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [router, wallBase, effHref]
   );
 
   // Genre is single-select and drives the path. Selecting the active genre
   // again clears it (back to "/"); other filters (query params) are preserved.
   const setGenre = (slug: string) => {
-    const base = genreFromPath === slug ? "/" : `/genre/${slug}`;
-    const qs = params.toString();
+    const base = genre === slug ? "/" : `/genre/${slug}`;
+    const qs = q.toString();
     router.replace(qs ? `${base}?${qs}` : base, { scroll: false });
   };
 

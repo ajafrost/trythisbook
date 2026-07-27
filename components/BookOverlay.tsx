@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Cover from "./Cover";
 import BookCard from "./BookCard";
 import { genreLabel, bookPath, type Book } from "@/lib/library";
+import { getWallUrl } from "@/lib/wallState";
 
 // Book detail as a modal over the wall. Rendered by app/(wall)/book/[slug], which
 // shares its layout with the wall — so the wall stays mounted behind it. The URL
@@ -29,7 +30,9 @@ export default function BookOverlay({
   nextHref: string | null;
 }) {
   const router = useRouter();
-  const close = () => router.push("/");
+  // Return to the wall exactly as the user left it — same genre + shelf/length/
+  // sort/view filters (it stayed filtered under the modal), or "/" if none.
+  const close = () => router.push(getWallUrl() || "/");
   const readYear = book.dateRead ? book.dateRead.slice(0, 4) : null;
 
   useEffect(() => {
