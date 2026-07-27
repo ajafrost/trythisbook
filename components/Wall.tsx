@@ -1,9 +1,10 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import Cover from "./Cover";
-import BookOverlay from "./BookOverlay";
 import { GENRES, type WallBook } from "@/lib/library";
+import { LENGTHS, orderWall, readWallParams } from "@/lib/wall";
 
 type Props = {
   books: WallBook[];
@@ -11,14 +12,6 @@ type Props = {
 };
 
 const PAGE = 48; // how many more books each infinite-scroll step reveals
-
-// Length buckets by page count. Single-select.
-const LENGTHS: { key: string; label: string; test: (p: number) => boolean }[] = [
-  { key: "short", label: "Short", test: (p) => p <= 250 },
-  { key: "medium", label: "Medium", test: (p) => p > 250 && p <= 425 },
-  { key: "long", label: "Long", test: (p) => p > 425 && p <= 575 },
-  { key: "project", label: "Projects", test: (p) => p > 575 },
-];
 
 export default function Wall({ books, shelves }: Props) {
   const router = useRouter();
@@ -34,7 +27,6 @@ export default function Wall({ books, shelves }: Props) {
   const lengthSel = single("length"); // "" | short | medium | long | project
   const sort = single("sort"); // "" (recently read) | "pub" | "title"
   const view = single("view") === "list" ? "list" : "covers";
-  const openId = single("book");
 
   const setParams = useCallback(
     (mut: (p: URLSearchParams) => void) => {
@@ -66,49 +58,25 @@ export default function Wall({ books, shelves }: Props) {
   const setSort = (v: string) =>
     setParams((p) => (v ? p.set("sort", v) : p.delete("sort")));
 
-  const openBook = (id: string) => setParams((p) => p.set("book", id));
-  const closeBook = () => setParams((p) => p.delete("book"));
+  // Each book has one clean, canonical URL — no filter query is ever appended,
+  // however you reached it. Opening a book therefore doesn't carry the wall's
+  // active filter; closing returns to the (unfiltered) wall at "/".
+  const bookHref = (slug: string) => `/book/${slug}`;
 
   const clearAll = () =>
     setParams((p) => {
       ["shelf", "genre", "length"].forEach((k) => p.delete(k));
     });
 
-  // ── facets ─────────────────────────────────────────────────────────────────
-  const shelfName = useMemo(
-    () => Object.fromEntries(shelves.map((s) => [s.slug, s.name])),
-    [shelves]
+  // ── filter + sort (shared with the book modal via lib/wall) ────────────────
+  const filterKey = `${shelfSel.join(",")}|${genreSel.join(",")}|${lengthSel}`;
+  const sorted = useMemo(
+    () => orderWall(books, readWallParams(new URLSearchParams(params.toString()))),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [books, filterKey, sort]
   );
 
-  // ── filtering (within-category OR, across-category AND) ────────────────────
-  const filterKey = `${shelfSel.join(",")}|${genreSel.join(",")}|${lengthSel}`;
-  const filtered = useMemo(() => {
-    const lengthDef = LENGTHS.find((l) => l.key === lengthSel);
-    return books.filter((b) => {
-      if (shelfSel.length && !b.shelfSlugs.some((s) => shelfSel.includes(s)))
-        return false;
-      if (genreSel.length && !b.genres.some((g) => genreSel.includes(g)))
-        return false;
-      if (lengthDef && !(b.pages && lengthDef.test(b.pages))) return false;
-      return true;
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [books, filterKey]);
-
   const anyFilter = shelfSel.length || genreSel.length || lengthSel;
-
-  // ── sorting ────────────────────────────────────────────────────────────────
-  const sortTitle = (t: string) => t.replace(/^(the|a|an)\s+/i, "").toLowerCase();
-  const sorted = useMemo(() => {
-    const arr = [...filtered];
-    if (sort === "pub")
-      arr.sort(
-        (a, b) => (b.yearPublished ?? -Infinity) - (a.yearPublished ?? -Infinity)
-      );
-    else if (sort === "title")
-      arr.sort((a, b) => sortTitle(a.title).localeCompare(sortTitle(b.title)));
-    return arr;
-  }, [filtered, sort]);
 
   // ── infinite scroll: reveal PAGE more as the sentinel nears the viewport ────
   const [visible, setVisible] = useState(PAGE);
@@ -129,11 +97,6 @@ export default function Wall({ books, shelves }: Props) {
   }, [sorted.length]);
   const shown = sorted.slice(0, visible);
 
-  // ── overlay state ──────────────────────────────────────────────────────────
-  const openIndex = sorted.findIndex((b) => b.id === openId);
-  const openBookObj =
-    openIndex >= 0 ? sorted[openIndex] : books.find((b) => b.id === openId);
-
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
       <div className="flex flex-col gap-8 lg:flex-row">
@@ -146,7 +109,7 @@ export default function Wall({ books, shelves }: Props) {
               </h2>
             </div>
             <p className="mt-1 font-mono text-sm font-medium text-accent-deep">
-              {filtered.length} book{filtered.length === 1 ? "" : "s"} match
+              {sorted.length} book{sorted.length === 1 ? "" : "s"} match
               {anyFilter ? "" : " (all of them)"}
             </p>
             {anyFilter ? (
@@ -235,14 +198,15 @@ export default function Wall({ books, shelves }: Props) {
             </div>
           </div>
 
-          {filtered.length === 0 ? (
+          {sorted.length === 0 ? (
             <EmptyState onClear={clearAll} />
           ) : view === "covers" ? (
             <div className="grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
               {shown.map((b) => (
-                <button
+                <Link
                   key={b.id}
-                  onClick={() => openBook(b.id)}
+                  href={bookHref(b.slug)}
+                  scroll={false}
                   className="group relative block aspect-[2/3] overflow-hidden rounded-md shadow-[0_6px_18px_-8px_rgba(43,38,32,0.45)] ring-1 ring-black/5 transition-transform hover:-translate-y-1"
                   aria-label={`Open ${b.title}`}
                 >
@@ -253,15 +217,16 @@ export default function Wall({ books, shelves }: Props) {
                     coverUrl={b.coverUrl}
                     className="h-full w-full"
                   />
-                </button>
+                </Link>
               ))}
             </div>
           ) : (
             <ul className="divide-y divide-line">
               {shown.map((b) => (
                 <li key={b.id} className="flex gap-4 py-4">
-                  <button
-                    onClick={() => openBook(b.id)}
+                  <Link
+                    href={bookHref(b.slug)}
+                    scroll={false}
                     className="h-24 w-16 shrink-0 overflow-hidden rounded shadow ring-1 ring-black/10"
                     aria-label={`Open ${b.title}`}
                   >
@@ -272,14 +237,15 @@ export default function Wall({ books, shelves }: Props) {
                       coverUrl={b.coverUrl}
                       className="h-full w-full text-[0.55rem]"
                     />
-                  </button>
+                  </Link>
                   <div className="min-w-0 flex-1">
-                    <button
-                      onClick={() => openBook(b.id)}
+                    <Link
+                      href={bookHref(b.slug)}
+                      scroll={false}
                       className="text-left font-serif text-lg font-semibold leading-snug text-ink hover:text-accent-deep"
                     >
                       {b.title}
-                    </button>
+                    </Link>
                     <p className="text-sm text-ink-soft">{b.author}</p>
                     {b.blurb && (
                       <p className="mt-1 text-sm text-ink-soft line-clamp-4">
@@ -293,31 +259,13 @@ export default function Wall({ books, shelves }: Props) {
           )}
 
           {/* infinite-scroll sentinel */}
-          {shown.length < filtered.length && (
+          {shown.length < sorted.length && (
             <div ref={sentinel} className="py-8 text-center text-sm text-ink-faint">
               Loading more…
             </div>
           )}
         </div>
       </div>
-
-      {openBookObj && (
-        <BookOverlay
-          book={openBookObj}
-          shelfNames={shelfName}
-          hasPrev={openIndex > 0}
-          hasNext={openIndex >= 0 && openIndex < sorted.length - 1}
-          onPrev={() => openBook(sorted[openIndex - 1].id)}
-          onNext={() => openBook(sorted[openIndex + 1].id)}
-          onClose={closeBook}
-          onShelf={(slug) =>
-            setParams((p) => {
-              p.delete("book");
-              p.set("shelf", slug);
-            })
-          }
-        />
-      )}
     </div>
   );
 }

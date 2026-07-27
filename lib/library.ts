@@ -121,6 +121,59 @@ export function bookShelves(id: string): Shelf[] {
   return shelfMembership.get(id) ?? [];
 }
 
+// ── URL slugs (title-author) ─────────────────────────────────────────────────
+// Every loved book gets its own static page at /book/<slug>. Slugs are readable
+// and keyword-rich (best for search + AI answer engines). Kept here — not a
+// separate module — so slug.ts ↔ library.ts can't form a circular import.
+
+export function slugify(input: string): string {
+  return input
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "") // strip diacritics
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/['’]/g, "") // don't → dont, not don-t
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+const idToSlug = new Map<string, string>();
+const slugToId = new Map<string, string>();
+for (const b of lovedBooks) {
+  const base = `${slugify(b.title)}-${slugify(b.author)}`.replace(/^-+|-+$/g, "");
+  let slug = base || b.id;
+  let n = 2;
+  while (slugToId.has(slug)) slug = `${base}-${n++}`; // disambiguate collisions
+  idToSlug.set(b.id, slug);
+  slugToId.set(slug, b.id);
+}
+
+export function bookSlug(id: string): string | undefined {
+  return idToSlug.get(id);
+}
+export function bookIdFromSlug(slug: string): string | undefined {
+  return slugToId.get(slug);
+}
+export function bookPath(id: string): string {
+  const slug = idToSlug.get(id);
+  return slug ? `/book/${slug}` : "/";
+}
+export function allBookSlugs(): string[] {
+  return [...slugToId.keys()];
+}
+
+// ── Genre lookups ────────────────────────────────────────────────────────────
+export function bookGenres(id: string): string[] {
+  return genreMap[id] ?? [];
+}
+// Loved books tagged with a genre, in library order (most recently read first).
+export function genreBooks(slug: string): Book[] {
+  return lovedBooks.filter((b) => (genreMap[b.id] ?? []).includes(slug));
+}
+export function genreLabel(slug: string): string {
+  return GENRES.find((g) => g.slug === slug)?.label ?? slug;
+}
+
 // ── Derived helpers for filters (spec 2.4) ───────────────────────────────────
 
 export function isShort(b: Book): boolean {
@@ -150,6 +203,7 @@ export function isNonfiction(id: string): boolean {
 // Flat, serializable record for the client-side library wall (spec 2.4).
 export type WallBook = {
   id: string;
+  slug: string;
   title: string;
   author: string;
   coverUrl?: string;
@@ -169,6 +223,7 @@ export function wallData(): {
 } {
   const books: WallBook[] = lovedBooks.map((b) => ({
     id: b.id,
+    slug: idToSlug.get(b.id) ?? b.id,
     title: b.title,
     author: b.author,
     ...(b.coverUrl ? { coverUrl: b.coverUrl } : {}),
