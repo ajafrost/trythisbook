@@ -1,10 +1,10 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Cover from "./Cover";
 import { GENRES, type WallBook } from "@/lib/library";
-import { LENGTHS, orderWall, readWallParams } from "@/lib/wall";
+import { LENGTHS, orderWall } from "@/lib/wall";
 
 type Props = {
   books: WallBook[];
@@ -16,14 +16,23 @@ const PAGE = 48; // how many more books each infinite-scroll step reveals
 export default function Wall({ books, shelves }: Props) {
   const router = useRouter();
   const params = useSearchParams();
+  const pathname = usePathname();
 
   // ── read filter state from the URL (deep-linkable) ─────────────────────────
   const list = (key: string) =>
     (params.get(key) ?? "").split(",").filter(Boolean);
   const single = (key: string) => params.get(key) ?? "";
 
+  // Genre lives in the PATH: /genre/<slug> is the wall filtered to one genre,
+  // its own clean static URL. Every other filter stays a query param, layered
+  // on whichever base path (/ or /genre/<slug>) we're on.
+  const genreFromPath = pathname.startsWith("/genre/")
+    ? decodeURIComponent(pathname.slice("/genre/".length))
+    : null;
+  const wallBase = genreFromPath ? `/genre/${genreFromPath}` : "/";
+
   const shelfSel = list("shelf");
-  const genreSel = list("genre");
+  const genreSel = genreFromPath ? [genreFromPath] : [];
   const lengthSel = single("length"); // "" | short | medium | long | project
   const sort = single("sort"); // "" (recently read) | "pub" | "title"
   const view = single("view") === "list" ? "list" : "covers";
@@ -33,10 +42,18 @@ export default function Wall({ books, shelves }: Props) {
       const p = new URLSearchParams(params.toString());
       mut(p);
       const qs = p.toString();
-      router.replace(qs ? `/?${qs}` : "/", { scroll: false });
+      router.replace(qs ? `${wallBase}?${qs}` : wallBase, { scroll: false });
     },
-    [params, router]
+    [params, router, wallBase]
   );
+
+  // Genre is single-select and drives the path. Selecting the active genre
+  // again clears it (back to "/"); other filters (query params) are preserved.
+  const setGenre = (slug: string) => {
+    const base = genreFromPath === slug ? "/" : `/genre/${slug}`;
+    const qs = params.toString();
+    router.replace(qs ? `${base}?${qs}` : base, { scroll: false });
+  };
 
   const toggleInList = (key: string, val: string) =>
     setParams((p) => {
@@ -63,15 +80,24 @@ export default function Wall({ books, shelves }: Props) {
   // active filter; closing returns to the (unfiltered) wall at "/".
   const bookHref = (slug: string) => `/book/${slug}`;
 
-  const clearAll = () =>
-    setParams((p) => {
-      ["shelf", "genre", "length"].forEach((k) => p.delete(k));
-    });
+  // Clear drops genre (→ base "/"), shelf and length; sort/view are kept.
+  const clearAll = () => {
+    const p = new URLSearchParams(params.toString());
+    ["shelf", "length"].forEach((k) => p.delete(k));
+    const qs = p.toString();
+    router.replace(qs ? `/?${qs}` : "/", { scroll: false });
+  };
 
   // ── filter + sort (shared with the book modal via lib/wall) ────────────────
   const filterKey = `${shelfSel.join(",")}|${genreSel.join(",")}|${lengthSel}`;
   const sorted = useMemo(
-    () => orderWall(books, readWallParams(new URLSearchParams(params.toString()))),
+    () =>
+      orderWall(books, {
+        shelf: shelfSel,
+        genre: genreSel,
+        length: lengthSel,
+        sort,
+      }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [books, filterKey, sort]
   );
@@ -138,7 +164,7 @@ export default function Wall({ books, shelves }: Props) {
                 <Chip
                   key={g.slug}
                   on={genreSel.includes(g.slug)}
-                  onClick={() => toggleInList("genre", g.slug)}
+                  onClick={() => setGenre(g.slug)}
                 >
                   {g.label}
                 </Chip>
