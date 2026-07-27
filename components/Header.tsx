@@ -17,13 +17,26 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink/10 bg-canvas">
       <div className="mx-auto flex max-w-6xl items-center gap-x-4 px-4 py-3 sm:px-6">
-        {/* Wordmark: hidden on mobile to make room for a single-row nav */}
-        <Link
-          href="/"
-          className="hidden font-serif text-2xl font-semibold tracking-tight text-ink whitespace-nowrap sm:block sm:text-3xl"
-        >
-          Try This Book
-        </Link>
+        {/* Wordmark. On the homepage it's the page <h1> (kept crawlable on
+            mobile via sr-only, not display:none); elsewhere it's a plain link,
+            hidden on mobile to make room for a single-row nav. */}
+        {pathname === "/" ? (
+          <h1 className="contents">
+            <Link
+              href="/"
+              className="font-serif text-2xl font-semibold tracking-tight text-ink whitespace-nowrap sr-only sm:not-sr-only sm:block sm:text-3xl"
+            >
+              Try This Book
+            </Link>
+          </h1>
+        ) : (
+          <Link
+            href="/"
+            className="hidden font-serif text-2xl font-semibold tracking-tight text-ink whitespace-nowrap sm:block sm:text-3xl"
+          >
+            Try This Book
+          </Link>
+        )}
 
         <nav className="flex w-full items-center justify-between gap-x-2 sm:ml-auto sm:w-auto sm:justify-end sm:gap-x-5">
           {NAV.map((n) => (
