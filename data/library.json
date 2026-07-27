@@ -1,5 +1,18 @@
 [
   {
+    "id": "240687665",
+    "title": "Dolly All the Time",
+    "author": "Annabel Monaghan",
+    "myRating": 4,
+    "shelves": [],
+    "dateRead": "2026-07-25",
+    "pages": 366,
+    "yearPublished": 2026,
+    "isbn13": "0593853970",
+    "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1757041312l/240687665._SY475_.jpg",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/240687665"
+  },
+  {
     "id": "240019660",
     "title": "Heather",
     "author": "Caitlin Mullen",
@@ -11,6 +24,19 @@
     "isbn13": "9781250400574",
     "coverUrl": "https://covers.openlibrary.org/b/isbn/9781250400574-L.jpg?default=false",
     "goodreadsUrl": "https://www.goodreads.com/book/show/240019660"
+  },
+  {
+    "id": "235991949",
+    "title": "All the World Can Hold",
+    "author": "Jung Yun",
+    "myRating": 4,
+    "shelves": [],
+    "dateRead": "2026-07-23",
+    "pages": 352,
+    "yearPublished": 2026,
+    "isbn13": "1668200597",
+    "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1749399471l/235991949._SY475_.jpg",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/235991949"
   },
   {
     "id": "217204419",
@@ -15684,5 +15710,17 @@
     "isbn13": "9781441341709",
     "coverUrl": "/covers/1885.jpg",
     "goodreadsUrl": "https://www.goodreads.com/book/show/1885"
+  },
+  {
+    "id": "216684509",
+    "title": "These Days",
+    "author": "Lucy Caldwell",
+    "myRating": 5,
+    "shelves": [],
+    "pages": 288,
+    "yearPublished": 2022,
+    "isbn13": "1638931836",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14674103-L.jpg",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/216684509"
   }
 ]
