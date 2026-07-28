@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Cover from "./Cover";
 import BookCard from "./BookCard";
+import { bookshopUrl } from "@/lib/bookshop";
 import { genreLabel, bookPath, type Book } from "@/lib/library";
 import { getWallUrl } from "@/lib/wallState";
 
@@ -136,12 +137,12 @@ export default function BookOverlay({
             )}
 
             <a
-              href={book.goodreadsUrl}
+              href={bookshopUrl(book)}
               target="_blank"
               rel="noreferrer"
               className="mt-4 inline-block text-sm text-ink-faint underline decoration-line underline-offset-4 hover:text-ink"
             >
-              View on Goodreads ↗
+              Buy on Bookshop.org ↗
             </a>
           </div>
         </div>

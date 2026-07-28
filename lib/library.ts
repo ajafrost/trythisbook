@@ -212,6 +212,7 @@ export type WallBook = {
   yearPublished?: number;
   readYear?: number;
   goodreadsUrl: string;
+  isbn13?: string;
   shelfSlugs: string[];
   blurb?: string;
   genres: string[];
@@ -232,6 +233,7 @@ export function wallData(): {
     ...(b.yearPublished ? { yearPublished: b.yearPublished } : {}),
     ...(b.dateRead ? { readYear: Number(b.dateRead.slice(0, 4)) } : {}),
     goodreadsUrl: b.goodreadsUrl,
+    ...(b.isbn13 ? { isbn13: b.isbn13 } : {}),
     shelfSlugs: bookShelves(b.id).map((s) => s.slug),
     ...(getBlurb(b.id) ? { blurb: getBlurb(b.id) } : {}),
     genres: genreMap[b.id] ?? [],

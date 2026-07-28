@@ -12,7 +12,8 @@
     "covers": "tsx scripts/fetch-covers.ts",
     "covers:localize": "tsx scripts/localize-covers.ts",
     "blurbs": "tsx scripts/merge-blurbs.ts",
-    "blurbs:generate": "tsx scripts/generate-blurbs.ts"
+    "blurbs:generate": "tsx scripts/generate-blurbs.ts",
+    "isbns": "tsx scripts/enrich-isbns.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.68.0",

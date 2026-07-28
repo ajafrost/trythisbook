@@ -453,7 +453,8 @@
     "pages": 400,
     "yearPublished": 2026,
     "goodreadsUrl": "https://www.goodreads.com/book/show/238226942",
-    "coverUrl": "/covers/238226942.jpg"
+    "coverUrl": "/covers/238226942.jpg",
+    "isbn13": "9780593804216"
   },
   {
     "id": "235992675",
@@ -1864,7 +1865,8 @@
     "pages": 277,
     "yearPublished": 2024,
     "goodreadsUrl": "https://www.goodreads.com/book/show/201102398",
-    "coverUrl": "/covers/201102398.jpg"
+    "coverUrl": "/covers/201102398.jpg",
+    "isbn13": "9780349705026"
   },
   {
     "id": "15990489",
@@ -1995,7 +1997,8 @@
     "pages": 368,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/41160292",
-    "coverUrl": "/covers/41160292.jpg"
+    "coverUrl": "/covers/41160292.jpg",
+    "isbn13": "9781101972083"
   },
   {
     "id": "138556",
@@ -2032,7 +2035,8 @@
     "dateRead": "2025-01-14",
     "yearPublished": 2023,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58283993",
-    "coverUrl": "/covers/58283993.jpg"
+    "coverUrl": "/covers/58283993.jpg",
+    "isbn13": "9781681377810"
   },
   {
     "id": "1796643",
@@ -2138,7 +2142,8 @@
     "pages": 294,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36692478",
-    "coverUrl": "/covers/36692478.jpg"
+    "coverUrl": "/covers/36692478.jpg",
+    "isbn13": "9780525633013"
   },
   {
     "id": "54860443",
@@ -2189,7 +2194,8 @@
     "pages": 384,
     "yearPublished": 2024,
     "goodreadsUrl": "https://www.goodreads.com/book/show/63247365",
-    "coverUrl": "/covers/63247365.jpg"
+    "coverUrl": "/covers/63247365.jpg",
+    "isbn13": "9780063310698"
   },
   {
     "id": "355862",
@@ -2238,7 +2244,8 @@
     "pages": 672,
     "yearPublished": 1859,
     "goodreadsUrl": "https://www.goodreads.com/book/show/5890",
-    "coverUrl": "https://covers.openlibrary.org/b/id/4684227-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/4684227-L.jpg",
+    "isbn13": "9798405689180"
   },
   {
     "id": "13239376",
@@ -2367,7 +2374,8 @@
     "pages": 274,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58794688",
-    "coverUrl": "/covers/58794688.jpg"
+    "coverUrl": "/covers/58794688.jpg",
+    "isbn13": "9781474612067"
   },
   {
     "id": "195853578",
@@ -2598,7 +2606,8 @@
     "pages": 320,
     "yearPublished": 2024,
     "goodreadsUrl": "https://www.goodreads.com/book/show/199897935",
-    "coverUrl": "/covers/199897935.jpg"
+    "coverUrl": "/covers/199897935.jpg",
+    "isbn13": "9781668034316"
   },
   {
     "id": "199796715",
@@ -2625,7 +2634,8 @@
     "pages": 562,
     "yearPublished": 2024,
     "goodreadsUrl": "https://www.goodreads.com/book/show/199698485",
-    "coverUrl": "/covers/199698485.jpg"
+    "coverUrl": "/covers/199698485.jpg",
+    "isbn13": "9780593418918"
   },
   {
     "id": "199345782",
@@ -2637,7 +2647,8 @@
     "pages": 512,
     "yearPublished": 2024,
     "goodreadsUrl": "https://www.goodreads.com/book/show/199345782",
-    "coverUrl": "https://covers.openlibrary.org/b/id/14637238-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/14637238-L.jpg",
+    "isbn13": "9781399608237"
   },
   {
     "id": "199124697",
@@ -2690,7 +2701,8 @@
     "pages": 252,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58184393",
-    "coverUrl": "/covers/58184393.jpg"
+    "coverUrl": "/covers/58184393.jpg",
+    "isbn13": "9781524705794"
   },
   {
     "id": "6456073",
@@ -2702,7 +2714,8 @@
     "pages": 354,
     "yearPublished": 1993,
     "goodreadsUrl": "https://www.goodreads.com/book/show/6456073",
-    "coverUrl": "/covers/6456073.jpg"
+    "coverUrl": "/covers/6456073.jpg",
+    "isbn13": "9789052266237"
   },
   {
     "id": "133287167",
@@ -2714,7 +2727,8 @@
     "pages": 193,
     "yearPublished": 2024,
     "goodreadsUrl": "https://www.goodreads.com/book/show/133287167",
-    "coverUrl": "/covers/133287167.jpg"
+    "coverUrl": "/covers/133287167.jpg",
+    "isbn13": "9781420514636"
   },
   {
     "id": "235773",
@@ -2897,7 +2911,8 @@
     "pages": 545,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40195518",
-    "coverUrl": "/covers/40195518.jpg"
+    "coverUrl": "/covers/40195518.jpg",
+    "isbn13": "9781783781522"
   },
   {
     "id": "157981711",
@@ -2998,7 +3013,8 @@
     "pages": 368,
     "yearPublished": 1997,
     "goodreadsUrl": "https://www.goodreads.com/book/show/6081088",
-    "coverUrl": "/covers/6081088.jpg"
+    "coverUrl": "/covers/6081088.jpg",
+    "isbn13": "9788416334742"
   },
   {
     "id": "133287138",
@@ -3086,7 +3102,8 @@
     "pages": 704,
     "yearPublished": 1977,
     "goodreadsUrl": "https://www.goodreads.com/book/show/49982087",
-    "coverUrl": "/covers/49982087.jpg"
+    "coverUrl": "/covers/49982087.jpg",
+    "isbn13": "9782277210214"
   },
   {
     "id": "134118997",
@@ -3111,7 +3128,8 @@
     "pages": 400,
     "yearPublished": 2024,
     "goodreadsUrl": "https://www.goodreads.com/book/show/127463471",
-    "coverUrl": "https://covers.openlibrary.org/b/id/14571761-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/14571761-L.jpg",
+    "isbn13": "9780593328200"
   },
   {
     "id": "198701985",
@@ -3136,7 +3154,8 @@
     "pages": 418,
     "yearPublished": 1985,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40041238",
-    "coverUrl": "/covers/40041238.jpg"
+    "coverUrl": "/covers/40041238.jpg",
+    "isbn13": "9788882468088"
   },
   {
     "id": "60466391",
@@ -3224,7 +3243,8 @@
     "pages": 383,
     "yearPublished": 2023,
     "goodreadsUrl": "https://www.goodreads.com/book/show/62084507",
-    "coverUrl": "/covers/62084507.jpg"
+    "coverUrl": "/covers/62084507.jpg",
+    "isbn13": "9780241648506"
   },
   {
     "id": "144744277",
@@ -3277,7 +3297,8 @@
     "pages": 415,
     "yearPublished": 2023,
     "goodreadsUrl": "https://www.goodreads.com/book/show/74891998",
-    "coverUrl": "/covers/74891998.jpg"
+    "coverUrl": "/covers/74891998.jpg",
+    "isbn13": "9781668006504"
   },
   {
     "id": "57696105",
@@ -3477,7 +3498,8 @@
     "pages": 312,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/60429621",
-    "coverUrl": "/covers/60429621.jpg"
+    "coverUrl": "/covers/60429621.jpg",
+    "isbn13": "9781035036370"
   },
   {
     "id": "122892583",
@@ -3591,7 +3613,8 @@
     "pages": 307,
     "yearPublished": 2003,
     "goodreadsUrl": "https://www.goodreads.com/book/show/8172058",
-    "coverUrl": "/covers/8172058.jpg"
+    "coverUrl": "/covers/8172058.jpg",
+    "isbn13": "9780007161201"
   },
   {
     "id": "61783812",
@@ -3738,7 +3761,8 @@
     "pages": 560,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/60194162",
-    "coverUrl": "/covers/60194162.jpg"
+    "coverUrl": "/covers/60194162.jpg",
+    "isbn13": "9780063251984"
   },
   {
     "id": "35082451",
@@ -3872,7 +3896,8 @@
     "pages": 304,
     "yearPublished": 2023,
     "goodreadsUrl": "https://www.goodreads.com/book/show/62067054",
-    "coverUrl": "/covers/62067054.jpg"
+    "coverUrl": "/covers/62067054.jpg",
+    "isbn13": "9780147524034"
   },
   {
     "id": "59557468",
@@ -3895,7 +3920,8 @@
     "pages": 304,
     "yearPublished": 1996,
     "goodreadsUrl": "https://www.goodreads.com/book/show/6567412",
-    "coverUrl": "/covers/6567412.jpg"
+    "coverUrl": "/covers/6567412.jpg",
+    "isbn13": "9780385315517"
   },
   {
     "id": "61854923",
@@ -3993,7 +4019,8 @@
     "pages": 332,
     "yearPublished": 2023,
     "goodreadsUrl": "https://www.goodreads.com/book/show/60699135",
-    "coverUrl": "/covers/60699135.jpg"
+    "coverUrl": "/covers/60699135.jpg",
+    "isbn13": "9780593492079"
   },
   {
     "id": "36315211",
@@ -4005,7 +4032,8 @@
     "pages": 256,
     "yearPublished": 1968,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36315211",
-    "coverUrl": "/covers/36315211.jpg"
+    "coverUrl": "/covers/36315211.jpg",
+    "isbn13": "9780671495886"
   },
   {
     "id": "74962504",
@@ -4102,7 +4130,8 @@
     "pages": 194,
     "yearPublished": 1983,
     "goodreadsUrl": "https://www.goodreads.com/book/show/12415486",
-    "coverUrl": "/covers/12415486.jpg"
+    "coverUrl": "/covers/12415486.jpg",
+    "isbn13": "9780671624835"
   },
   {
     "id": "58804393",
@@ -4176,7 +4205,8 @@
     "pages": 338,
     "yearPublished": 2011,
     "goodreadsUrl": "https://www.goodreads.com/book/show/11501957",
-    "coverUrl": "/covers/11501957.jpg"
+    "coverUrl": "/covers/11501957.jpg",
+    "isbn13": "9780385535014"
   },
   {
     "id": "63853404",
@@ -4250,7 +4280,8 @@
     "pages": 291,
     "yearPublished": 2010,
     "goodreadsUrl": "https://www.goodreads.com/book/show/9402168",
-    "coverUrl": "/covers/9402168.jpg"
+    "coverUrl": "/covers/9402168.jpg",
+    "isbn13": "9780061789083"
   },
   {
     "id": "57182435",
@@ -4288,7 +4319,8 @@
     "pages": 562,
     "yearPublished": 1991,
     "goodreadsUrl": "https://www.goodreads.com/book/show/1848",
-    "coverUrl": "/covers/1848.jpg"
+    "coverUrl": "/covers/1848.jpg",
+    "isbn13": "9782259022972"
   },
   {
     "id": "60132639",
@@ -4388,7 +4420,8 @@
     "pages": 418,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58916147",
-    "coverUrl": "/covers/58916147.jpg"
+    "coverUrl": "/covers/58916147.jpg",
+    "isbn13": "9780593607831"
   },
   {
     "id": "61118631",
@@ -4449,7 +4482,8 @@
     "pages": 226,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58601245",
-    "coverUrl": "/covers/58601245.jpg"
+    "coverUrl": "/covers/58601245.jpg",
+    "isbn13": "9781524712174"
   },
   {
     "id": "35520980",
@@ -4526,7 +4560,8 @@
     "pages": 338,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/33009976",
-    "coverUrl": "/covers/33009976.jpg"
+    "coverUrl": "/covers/33009976.jpg",
+    "isbn13": "9781432838416"
   },
   {
     "id": "448873",
@@ -4793,7 +4828,8 @@
     "pages": 653,
     "yearPublished": 2000,
     "goodreadsUrl": "https://www.goodreads.com/book/show/6573443",
-    "coverUrl": "/covers/6573443.jpg"
+    "coverUrl": "/covers/6573443.jpg",
+    "isbn13": "9781559353496"
   },
   {
     "id": "60619908",
@@ -4869,7 +4905,8 @@
     "pages": 353,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/60394519",
-    "coverUrl": "/covers/60394519.jpg"
+    "coverUrl": "/covers/60394519.jpg",
+    "isbn13": "9781472223845"
   },
   {
     "id": "59072183",
@@ -5089,7 +5126,8 @@
     "pages": 290,
     "yearPublished": 2010,
     "goodreadsUrl": "https://www.goodreads.com/book/show/10062688",
-    "coverUrl": "/covers/10062688.jpg"
+    "coverUrl": "/covers/10062688.jpg",
+    "isbn13": "9780312561024"
   },
   {
     "id": "54746196",
@@ -5101,7 +5139,8 @@
     "pages": 404,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/54746196",
-    "coverUrl": "/covers/54746196.jpg"
+    "coverUrl": "/covers/54746196.jpg",
+    "isbn13": "9780593241509"
   },
   {
     "id": "61077851",
@@ -5113,7 +5152,8 @@
     "pages": 586,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/61077851",
-    "coverUrl": "https://covers.openlibrary.org/b/id/12824270-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/12824270-L.jpg",
+    "isbn13": "9781982131821"
   },
   {
     "id": "60440469",
@@ -5240,7 +5280,8 @@
     "pages": 352,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58812701",
-    "coverUrl": "https://covers.openlibrary.org/b/id/14316418-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/14316418-L.jpg",
+    "isbn13": "9781250871442"
   },
   {
     "id": "59422043",
@@ -5265,7 +5306,8 @@
     "pages": 135,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/60396325",
-    "coverUrl": "/covers/60396325.jpeg"
+    "coverUrl": "/covers/60396325.jpeg",
+    "isbn13": "9781783966110"
   },
   {
     "id": "59368509",
@@ -5340,7 +5382,8 @@
     "pages": 224,
     "yearPublished": 2012,
     "goodreadsUrl": "https://www.goodreads.com/book/show/18892366",
-    "coverUrl": "/covers/18892366.webp"
+    "coverUrl": "/covers/18892366.webp",
+    "isbn13": "9781491510803"
   },
   {
     "id": "59965034",
@@ -5691,7 +5734,8 @@
     "pages": 507,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/54640667",
-    "coverUrl": "/covers/54640667.jpg"
+    "coverUrl": "/covers/54640667.jpg",
+    "isbn13": "9781094189789"
   },
   {
     "id": "58131101",
@@ -5716,7 +5760,8 @@
     "pages": 301,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/55468002",
-    "coverUrl": "https://covers.openlibrary.org/b/id/8202400-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/8202400-L.jpg",
+    "isbn13": "9780525631934"
   },
   {
     "id": "59142475",
@@ -5897,7 +5942,8 @@
     "pages": 287,
     "yearPublished": 2022,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58533799",
-    "coverUrl": "/covers/58533799.jpg"
+    "coverUrl": "/covers/58533799.jpg",
+    "isbn13": "9781432894467"
   },
   {
     "id": "55071877",
@@ -6013,7 +6059,8 @@
     "pages": 801,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/56894210",
-    "coverUrl": "/covers/56894210.jpg"
+    "coverUrl": "/covers/56894210.jpg",
+    "isbn13": "9781665096119"
   },
   {
     "id": "56326737",
@@ -6123,7 +6170,8 @@
     "pages": 319,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/58941191",
-    "coverUrl": "/covers/58941191.jpg"
+    "coverUrl": "/covers/58941191.jpg",
+    "isbn13": "9781797132655"
   },
   {
     "id": "42634735",
@@ -6135,7 +6183,8 @@
     "pages": 240,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/42634735",
-    "coverUrl": "/covers/42634735.jpg"
+    "coverUrl": "/covers/42634735.jpg",
+    "isbn13": "9780241363560"
   },
   {
     "id": "33021339",
@@ -6199,7 +6248,8 @@
     "pages": 272,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/57640897",
-    "coverUrl": "/covers/57640897.jpg"
+    "coverUrl": "/covers/57640897.jpg",
+    "isbn13": "9781785151903"
   },
   {
     "id": "56665713",
@@ -6211,7 +6261,8 @@
     "pages": 358,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/56665713",
-    "coverUrl": "/covers/56665713.jpg"
+    "coverUrl": "/covers/56665713.jpg",
+    "isbn13": "9780571365425"
   },
   {
     "id": "56609700",
@@ -6249,7 +6300,8 @@
     "pages": 324,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/28585691",
-    "coverUrl": "/covers/28585691.jpeg"
+    "coverUrl": "/covers/28585691.jpeg",
+    "isbn13": "9780575037892"
   },
   {
     "id": "56379221",
@@ -6287,7 +6339,8 @@
     "pages": 290,
     "yearPublished": 2012,
     "goodreadsUrl": "https://www.goodreads.com/book/show/13400892",
-    "coverUrl": "/covers/13400892.jpg"
+    "coverUrl": "/covers/13400892.jpg",
+    "isbn13": "9780307388254"
   },
   {
     "id": "48748023",
@@ -6452,7 +6505,8 @@
     "pages": 320,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/56007910",
-    "coverUrl": "/covers/56007910.jpg"
+    "coverUrl": "/covers/56007910.jpg",
+    "isbn13": "9780062390172"
   },
   {
     "id": "23433786",
@@ -6488,7 +6542,8 @@
     "pages": 370,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/32874746",
-    "coverUrl": "/covers/32874746.jpg"
+    "coverUrl": "/covers/32874746.jpg",
+    "isbn13": "9781785656477"
   },
   {
     "id": "49914109",
@@ -6500,7 +6555,8 @@
     "pages": 336,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/49914109",
-    "coverUrl": "/covers/49914109.jpg"
+    "coverUrl": "/covers/49914109.jpg",
+    "isbn13": "9780349726250"
   },
   {
     "id": "57378707",
@@ -6614,7 +6670,8 @@
     "pages": 274,
     "yearPublished": 2014,
     "goodreadsUrl": "https://www.goodreads.com/book/show/22085568",
-    "coverUrl": "/covers/22085568.jpg"
+    "coverUrl": "/covers/22085568.jpg",
+    "isbn13": "9781610392594"
   },
   {
     "id": "56188915",
@@ -6700,7 +6757,8 @@
     "pages": 243,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/55577549",
-    "coverUrl": "/covers/55577549.jpg"
+    "coverUrl": "/covers/55577549.jpg",
+    "isbn13": "9781529033779"
   },
   {
     "id": "36513424",
@@ -6749,7 +6807,8 @@
     "pages": 295,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40792951",
-    "coverUrl": "/covers/40792951.jpg"
+    "coverUrl": "/covers/40792951.jpg",
+    "isbn13": "9781444833935"
   },
   {
     "id": "45015116",
@@ -6848,7 +6907,8 @@
     "pages": 224,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/50027315",
-    "coverUrl": "/covers/50027315.jpg"
+    "coverUrl": "/covers/50027315.jpg",
+    "isbn13": "9780735218765"
   },
   {
     "id": "50240841",
@@ -6925,7 +6985,8 @@
     "pages": 325,
     "yearPublished": 2015,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36509935",
-    "coverUrl": "/covers/36509935.jpg"
+    "coverUrl": "/covers/36509935.jpg",
+    "isbn13": "9780062267542"
   },
   {
     "id": "23844690",
@@ -6963,7 +7024,8 @@
     "pages": 288,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/56665714",
-    "coverUrl": "/covers/56665714.jpg"
+    "coverUrl": "/covers/56665714.jpg",
+    "isbn13": "9780316429849"
   },
   {
     "id": "56050608",
@@ -7014,7 +7076,8 @@
     "pages": 351,
     "yearPublished": 2011,
     "goodreadsUrl": "https://www.goodreads.com/book/show/13537029",
-    "coverUrl": "/covers/13537029.jpg"
+    "coverUrl": "/covers/13537029.jpg",
+    "isbn13": "9789603649823"
   },
   {
     "id": "55590431",
@@ -7026,7 +7089,8 @@
     "pages": 304,
     "yearPublished": 2021,
     "goodreadsUrl": "https://www.goodreads.com/book/show/55590431",
-    "coverUrl": "/covers/55590431.webp"
+    "coverUrl": "/covers/55590431.webp",
+    "isbn13": "9780316500319"
   },
   {
     "id": "54920149",
@@ -7064,7 +7128,8 @@
     "pages": 337,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/41015038",
-    "coverUrl": "/covers/41015038.jpg"
+    "coverUrl": "/covers/41015038.jpg",
+    "isbn13": "9781594749766"
   },
   {
     "id": "52702097",
@@ -7076,7 +7141,8 @@
     "pages": 246,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/52702097",
-    "coverUrl": "/covers/52702097.jpg"
+    "coverUrl": "/covers/52702097.jpg",
+    "isbn13": "9781526622600"
   },
   {
     "id": "54018267",
@@ -7153,7 +7219,8 @@
     "pages": 310,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/49856101",
-    "coverUrl": "/covers/49856101.jpg"
+    "coverUrl": "/covers/49856101.jpg",
+    "isbn13": "9780593212158"
   },
   {
     "id": "26042767",
@@ -7191,7 +7258,8 @@
     "pages": 449,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/48589362",
-    "coverUrl": "https://covers.openlibrary.org/b/id/9271540-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/9271540-L.jpg",
+    "isbn13": "9781529019278"
   },
   {
     "id": "41807132",
@@ -7331,7 +7399,8 @@
     "pages": 322,
     "yearPublished": 2008,
     "goodreadsUrl": "https://www.goodreads.com/book/show/8177569",
-    "coverUrl": "/covers/8177569.jpg"
+    "coverUrl": "/covers/8177569.jpg",
+    "isbn13": "9780307264206"
   },
   {
     "id": "51029834",
@@ -7406,7 +7475,8 @@
     "pages": 272,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/44300042",
-    "coverUrl": "/covers/44300042.jpg"
+    "coverUrl": "/covers/44300042.jpg",
+    "isbn13": "9781250103512"
   },
   {
     "id": "48999153",
@@ -7457,7 +7527,8 @@
     "pages": 402,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36680804",
-    "coverUrl": "/covers/36680804.jpg"
+    "coverUrl": "/covers/36680804.jpg",
+    "isbn13": "9780755358816"
   },
   {
     "id": "52918279",
@@ -7508,7 +7579,8 @@
     "pages": 369,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/30827125",
-    "coverUrl": "/covers/30827125.jpg"
+    "coverUrl": "/covers/30827125.jpg",
+    "isbn13": "9781501122521"
   },
   {
     "id": "51003468",
@@ -7638,7 +7710,8 @@
     "pages": 340,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/48566502",
-    "coverUrl": "/covers/48566502.jpg"
+    "coverUrl": "/covers/48566502.jpg",
+    "isbn13": "9781250239624"
   },
   {
     "id": "45835845",
@@ -7663,7 +7736,8 @@
     "pages": 270,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/48753829",
-    "coverUrl": "/covers/48753829.jpg"
+    "coverUrl": "/covers/48753829.jpg",
+    "isbn13": "9781524711832"
   },
   {
     "id": "49201438",
@@ -7716,7 +7790,8 @@
     "pages": 301,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/52873094",
-    "coverUrl": "/covers/52873094.jpg"
+    "coverUrl": "/covers/52873094.jpg",
+    "isbn13": "9780525620785"
   },
   {
     "id": "36412963",
@@ -7780,7 +7855,8 @@
     "pages": 408,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/51340472",
-    "coverUrl": "/covers/51340472.jpg"
+    "coverUrl": "/covers/51340472.jpg",
+    "isbn13": "9780062961495"
   },
   {
     "id": "49100158",
@@ -7793,7 +7869,8 @@
     "pages": 242,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/49100158",
-    "coverUrl": "/covers/49100158.jpg"
+    "coverUrl": "/covers/49100158.jpg",
+    "isbn13": "9788418733871"
   },
   {
     "id": "52237660",
@@ -7805,7 +7882,8 @@
     "pages": 288,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/52237660",
-    "coverUrl": "/covers/52237660.jpg"
+    "coverUrl": "/covers/52237660.jpg",
+    "isbn13": "9780062747570"
   },
   {
     "id": "50268796",
@@ -7893,7 +7971,8 @@
     "pages": 410,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/44074800",
-    "coverUrl": "/covers/44074800.jpg"
+    "coverUrl": "/covers/44074800.jpg",
+    "isbn13": "9781094136936"
   },
   {
     "id": "52656911",
@@ -7955,7 +8034,8 @@
     "pages": 350,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/52195151",
-    "coverUrl": "/covers/52195151.jpg"
+    "coverUrl": "/covers/52195151.jpg",
+    "isbn13": "9780525536291"
   },
   {
     "id": "43209291",
@@ -8139,7 +8219,8 @@
     "pages": 338,
     "yearPublished": 1982,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36685039",
-    "coverUrl": "/covers/36685039.jpg"
+    "coverUrl": "/covers/36685039.jpg",
+    "isbn13": "9783453215153"
   },
   {
     "id": "52194898",
@@ -8177,7 +8258,8 @@
     "pages": 272,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/43175254",
-    "coverUrl": "/covers/43175254.jpg"
+    "coverUrl": "/covers/43175254.jpg",
+    "isbn13": "9780525436225"
   },
   {
     "id": "408837",
@@ -8307,7 +8389,8 @@
     "pages": 320,
     "yearPublished": 2020,
     "goodreadsUrl": "https://www.goodreads.com/book/show/45289222",
-    "coverUrl": "https://covers.openlibrary.org/b/id/9286143-L.jpg"
+    "coverUrl": "https://covers.openlibrary.org/b/id/9286143-L.jpg",
+    "isbn13": "9781094059242"
   },
   {
     "id": "43452911",
@@ -8502,7 +8585,8 @@
     "pages": 269,
     "yearPublished": 2013,
     "goodreadsUrl": "https://www.goodreads.com/book/show/18914754",
-    "coverUrl": "/covers/18914754.jpg"
+    "coverUrl": "/covers/18914754.jpg",
+    "isbn13": "9780547840628"
   },
   {
     "id": "42080142",
@@ -8596,7 +8680,8 @@
     "pages": 287,
     "yearPublished": 2007,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36336614",
-    "coverUrl": "/covers/36336614.jpg"
+    "coverUrl": "/covers/36336614.jpg",
+    "isbn13": "9780470139271"
   },
   {
     "id": "40514431",
@@ -8844,7 +8929,8 @@
     "pages": 336,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/41392364",
-    "coverUrl": "/covers/41392364.jpg"
+    "coverUrl": "/covers/41392364.jpg",
+    "isbn13": "9781501196010"
   },
   {
     "id": "33822888",
@@ -8884,7 +8970,8 @@
     "pages": 277,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/44527740",
-    "coverUrl": "/covers/44527740.jpg"
+    "coverUrl": "/covers/44527740.jpg",
+    "isbn13": "9780062913463"
   },
   {
     "id": "37955748",
@@ -8971,7 +9058,8 @@
     "pages": 320,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/45025308",
-    "coverUrl": "/covers/45025308.jpg"
+    "coverUrl": "/covers/45025308.jpg",
+    "isbn13": "9781526603289"
   },
   {
     "id": "43301737",
@@ -9172,7 +9260,8 @@
     "pages": 370,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/37655127",
-    "coverUrl": "/covers/37655127.jpg"
+    "coverUrl": "/covers/37655127.jpg",
+    "isbn13": "9780812995800"
   },
   {
     "id": "41189557",
@@ -9234,7 +9323,8 @@
     "pages": 464,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/42641164",
-    "coverUrl": "/covers/42641164.jpg"
+    "coverUrl": "/covers/42641164.jpg",
+    "isbn13": "9780593104378"
   },
   {
     "id": "31450913",
@@ -9259,7 +9349,8 @@
     "pages": 395,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/39989153",
-    "coverUrl": "/covers/39989153.jpg"
+    "coverUrl": "/covers/39989153.jpg",
+    "isbn13": "9781473673311"
   },
   {
     "id": "45835010",
@@ -9397,7 +9488,8 @@
     "pages": 544,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/42379020",
-    "coverUrl": "/covers/42379020.jpg"
+    "coverUrl": "/covers/42379020.jpg",
+    "isbn13": "9780525564232"
   },
   {
     "id": "43426912",
@@ -9422,7 +9514,8 @@
     "pages": 380,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/42103980",
-    "coverUrl": "/covers/42103980.jpg"
+    "coverUrl": "/covers/42103980.jpg",
+    "isbn13": "9780525510871"
   },
   {
     "id": "36234117",
@@ -9447,7 +9540,8 @@
     "pages": 443,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/42368149",
-    "coverUrl": "/covers/42368149.jpg"
+    "coverUrl": "/covers/42368149.jpg",
+    "isbn13": "9783426530597"
   },
   {
     "id": "36141011",
@@ -9483,7 +9577,8 @@
     "pages": 258,
     "yearPublished": 2004,
     "goodreadsUrl": "https://www.goodreads.com/book/show/12965338",
-    "coverUrl": "/covers/12965338.jpeg"
+    "coverUrl": "/covers/12965338.jpeg",
+    "isbn13": "9781582433219"
   },
   {
     "id": "41644326",
@@ -9508,7 +9603,8 @@
     "pages": 352,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/35526438",
-    "coverUrl": "/covers/35526438.jpg"
+    "coverUrl": "/covers/35526438.jpg",
+    "isbn13": "9781432866648"
   },
   {
     "id": "41796283",
@@ -9572,7 +9668,8 @@
     "pages": 177,
     "yearPublished": 1999,
     "goodreadsUrl": "https://www.goodreads.com/book/show/11886692",
-    "coverUrl": "/covers/11886692.jpg"
+    "coverUrl": "/covers/11886692.jpg",
+    "isbn13": "9780375406522"
   },
   {
     "id": "41592325",
@@ -9595,7 +9692,8 @@
     "pages": 480,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/42863111",
-    "coverUrl": "/covers/42863111.jpg"
+    "coverUrl": "/covers/42863111.jpg",
+    "isbn13": "9780399590412"
   },
   {
     "id": "40203647",
@@ -9607,7 +9705,8 @@
     "pages": 413,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40203647",
-    "coverUrl": "/covers/40203647.jpg"
+    "coverUrl": "/covers/40203647.jpg",
+    "isbn13": "9788416720873"
   },
   {
     "id": "42076369",
@@ -9619,7 +9718,8 @@
     "pages": 272,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/42076369",
-    "coverUrl": "/covers/42076369.jpg"
+    "coverUrl": "/covers/42076369.jpg",
+    "isbn13": "9781788161671"
   },
   {
     "id": "40520251",
@@ -9631,7 +9731,8 @@
     "pages": 404,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40520251",
-    "coverUrl": "/covers/40520251.jpg"
+    "coverUrl": "/covers/40520251.jpg",
+    "isbn13": "9781787462144"
   },
   {
     "id": "44547620",
@@ -9704,7 +9805,8 @@
     "pages": 288,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/33778610",
-    "coverUrl": "/covers/33778610.jpg"
+    "coverUrl": "/covers/33778610.jpg",
+    "isbn13": "9781509458790"
   },
   {
     "id": "38593165",
@@ -9716,7 +9818,8 @@
     "pages": 257,
     "yearPublished": 2014,
     "goodreadsUrl": "https://www.goodreads.com/book/show/38593165",
-    "coverUrl": "/covers/38593165.jpg"
+    "coverUrl": "/covers/38593165.jpg",
+    "isbn13": "9781609452896"
   },
   {
     "id": "37539457",
@@ -9741,7 +9844,8 @@
     "pages": 421,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/38490978",
-    "coverUrl": "/covers/38490978.jpg"
+    "coverUrl": "/covers/38490978.jpg",
+    "isbn13": "9781432869632"
   },
   {
     "id": "40389527",
@@ -9790,7 +9894,8 @@
     "pages": 400,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40195463",
-    "coverUrl": "/covers/40195463.jpg"
+    "coverUrl": "/covers/40195463.jpg",
+    "isbn13": "9780316556323"
   },
   {
     "id": "34267285",
@@ -9840,7 +9945,8 @@
     "pages": 226,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/30319590",
-    "coverUrl": "/covers/30319590.jpg"
+    "coverUrl": "/covers/30319590.jpg",
+    "isbn13": "9781476739014"
   },
   {
     "id": "31204493",
@@ -9880,7 +9986,8 @@
     "pages": 405,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36113496",
-    "coverUrl": "/covers/36113496.jpg"
+    "coverUrl": "/covers/36113496.jpg",
+    "isbn13": "9781509827893"
   },
   {
     "id": "20518872",
@@ -9916,7 +10023,8 @@
     "pages": 371,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/34873421",
-    "coverUrl": "/covers/34873421.jpg"
+    "coverUrl": "/covers/34873421.jpg",
+    "isbn13": "9781328745538"
   },
   {
     "id": "33411229",
@@ -9941,7 +10049,8 @@
     "pages": 560,
     "yearPublished": 2002,
     "goodreadsUrl": "https://www.goodreads.com/book/show/6401660",
-    "coverUrl": "/covers/6401660.jpg"
+    "coverUrl": "/covers/6401660.jpg",
+    "isbn13": "9780356232928"
   },
   {
     "id": "26155161",
@@ -10167,7 +10276,8 @@
     "pages": 288,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/34647940",
-    "coverUrl": "/covers/34647940.jpg"
+    "coverUrl": "/covers/34647940.jpg",
+    "isbn13": "9781455594450"
   },
   {
     "id": "38474560",
@@ -10179,7 +10289,8 @@
     "pages": 322,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/38474560",
-    "coverUrl": "/covers/38474560.jpg"
+    "coverUrl": "/covers/38474560.jpg",
+    "isbn13": "9781432856410"
   },
   {
     "id": "40552730",
@@ -10191,7 +10302,8 @@
     "pages": 388,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40552730",
-    "coverUrl": "/covers/40552730.jpg"
+    "coverUrl": "/covers/40552730.jpg",
+    "isbn13": "9781611859263"
   },
   {
     "id": "39788660",
@@ -10203,7 +10315,8 @@
     "pages": 528,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/39788660",
-    "coverUrl": "/covers/39788660.jpeg"
+    "coverUrl": "/covers/39788660.jpeg",
+    "isbn13": "9781984877604"
   },
   {
     "id": "39751768",
@@ -10265,7 +10378,8 @@
     "pages": 225,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36693524",
-    "coverUrl": "/covers/36693524.jpg"
+    "coverUrl": "/covers/36693524.jpg",
+    "isbn13": "9780812996937"
   },
   {
     "id": "36193439",
@@ -10277,7 +10391,8 @@
     "pages": 144,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36193439",
-    "coverUrl": "/covers/36193439.jpg"
+    "coverUrl": "/covers/36193439.jpg",
+    "isbn13": "9780008286309"
   },
   {
     "id": "39867964",
@@ -10313,7 +10428,8 @@
     "pages": 294,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/31948742",
-    "coverUrl": "/covers/31948742.jpg"
+    "coverUrl": "/covers/31948742.jpg",
+    "isbn13": "9783896675903"
   },
   {
     "id": "33832831",
@@ -10351,7 +10467,8 @@
     "pages": 353,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/38799469",
-    "coverUrl": "/covers/38799469.png"
+    "coverUrl": "/covers/38799469.png",
+    "isbn13": "9780525431992"
   },
   {
     "id": "39903265",
@@ -10400,7 +10517,8 @@
     "pages": 319,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/34503571",
-    "coverUrl": "/covers/34503571.jpg"
+    "coverUrl": "/covers/34503571.jpg",
+    "isbn13": "9781432858421"
   },
   {
     "id": "36247169",
@@ -10412,7 +10530,8 @@
     "pages": 336,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36247169",
-    "coverUrl": "/covers/36247169.jpg"
+    "coverUrl": "/covers/36247169.jpg",
+    "isbn13": "9783462050127"
   },
   {
     "id": "29569206",
@@ -10437,7 +10556,8 @@
     "pages": 321,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36978953",
-    "coverUrl": "/covers/36978953.webp"
+    "coverUrl": "/covers/36978953.webp",
+    "isbn13": "9780062568458"
   },
   {
     "id": "38350979",
@@ -10565,7 +10685,8 @@
     "pages": 490,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/32619967",
-    "coverUrl": "/covers/32619967.jpg"
+    "coverUrl": "/covers/32619967.jpg",
+    "isbn13": "9781668648315"
   },
   {
     "id": "39807070",
@@ -10590,7 +10711,8 @@
     "pages": 390,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/27868408",
-    "coverUrl": "/covers/27868408.jpg"
+    "coverUrl": "/covers/27868408.jpg",
+    "isbn13": "9781455561803"
   },
   {
     "id": "38205614",
@@ -10602,7 +10724,8 @@
     "pages": 274,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/38205614",
-    "coverUrl": "/covers/38205614.jpg"
+    "coverUrl": "/covers/38205614.jpg",
+    "isbn13": "9781683352372"
   },
   {
     "id": "36615105",
@@ -10653,7 +10776,8 @@
     "pages": 435,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/34912895",
-    "coverUrl": "/covers/34912895.jpg"
+    "coverUrl": "/covers/34912895.jpg",
+    "isbn13": "9781447286004"
   },
   {
     "id": "36531862",
@@ -10813,7 +10937,8 @@
     "pages": 649,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/35397072",
-    "coverUrl": "/covers/35397072.jpg"
+    "coverUrl": "/covers/35397072.jpg",
+    "isbn13": "9781549116353"
   },
   {
     "id": "35283342",
@@ -10862,7 +10987,8 @@
     "pages": 353,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/36531861",
-    "coverUrl": "/covers/36531861.jpeg"
+    "coverUrl": "/covers/36531861.jpeg",
+    "isbn13": "9781501156601"
   },
   {
     "id": "32187419",
@@ -10926,7 +11052,8 @@
     "pages": 289,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/40611244",
-    "coverUrl": "/covers/40611244.jpg"
+    "coverUrl": "/covers/40611244.jpg",
+    "isbn13": "9780091959647"
   },
   {
     "id": "35631386",
@@ -11027,7 +11154,8 @@
     "pages": 416,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/33984894",
-    "coverUrl": "/covers/33984894.jpg"
+    "coverUrl": "/covers/33984894.jpg",
+    "isbn13": "9788416859214"
   },
   {
     "id": "34675006",
@@ -11695,7 +11823,8 @@
     "pages": 303,
     "yearPublished": 2019,
     "goodreadsUrl": "https://www.goodreads.com/book/show/56787087",
-    "coverUrl": "/covers/56787087.jpg"
+    "coverUrl": "/covers/56787087.jpg",
+    "isbn13": "9780008294953"
   },
   {
     "id": "52593527",
@@ -11872,7 +12001,8 @@
     "pages": 304,
     "yearPublished": 2018,
     "goodreadsUrl": "https://www.goodreads.com/book/show/34603596",
-    "coverUrl": "/covers/34603596.jpg"
+    "coverUrl": "/covers/34603596.jpg",
+    "isbn13": "9780374164836"
   },
   {
     "id": "19792897",
@@ -11883,7 +12013,8 @@
     "pages": 481,
     "yearPublished": 2009,
     "goodreadsUrl": "https://www.goodreads.com/book/show/19792897",
-    "coverUrl": "/covers/19792897.jpg"
+    "coverUrl": "/covers/19792897.jpg",
+    "isbn13": "9798686991217"
   },
   {
     "id": "4374400",
@@ -12628,7 +12759,8 @@
     "pages": 323,
     "yearPublished": 2011,
     "goodreadsUrl": "https://www.goodreads.com/book/show/8909152",
-    "coverUrl": "/covers/8909152.jpg"
+    "coverUrl": "/covers/8909152.jpg",
+    "isbn13": "9781409116301"
   },
   {
     "id": "40046059",
@@ -13152,7 +13284,8 @@
     "pages": 320,
     "yearPublished": 2017,
     "goodreadsUrl": "https://www.goodreads.com/book/show/34818584",
-    "coverUrl": "/covers/34818584.jpg"
+    "coverUrl": "/covers/34818584.jpg",
+    "isbn13": "9781472153821"
   },
   {
     "id": "22929602",
@@ -13319,7 +13452,8 @@
     "pages": 305,
     "yearPublished": 2016,
     "goodreadsUrl": "https://www.goodreads.com/book/show/27071490",
-    "coverUrl": "/covers/27071490.jpg"
+    "coverUrl": "/covers/27071490.jpg",
+    "isbn13": "9781101971062"
   },
   {
     "id": "234225",
@@ -14031,7 +14165,8 @@
     "pages": 483,
     "yearPublished": 2013,
     "goodreadsUrl": "https://www.goodreads.com/book/show/16068905",
-    "coverUrl": "/covers/16068905.jpg"
+    "coverUrl": "/covers/16068905.jpg",
+    "isbn13": "9781250030962"
   },
   {
     "id": "3805",
@@ -14509,7 +14644,8 @@
     "pages": 321,
     "yearPublished": 2010,
     "goodreadsUrl": "https://www.goodreads.com/book/show/7937843",
-    "coverUrl": "/covers/7937843.jpg"
+    "coverUrl": "/covers/7937843.jpg",
+    "isbn13": "9781306767606"
   },
   {
     "id": "6892870",
@@ -14568,7 +14704,8 @@
     "pages": 372,
     "yearPublished": 2008,
     "goodreadsUrl": "https://www.goodreads.com/book/show/1379961",
-    "coverUrl": "/covers/1379961.jpg"
+    "coverUrl": "/covers/1379961.jpg",
+    "isbn13": "9782266200615"
   },
   {
     "id": "3008",
@@ -15085,7 +15222,8 @@
     "pages": 335,
     "yearPublished": 2011,
     "goodreadsUrl": "https://www.goodreads.com/book/show/10054335",
-    "coverUrl": "/covers/10054335.jpg"
+    "coverUrl": "/covers/10054335.jpg",
+    "isbn13": "9781444708851"
   },
   {
     "id": "6334",
@@ -15228,7 +15366,8 @@
     "pages": 464,
     "yearPublished": 1847,
     "goodreadsUrl": "https://www.goodreads.com/book/show/6185",
-    "coverUrl": "/covers/6185.jpg"
+    "coverUrl": "/covers/6185.jpg",
+    "isbn13": "9781547160099"
   },
   {
     "id": "29044",
@@ -15443,7 +15582,8 @@
     "pages": 318,
     "yearPublished": 2001,
     "goodreadsUrl": "https://www.goodreads.com/book/show/5826",
-    "coverUrl": "/covers/5826.jpg"
+    "coverUrl": "/covers/5826.jpg",
+    "isbn13": "9789706517869"
   },
   {
     "id": "398651",
