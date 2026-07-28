@@ -17,22 +17,23 @@ export default async function AdminPage() {
   const jar = await cookies();
   if (!isAuthed(jar.get(ADMIN_COOKIE)?.value)) redirect("/admin/login");
 
-  const books: EditorBook[] = lovedBooks.map((b) => ({
-    id: b.id,
-    title: b.title,
-    author: b.author,
-    coverUrl: b.coverUrl,
-    myRating: b.myRating,
-    blurb: blurbs[b.id]?.text ?? "",
-    needsReview: blurbs[b.id]?.needsReview ?? false,
-    hasReview: !!b.myReview?.trim(),
-  }));
-
-  // Attention first: no blurb, then needs-review, then the rest.
-  books.sort((a, b) => {
-    const rank = (x: EditorBook) => (!x.blurb ? 0 : x.needsReview ? 1 : 2);
-    return rank(a) - rank(b) || a.title.localeCompare(b.title);
-  });
+  // Most recently rated first; undated (older imports) fall to the bottom.
+  const books: EditorBook[] = [...lovedBooks]
+    .sort(
+      (a, b) =>
+        (b.dateRead ?? "").localeCompare(a.dateRead ?? "") ||
+        a.title.localeCompare(b.title)
+    )
+    .map((b) => ({
+      id: b.id,
+      title: b.title,
+      author: b.author,
+      coverUrl: b.coverUrl,
+      myRating: b.myRating,
+      blurb: blurbs[b.id]?.text ?? "",
+      needsReview: blurbs[b.id]?.needsReview ?? false,
+      hasReview: !!b.myReview?.trim(),
+    }));
 
   return <AdminEditor books={books} />;
 }

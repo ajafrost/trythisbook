@@ -16,7 +16,7 @@ export type EditorBook = {
 export default function AdminEditor({ books }: { books: EditorBook[] }) {
   const router = useRouter();
   const [q, setQ] = useState("");
-  const [onlyAttention, setOnlyAttention] = useState(true);
+  const [onlyAttention, setOnlyAttention] = useState(false);
 
   const attentionCount = books.filter(
     (b) => !b.blurb || b.needsReview
@@ -25,12 +25,15 @@ export default function AdminEditor({ books }: { books: EditorBook[] }) {
   const shown = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return books.filter((b) => {
+      // A search always looks across every book, ignoring the attention filter.
+      if (needle) {
+        return (
+          b.title.toLowerCase().includes(needle) ||
+          b.author.toLowerCase().includes(needle)
+        );
+      }
       if (onlyAttention && b.blurb && !b.needsReview) return false;
-      if (!needle) return true;
-      return (
-        b.title.toLowerCase().includes(needle) ||
-        b.author.toLowerCase().includes(needle)
-      );
+      return true;
     });
   }, [books, q, onlyAttention]);
 
@@ -53,8 +56,14 @@ export default function AdminEditor({ books }: { books: EditorBook[] }) {
           Log out
         </button>
       </div>
-      <p className="mt-1 font-mono text-sm text-accent-deep">
-        {attentionCount} book{attentionCount === 1 ? "" : "s"} need attention
+      <p className="mt-1 font-mono text-sm text-ink-soft">
+        {books.length} books
+        {attentionCount > 0 && (
+          <span className="text-accent-deep">
+            {" · "}
+            {attentionCount} need review
+          </span>
+        )}
       </p>
 
       <div className="mt-5 flex flex-wrap items-center gap-3">
