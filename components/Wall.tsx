@@ -275,36 +275,34 @@ export default function Wall({ books, shelves }: Props) {
           ) : (
             <ul className="divide-y divide-line">
               {shown.map((b) => (
-                <li key={b.id} className="flex gap-4 py-4">
+                <li key={b.id}>
                   <Link
                     href={bookHref(b.slug)}
                     scroll={false}
-                    className="h-24 w-16 shrink-0 overflow-hidden rounded shadow ring-1 ring-black/10"
                     aria-label={`Open ${b.title}`}
+                    className="group -mx-3 flex gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-surface"
                   >
-                    <Cover
-                      id={b.id}
-                      title={b.title}
-                      author={b.author}
-                      coverUrl={b.coverUrl}
-                      className="h-full w-full text-[0.55rem]"
-                    />
+                    <div className="relative h-24 w-16 shrink-0 overflow-hidden rounded shadow ring-1 ring-black/10">
+                      <Cover
+                        id={b.id}
+                        title={b.title}
+                        author={b.author}
+                        coverUrl={b.coverUrl}
+                        className="h-full w-full text-[0.55rem]"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="block font-serif text-lg font-semibold leading-snug text-ink group-hover:text-accent-deep">
+                        {b.title}
+                      </span>
+                      <p className="text-sm text-ink-soft">{b.author}</p>
+                      {b.blurb && (
+                        <p className="mt-1 text-sm text-ink-soft line-clamp-4">
+                          {b.blurb}
+                        </p>
+                      )}
+                    </div>
                   </Link>
-                  <div className="min-w-0 flex-1">
-                    <Link
-                      href={bookHref(b.slug)}
-                      scroll={false}
-                      className="text-left font-serif text-lg font-semibold leading-snug text-ink hover:text-accent-deep"
-                    >
-                      {b.title}
-                    </Link>
-                    <p className="text-sm text-ink-soft">{b.author}</p>
-                    {b.blurb && (
-                      <p className="mt-1 text-sm text-ink-soft line-clamp-4">
-                        {b.blurb}
-                      </p>
-                    )}
-                  </div>
                 </li>
               ))}
             </ul>
