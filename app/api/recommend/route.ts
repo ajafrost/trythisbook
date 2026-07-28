@@ -4,7 +4,7 @@ import {
   fallbackResult,
   type RecResult,
 } from "@/lib/recommend";
-import { getBlurb } from "@/lib/library";
+import { getBlurb, bookSlug } from "@/lib/library";
 
 export const runtime = "nodejs";
 
@@ -33,6 +33,7 @@ function serialize(result: RecResult) {
     message: result.message,
     picks: result.picks.map(({ book, why }) => ({
       id: book.id,
+      slug: bookSlug(book.id),
       title: book.title,
       author: book.author,
       coverUrl: book.coverUrl,

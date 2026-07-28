@@ -6,6 +6,7 @@ import FiveStarBadge from "@/components/FiveStarBadge";
 
 type RecPick = {
   id: string;
+  slug?: string;
   title: string;
   author: string;
   coverUrl?: string;
@@ -130,35 +131,51 @@ export default function AskPage() {
             </p>
           )}
           <div className="space-y-4">
-            {result.picks.map((p, i) => (
-              <div
-                key={p.id}
-                className="flex gap-4 rounded-2xl border border-line bg-white/60 p-4 shadow-sm sm:p-5"
-              >
-                <div className="w-20 shrink-0 sm:w-24">
-                  <div className="relative aspect-[2/3] overflow-hidden rounded-md shadow-md ring-1 ring-black/10">
-                    <Cover
-                      id={p.id}
-                      title={p.title}
-                      author={p.author}
-                      coverUrl={p.coverUrl}
-                      className="h-full w-full"
-                      priority={i === 0}
-                    />
-                    {p.myRating === 5 && <FiveStarBadge />}
+            {result.picks.map((p, i) => {
+              const cls =
+                "group flex gap-4 rounded-2xl border border-line bg-white/60 p-4 shadow-sm transition-colors hover:border-accent/40 hover:bg-surface sm:p-5";
+              const inner = (
+                <>
+                  <div className="w-20 shrink-0 sm:w-24">
+                    <div className="relative aspect-[2/3] overflow-hidden rounded-md shadow-md ring-1 ring-black/10">
+                      <Cover
+                        id={p.id}
+                        title={p.title}
+                        author={p.author}
+                        coverUrl={p.coverUrl}
+                        className="h-full w-full"
+                        priority={i === 0}
+                      />
+                      {p.myRating === 5 && <FiveStarBadge />}
+                    </div>
                   </div>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="font-serif text-xl font-semibold leading-tight text-ink group-hover:text-accent-deep">
+                      {p.title}
+                    </h2>
+                    <p className="text-sm text-ink-soft">{p.author}</p>
+                    <p className="mt-2 text-[0.95rem] leading-relaxed text-ink">
+                      {p.why}
+                    </p>
+                  </div>
+                </>
+              );
+              return p.slug ? (
+                <Link
+                  key={p.id}
+                  href={`/book/${p.slug}`}
+                  scroll={false}
+                  aria-label={`Open ${p.title}`}
+                  className={cls}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <div key={p.id} className={cls}>
+                  {inner}
                 </div>
-                <div className="min-w-0 flex-1">
-                  <h2 className="font-serif text-xl font-semibold leading-tight text-ink">
-                    {p.title}
-                  </h2>
-                  <p className="text-sm text-ink-soft">{p.author}</p>
-                  <p className="mt-2 text-[0.95rem] leading-relaxed text-ink">
-                    {p.why}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
