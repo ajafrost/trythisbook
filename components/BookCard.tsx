@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Cover from "./Cover";
+import FiveStarBadge from "./FiveStarBadge";
 import type { Book } from "@/lib/library";
 
 // The card is the unit everywhere: cover, title, author, and Aja's blurb.
@@ -26,11 +27,7 @@ export default function BookCard({
         coverUrl={book.coverUrl}
         className="h-full w-full"
       />
-      {book.myRating === 5 && (
-        <span className="absolute right-1.5 top-1.5 rounded-full bg-paper/90 px-1.5 py-0.5 text-[0.65rem] font-semibold text-accent-deep shadow-sm">
-          ★ 5
-        </span>
-      )}
+      {book.myRating === 5 && <FiveStarBadge />}
     </>
   );
 

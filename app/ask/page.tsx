@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Cover from "@/components/Cover";
+import FiveStarBadge from "@/components/FiveStarBadge";
 
 type RecPick = {
   id: string;
@@ -11,6 +12,7 @@ type RecPick = {
   goodreadsUrl: string;
   blurb?: string;
   why: string;
+  myRating: number;
 };
 type RecPayload = { fallback: boolean; message?: string; picks: RecPick[] };
 
@@ -134,7 +136,7 @@ export default function AskPage() {
                 className="flex gap-4 rounded-2xl border border-line bg-white/60 p-4 shadow-sm sm:p-5"
               >
                 <div className="w-20 shrink-0 sm:w-24">
-                  <div className="aspect-[2/3] overflow-hidden rounded-md shadow-md ring-1 ring-black/10">
+                  <div className="relative aspect-[2/3] overflow-hidden rounded-md shadow-md ring-1 ring-black/10">
                     <Cover
                       id={p.id}
                       title={p.title}
@@ -143,6 +145,7 @@ export default function AskPage() {
                       className="h-full w-full"
                       priority={i === 0}
                     />
+                    {p.myRating === 5 && <FiveStarBadge />}
                   </div>
                 </div>
                 <div className="min-w-0 flex-1">

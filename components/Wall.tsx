@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Cover from "./Cover";
+import FiveStarBadge from "./FiveStarBadge";
 import { GENRES, type WallBook } from "@/lib/library";
 import { LENGTHS, orderWall } from "@/lib/wall";
 import { setWallUrl } from "@/lib/wallState";
@@ -267,6 +268,7 @@ export default function Wall({ books, shelves }: Props) {
                     priority={i < 12}
                     fetchPriority={i < 6 ? "high" : undefined}
                   />
+                  {b.myRating === 5 && <FiveStarBadge />}
                 </Link>
               ))}
             </div>
