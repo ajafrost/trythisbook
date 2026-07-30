@@ -1,12 +1,12 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Cover from "./Cover";
 import BookCard from "./BookCard";
 import { bookshopUrl } from "@/lib/bookshop";
 import { genreLabel, bookPath, type Book } from "@/lib/library";
-import { getWallUrl } from "@/lib/wallState";
+import { getWallUrl, getWallOrder } from "@/lib/wallState";
 
 // Book detail as a modal over the wall. Rendered by app/(wall)/book/[slug], which
 // shares its layout with the wall — so the wall stays mounted behind it. The URL
@@ -15,6 +15,7 @@ import { getWallUrl } from "@/lib/wallState";
 // returns to the wall at "/"; content is server-rendered for search/AI crawlers.
 export default function BookOverlay({
   book,
+  slug,
   blurb,
   genres,
   shelves,
@@ -23,6 +24,7 @@ export default function BookOverlay({
   nextHref,
 }: {
   book: Book;
+  slug: string;
   blurb?: string;
   genres: string[];
   shelves: { slug: string; name: string }[];
@@ -36,11 +38,35 @@ export default function BookOverlay({
   const close = () => router.push(getWallUrl() || "/");
   const readYear = book.dateRead ? book.dateRead.slice(0, 4) : null;
 
+  // Step prev/next through the wall's CURRENT filtered+sorted order, not the
+  // default recently-read order the server rendered. The book URL carries no
+  // filter/sort, so we read the live order the persistent <Wall> recorded. On a
+  // direct load / for crawlers (wall order not yet recorded, or this book isn't
+  // in the active filter), fall back to the server-rendered neighbors.
+  const [nav, setNav] = useState<{ prev: string | null; next: string | null }>({
+    prev: prevHref,
+    next: nextHref,
+  });
+  useEffect(() => {
+    const order = getWallOrder();
+    const i = order.indexOf(slug);
+    if (i === -1) {
+      setNav({ prev: prevHref, next: nextHref });
+      return;
+    }
+    setNav({
+      prev: i > 0 ? `/book/${order[i - 1]}` : null,
+      next: i < order.length - 1 ? `/book/${order[i + 1]}` : null,
+    });
+  }, [slug, prevHref, nextHref]);
+  const prev = nav.prev;
+  const next = nav.next;
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
-      else if (e.key === "ArrowLeft" && prevHref) router.push(prevHref);
-      else if (e.key === "ArrowRight" && nextHref) router.push(nextHref);
+      else if (e.key === "ArrowLeft" && prev) router.push(prev);
+      else if (e.key === "ArrowRight" && next) router.push(next);
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -49,7 +75,7 @@ export default function BookOverlay({
       document.body.style.overflow = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [prevHref, nextHref]);
+  }, [prev, next]);
 
   return (
     <div
@@ -161,9 +187,9 @@ export default function BookOverlay({
         )}
 
         <div className="mt-6 flex items-center justify-between border-t border-line pt-4">
-          {prevHref ? (
+          {prev ? (
             <Link
-              href={prevHref}
+              href={prev}
               className="rounded-full px-3 py-1.5 text-sm text-ink-soft hover:bg-line/50"
             >
               ← Previous
@@ -173,9 +199,9 @@ export default function BookOverlay({
               ← Previous
             </span>
           )}
-          {nextHref ? (
+          {next ? (
             <Link
-              href={nextHref}
+              href={next}
               className="rounded-full px-3 py-1.5 text-sm text-ink-soft hover:bg-line/50"
             >
               Next →

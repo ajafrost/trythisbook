@@ -6,7 +6,7 @@ import Cover from "./Cover";
 import FiveStarBadge from "./FiveStarBadge";
 import { GENRES, type WallBook } from "@/lib/library";
 import { LENGTHS, orderWall } from "@/lib/wall";
-import { setWallUrl } from "@/lib/wallState";
+import { setWallUrl, setWallOrder } from "@/lib/wallState";
 
 type Props = {
   books: WallBook[];
@@ -34,9 +34,12 @@ export default function Wall({ books, shelves }: Props) {
     if (!onBook) setSavedHref(liveHref);
   }, [onBook, liveHref]);
   const effHref = onBook ? savedHref : liveHref;
+  // Keep the restore-on-close URL synced only while we're actually on the wall.
+  // (Navigating into a book can momentarily reset the derived state, so we must
+  // not let that overwrite the wall URL — see captureWall below.)
   useEffect(() => {
-    setWallUrl(effHref); // so the book modal can restore the wall on close
-  }, [effHref]);
+    if (!onBook) setWallUrl(effHref);
+  }, [effHref, onBook]);
 
   // ── read filter state from the effective (possibly frozen) wall url ────────
   const eff = new URL(effHref, "http://wall");
@@ -122,6 +125,16 @@ export default function Wall({ books, shelves }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [books, filterKey, sort]
   );
+
+  // Snapshot the wall's exact current URL + filtered/sorted order at the moment a
+  // cover is clicked, so an open book modal can step prev/next through that same
+  // set. We capture on click (not via an effect) because navigating into a book
+  // can momentarily reset the wall's derived filter state — capturing here, while
+  // we're provably still on the filtered wall, is what makes the filter "stick".
+  const captureWall = useCallback(() => {
+    setWallUrl(liveHref);
+    setWallOrder(sorted.map((b) => b.slug));
+  }, [liveHref, sorted]);
 
   const anyFilter = shelfSel.length || genreSel.length || lengthSel;
 
@@ -254,6 +267,7 @@ export default function Wall({ books, shelves }: Props) {
                   key={b.id}
                   href={bookHref(b.slug)}
                   scroll={false}
+                  onClick={captureWall}
                   className="group relative block aspect-[2/3] overflow-hidden rounded-md shadow-[0_6px_18px_-8px_rgba(43,38,32,0.45)] ring-1 ring-black/5 transition-transform hover:-translate-y-1"
                   aria-label={`Open ${b.title}`}
                 >
@@ -279,23 +293,30 @@ export default function Wall({ books, shelves }: Props) {
                   <Link
                     href={bookHref(b.slug)}
                     scroll={false}
+                    onClick={captureWall}
                     aria-label={`Open ${b.title}`}
                     className="group -mx-3 flex gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-surface"
                   >
-                    <div className="relative h-24 w-16 shrink-0 overflow-hidden rounded shadow ring-1 ring-black/10">
-                      <Cover
-                        id={b.id}
-                        title={b.title}
-                        author={b.author}
-                        coverUrl={b.coverUrl}
-                        className="h-full w-full text-[0.55rem]"
-                      />
+                    <div className="relative h-24 w-16 shrink-0 rounded shadow ring-1 ring-black/10">
+                      <div className="h-full w-full overflow-hidden rounded">
+                        <Cover
+                          id={b.id}
+                          title={b.title}
+                          author={b.author}
+                          coverUrl={b.coverUrl}
+                          className="h-full w-full text-[0.55rem]"
+                        />
+                      </div>
+                      {b.myRating === 5 && <FiveStarBadge />}
                     </div>
                     <div className="min-w-0 flex-1">
                       <span className="block font-serif text-lg font-semibold leading-snug text-ink group-hover:text-accent-deep">
                         {b.title}
                       </span>
-                      <p className="text-sm text-ink-soft">{b.author}</p>
+                      <p className="text-sm text-ink-soft">
+                        {b.author}
+                        {b.yearPublished ? ` · ${b.yearPublished}` : ""}
+                      </p>
                       {b.blurb && (
                         <p className="mt-1 text-sm text-ink-soft line-clamp-4">
                           {b.blurb}

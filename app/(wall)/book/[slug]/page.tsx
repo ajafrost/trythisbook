@@ -77,8 +77,10 @@ export default async function BookModalPage({
     .filter((b): b is Book => !!b)
     .map((b) => ({ book: b, blurb: getBlurb(b.id) }));
 
-  // Prev/next walk the full wall order (recently read). The book URL stays a
-  // clean /book/<slug> with no filter query, so this is the same everywhere.
+  // Server fallback for prev/next: the full wall order (recently read), used on
+  // direct loads and by crawlers. When the interactive wall is mounted, the
+  // modal overrides these client-side to walk the user's active filter+sort
+  // order instead (see BookOverlay + lib/wallState).
   const order = wallData().books;
   const idx = order.findIndex((b) => b.slug === slug);
   const prevHref = idx > 0 ? bookPath(order[idx - 1].id) : null;
@@ -99,6 +101,7 @@ export default async function BookModalPage({
       />
       <BookOverlay
         book={book}
+        slug={slug}
         blurb={blurb}
         genres={genres}
         shelves={shelves}
