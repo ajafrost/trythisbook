@@ -72,7 +72,7 @@ export default async function BookModalPage({
   const shelves = bookShelves(book.id).filter(
     (s) => shelfBooks(s.slug).length > 0,
   );
-  const comps = compsFor(book.id, 5)
+  const comps = compsFor(book.id, 3)
     .map((c) => getBook(c.id))
     .filter((b): b is Book => !!b)
     .map((b) => ({ book: b, blurb: getBlurb(b.id) }));

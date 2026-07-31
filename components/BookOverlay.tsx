@@ -178,9 +178,16 @@ export default function BookOverlay({
             <h2 className="font-serif text-lg font-semibold text-ink">
               If you liked this, try…
             </h2>
-            <div className="mt-4 grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-5">
+            <div className="mt-4 grid grid-cols-3 gap-x-5 gap-y-6">
               {comps.map(({ book: b, blurb: cb }) => (
-                <BookCard key={b.id} book={b} blurb={cb} href={bookPath(b.id)} />
+                <BookCard
+                  key={b.id}
+                  book={b}
+                  blurb={cb}
+                  href={bookPath(b.id)}
+                  blurbClamp="mobile"
+                  className="mx-auto w-full max-w-[9.5rem]"
+                />
               ))}
             </div>
           </section>
