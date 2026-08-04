@@ -1,70 +1,65 @@
 # Try This Book
 
-A personal book site — every book is one Aja actually read and rated 4 or 5 stars. Browse the whole collection, filter by mood/length/era, dig into curated shelves, and track what you've read. Built with Next.js + Tailwind. No accounts, no backend, no AI guessing — just her taste.
+**I read 120+ books a year and review the ones I rated 4 or 5 stars for Try This Book.**
 
-## Quick start
+[![License: MIT](https://img.shields.io/badge/License-MIT-2f6f5f)](LICENSE) [![Live: trythisbook.com](https://img.shields.io/badge/Live-trythisbook.com-c1553f)](https://trythisbook.com) ![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-111111)
+
+![The Try This Book home page](docs/home.jpg)
+
+There are currently ~700 books. Filter by mood, genre, or length, or describe exactly what you're looking for and get a custom recommendation.
+
+## What's on it
+
+| Page | What's there |
+|---|---|
+| **Home** | Every book I've loved in the last decade. Filter by shelf, genre, and length; sort by date or title; flip between covers and a list. |
+| **Book page** | My short review, plus three related suggestions. |
+| **Shelves** | Hand-picked collections — "Books people text me about," "When you're in the mood to cry." |
+| **Ask** | Tell it what you're in the mood for and it pulls something from my shelves. |
+
+## Make your own
+
+It's built to run on your own Goodreads library. You'll need [Node.js](https://nodejs.org).
+
+1. **Export your Goodreads books.** On Goodreads: *My Books → Import and Export → Export Library.* Save the file as `goodreads_export.csv` in the project folder.
+2. **Build and run:**
 
 ```bash
 npm install
 cp .env.example .env.local   # optional — see below
-npm run data                 # builds data/library.json + data/curation.json from the CSV
-npm run covers               # (optional) fetch real cover images for the library
+npm run data                 # turns your CSV into the site's data
+npm run covers               # optional — grabs book cover images
 npm run dev                  # http://localhost:3000
 ```
 
-## Pages
+That's all you need. But if you want to get fancy…
 
-| Route | What it is |
+### Optional settings (`.env.local`)
+
+| Setting | What it turns on |
 |---|---|
-| `/` | The whole wall — every 4–5★ book, NPR-style filters, covers/list toggle, detail overlay. Deep-linkable (`/?shelf=page-turners&length=short`). |
-| `/shelves`, `/shelves/[slug]` | Curated collections. |
-| `/my-list` | Your want-to-read list + reading score (client-side). |
-| `/about` | Who Aja is, how it works. |
+| `ANTHROPIC_API_KEY` | The **Ask** page, where Claude picks a book for you. If you don't add an API key, it'll default to random books you've rated 4 or 5 stars (like Google's "Surprise Me"). |
+| `GOODREADS_RSS_URL` | Auto-adding new 4- and 5-star books once a day. Get it from the RSS icon at the bottom of your Goodreads "read" shelf. |
+| `ADMIN_PASSWORD` + `GITHUB_TOKEN` | A private `/admin` page for editing your reviews from the browser. |
+| `CRON_SECRET` | Protects the `/api/sync` refresh hook. Fine to skip. |
 
-## Environment variables
+## How it stays up-to-date
 
-| Var | What it's for |
-|---|---|
-| `GOODREADS_RSS_URL` | Aja's "read" shelf RSS feed, merged in at build time. Copy the exact URL from the RSS icon at the bottom of your Goodreads shelf page. Optional — the site works from the CSV alone. |
-| `CRON_SECRET` | Shared secret protecting `/api/sync`. Vercel sends it automatically as `Authorization: Bearer <secret>` when the env var is set. |
+Your books live in two files, both checked in:
 
-## How the data works
+- **`data/library.json`** — built from your CSV. Don't hand-edit it; rerun `npm run data`.
+- **`data/curation.json`** — your shelves and one-line reviews. This one you can edit by hand.
 
-**Both JSON files are committed and used as-is at build time** — `npm run build` does NOT regenerate them (so covers and blurbs are never wiped). Regenerate manually only when Aja's library changes.
+A GitHub Action checks your Goodreads feed once a day and adds any new 4- or 5-star book, then redeploys. It only ever adds; it won't touch your shelves or your reviews.
 
-- **`data/library.json`** — generated, don't hand-edit. Built by `scripts/build-library.ts` from `goodreads_export.csv` (+ the RSS feed if configured). `scripts/fetch-covers.ts` enriches it with real cover images from Open Library. Re-running `npm run data` **preserves** existing cover URLs.
-- **`data/curation.json`** — Aja's to maintain. The 13 shelves and per-book blurbs. `scripts/build-curation.ts` generated a **starter** version with every shelf pre-populated (flagged `needsReview`) and 635 blurbs drafted in Aja's voice. Re-running `npm run data` **preserves** existing blurbs but **resets the shelf lists** to the starter — so once Aja hand-picks shelves, edit `curation.json` directly rather than re-running.
+## Deploy
 
-To refresh from a new Goodreads export: drop the new CSV in as `goodreads_export.csv`, then `npm run data && npm run covers`. Blurbs and covers for existing books carry over.
+Built for [Vercel](https://vercel.com): import the repo, add any optional settings, point your domain at it. Every push to `main` (including the daily auto-add) redeploys on its own.
 
-### Daily auto-sync of newly-loved books
+## Built with
 
-`.github/workflows/goodreads-sync.yml` runs once a day and adds any book Aja has **newly rated 4 or 5 stars** on Goodreads to the site — no CSV re-export needed. It runs `npm run sync` (`scripts/sync-goodreads.ts`), which reads the Goodreads "read" shelf RSS feed, appends only 4–5★ books not already in `data/library.json` (skipping anything in `data/removed.json`), fetches a cover for each, and commits the updated `library.json`. That push triggers a fresh Vercel deploy, so new books go live on their own. If nothing new is loved, the job is a clean no-op.
+Next.js (App Router), TypeScript, and Tailwind.
 
-The sync is **purely additive** — it never rewrites `curation.json` (so hand-picked shelves are safe) and never removes existing books, so it's safe to run forever.
+## License
 
-**One-time setup:**
-1. Add a repo secret `GOODREADS_RSS_URL` (Settings → Secrets and variables → Actions) — Aja's "read" shelf RSS URL, the same value as `.env.example`.
-2. Settings → Actions → General → Workflow permissions → **Read and write permissions**.
-
-You can also trigger it manually from the Actions tab, or run it locally with `GOODREADS_RSS_URL=… npm run sync`.
-
-### Library stats
-
-1,314 read · **736 recommendable (4–5★)** · 256 are 5★.
-
-## Deploy (Vercel)
-
-1. Push this folder to a Git repo, import it in Vercel.
-2. Set the env vars above in the Vercel project settings (both optional).
-3. Point `trythisbook.com` at the project (Vercel handles SSL).
-4. New 4–5★ books are added automatically by the daily GitHub Actions sync (see "Daily auto-sync" above), which commits to the repo and lets Vercel redeploy. `/api/sync` remains available as an optional cron-protected revalidation hook.
-
-## ✍️ Copy flagged for Aja's edit pass
-
-All user-facing copy is a **draft in Aja's voice** — search for `NOTE FOR AJA` and `draft` comments. Shelf names/descriptions, the About page, verdict lines, and blurbs are all yours to rewrite.
-
-## Not built (out of scope / v1.1)
-
-- **AI recommendations** (quiz, "if you liked X") — removed; the site is browse-first.
-- **Top 10 countdown** (`/best-of-2026`) — NYT-style scroll set-piece (spec 2.6).
+MIT — take it, fork it, make it yours. 🙂 See [LICENSE](LICENSE).
