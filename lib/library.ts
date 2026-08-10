@@ -247,18 +247,32 @@ export function wallData(): {
 }
 
 // "If you liked this, try…" comps for a book (spec 2.5). Score every other book
-// by shared curated shelves (strongest), then shared genres, then same author.
-// Genres matter because ~70% of loved books sit on no curated shelf — without
-// them those books get no real matching and fall straight through to the
-// crowd-pleaser padding. Pad from crowd-pleasers only when still thin, and vary
-// that padding per book so the same three titles don't headline every page.
-// Returns plain data safe to pass to client components.
+// by shared curated shelves (strongest), then shared genres weighted by rarity,
+// then same author. Genres matter because ~70% of loved books sit on no curated
+// shelf — but the genre set is coarse (2/3 of the library is "literary-fiction"),
+// so a shared common genre is a weak signal and a shared rare one is a strong
+// one; rarity weighting stops every literary novel recommending the same handful
+// of top-rated literary novels. Ties break on a per-book deterministic shuffle
+// (not rating) so different books get different picks. Pad from crowd-pleasers
+// only when still thin. Returns plain data safe to pass to client components.
 export type Comp = { id: string; title: string; author: string };
 
 // De-dupe by title+author, not id: the library has re-read duplicates (two rows
 // for the same book), so two distinct ids can be the same title — we never want
 // a book shown twice, or a re-read of the current book shown as its own comp.
 const compKey = (b: Book): string => `${b.title}|${b.author}`.toLowerCase();
+
+// Rarity weight per genre: ln(total / how-many-loved-books-have-it). Ubiquitous
+// genres ("literary-fiction", on ~2/3 of books) land near 0; rare ones score
+// high. Computed once — lovedBooks and genres are static at build time.
+const genreWeight: Map<string, number> = (() => {
+  const freq = new Map<string, number>();
+  for (const b of lovedBooks)
+    for (const g of bookGenres(b.id)) freq.set(g, (freq.get(g) ?? 0) + 1);
+  const weight = new Map<string, number>();
+  for (const [g, n] of freq) weight.set(g, Math.log(lovedBooks.length / n));
+  return weight;
+})();
 
 export function compsFor(id: string, count = 2): Comp[] {
   const self = getBook(id);
@@ -272,14 +286,21 @@ export function compsFor(id: string, count = 2): Comp[] {
       const sharedShelves = bookShelves(b.id).filter((s) =>
         myShelves.has(s.slug),
       ).length;
-      const sharedGenres = bookGenres(b.id).filter((g) =>
-        myGenres.has(g),
-      ).length;
+      const genreScore = bookGenres(b.id)
+        .filter((g) => myGenres.has(g))
+        .reduce((sum, g) => sum + (genreWeight.get(g) ?? 0), 0);
       const sameAuthor = b.author === self.author ? 1 : 0;
-      return { b, score: sharedShelves * 3 + sharedGenres + sameAuthor * 2 };
+      return {
+        b,
+        score: sharedShelves * 10 + sameAuthor * 5 + genreScore,
+        // Stable per (this book, candidate) → varied across books, fixed per book.
+        jitter: hashPair(id, b.id),
+      };
     })
     .filter((x) => x.score > 0)
-    .sort((a, b) => b.score - a.score || b.b.myRating - a.b.myRating);
+    // Score decides real matches; jitter (not rating) breaks ties, so books that
+    // only share a common genre don't all surface the same top-rated titles.
+    .sort((a, b) => b.score - a.score || a.jitter - b.jitter);
 
   const picks: Book[] = [];
   const usedKeys = new Set<string>([compKey(self)]);
@@ -297,6 +318,18 @@ export function compsFor(id: string, count = 2): Comp[] {
     for (const b of seededShuffle(crowdPleasers(), id)) take(b);
   }
   return picks.map((b) => ({ id: b.id, title: b.title, author: b.author }));
+}
+
+// Deterministic [0,1) from a pair of ids (FNV-1a). Stable per pair, well spread
+// across pairs — used to break comp-score ties without favoring any book.
+function hashPair(a: string, b: string): number {
+  let h = 2166136261;
+  const s = `${a}|${b}`;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0) / 4294967296;
 }
 
 // Deterministic shuffle keyed to a seed string (FNV-1a hash → mulberry32 PRNG).
