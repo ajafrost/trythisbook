@@ -246,31 +246,79 @@ export function wallData(): {
   };
 }
 
-// Two "if you liked this, try…" comps for a book (spec 2.5). Prefer books that
-// share the most curated shelves; tiebreak by same author; fall back to a
-// crowd-pleaser. Returns plain data safe to pass to client components.
+// "If you liked this, try…" comps for a book (spec 2.5). Score every other book
+// by shared curated shelves (strongest), then shared genres, then same author.
+// Genres matter because ~70% of loved books sit on no curated shelf — without
+// them those books get no real matching and fall straight through to the
+// crowd-pleaser padding. Pad from crowd-pleasers only when still thin, and vary
+// that padding per book so the same three titles don't headline every page.
+// Returns plain data safe to pass to client components.
 export type Comp = { id: string; title: string; author: string };
+
+// De-dupe by title+author, not id: the library has re-read duplicates (two rows
+// for the same book), so two distinct ids can be the same title — we never want
+// a book shown twice, or a re-read of the current book shown as its own comp.
+const compKey = (b: Book): string => `${b.title}|${b.author}`.toLowerCase();
+
 export function compsFor(id: string, count = 2): Comp[] {
   const self = getBook(id);
   if (!self) return [];
-  const mine = new Set(bookShelves(id).map((s) => s.slug));
+  const myShelves = new Set(bookShelves(id).map((s) => s.slug));
+  const myGenres = new Set(bookGenres(id));
+
   const scored = lovedBooks
     .filter((b) => b.id !== id)
     .map((b) => {
-      const shared = bookShelves(b.id).filter((s) => mine.has(s.slug)).length;
+      const sharedShelves = bookShelves(b.id).filter((s) =>
+        myShelves.has(s.slug),
+      ).length;
+      const sharedGenres = bookGenres(b.id).filter((g) =>
+        myGenres.has(g),
+      ).length;
       const sameAuthor = b.author === self.author ? 1 : 0;
-      return { b, score: shared * 2 + sameAuthor };
+      return { b, score: sharedShelves * 3 + sharedGenres + sameAuthor * 2 };
     })
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score || b.b.myRating - a.b.myRating);
 
-  const picks = scored.slice(0, count).map((x) => x.b);
-  // pad from crowd-pleasers if thin
+  const picks: Book[] = [];
+  const usedKeys = new Set<string>([compKey(self)]);
+  const take = (b: Book) => {
+    const key = compKey(b);
+    if (b.id === id || picks.length >= count || usedKeys.has(key)) return;
+    usedKeys.add(key);
+    picks.push(b);
+  };
+
+  for (const x of scored) take(x.b);
+  // Pad from crowd-pleasers if still thin, shuffled per book (stable across
+  // rebuilds, varied across books) so orphan pages don't all show the same top 3.
   if (picks.length < count) {
-    for (const b of crowdPleasers()) {
-      if (picks.length >= count) break;
-      if (b.id !== id && !picks.some((p) => p.id === b.id)) picks.push(b);
-    }
+    for (const b of seededShuffle(crowdPleasers(), id)) take(b);
   }
   return picks.map((b) => ({ id: b.id, title: b.title, author: b.author }));
+}
+
+// Deterministic shuffle keyed to a seed string (FNV-1a hash → mulberry32 PRNG).
+// Same seed always yields the same order, so a book's padding is stable build to
+// build, but different books get different orderings.
+function seededShuffle<T>(arr: T[], seed: string): T[] {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  const rand = () => {
+    h += 0x6d2b79f5;
+    let t = h;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
