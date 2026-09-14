@@ -15901,5 +15901,17 @@
     "isbn13": "1638931836",
     "coverUrl": "/covers/216684509.jpg",
     "goodreadsUrl": "https://www.goodreads.com/book/show/216684509"
+  },
+  {
+    "id": "245645254",
+    "title": "Fallow",
+    "author": "Sarah     Anderson",
+    "myRating": 5,
+    "shelves": [],
+    "pages": 336,
+    "yearPublished": 2026,
+    "isbn13": "0374621144",
+    "coverUrl": "/covers/245645254.jpg",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/245645254"
   }
 ]
