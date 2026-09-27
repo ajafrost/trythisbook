@@ -1,5 +1,31 @@
 [
   {
+    "id": "241683548",
+    "title": "Exit Party",
+    "author": "Emily St. John Mandel",
+    "myRating": 4,
+    "shelves": [],
+    "dateRead": "2026-09-27",
+    "pages": 320,
+    "yearPublished": 2026,
+    "isbn13": "1035081318",
+    "coverUrl": "/covers/241683548.jpg",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/241683548"
+  },
+  {
+    "id": "232794581",
+    "title": "The End of Romance",
+    "author": "Lily Meyer",
+    "myRating": 4,
+    "shelves": [],
+    "dateRead": "2026-09-26",
+    "pages": 336,
+    "yearPublished": 2026,
+    "isbn13": "059383514X",
+    "coverUrl": "/covers/232794581.jpg",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/232794581"
+  },
+  {
     "id": "244969690",
     "title": "Switzy",
     "author": "Emma Cline",
