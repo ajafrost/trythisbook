@@ -15952,5 +15952,17 @@
     "isbn13": "0374621144",
     "coverUrl": "/covers/245645254.jpg",
     "goodreadsUrl": "https://www.goodreads.com/book/show/245645254"
+  },
+  {
+    "id": "4406",
+    "title": "East of Eden",
+    "author": "John Steinbeck",
+    "myRating": 5,
+    "shelves": [],
+    "pages": 601,
+    "yearPublished": 1952,
+    "isbn13": "0142000655",
+    "coverUrl": "/covers/4406.jpg",
+    "goodreadsUrl": "https://www.goodreads.com/book/show/4406"
   }
 ]
