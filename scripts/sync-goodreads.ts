@@ -131,9 +131,12 @@ function parseFeed(xml: string): Book[] {
       myRating: rating,
       ...(review ? { myReview: stripHtml(review) } : {}),
       shelves: [],
-      ...(isoDateRead(tag(block, "user_read_at"))
-        ? { dateRead: isoDateRead(tag(block, "user_read_at")) }
-        : {}),
+      // No read date set on Goodreads? Fall back to when it was shelved, so a
+      // new book still lands at the top of the wall instead of the very bottom.
+      dateRead:
+        isoDateRead(tag(block, "user_read_at")) ??
+        isoDateRead(tag(block, "user_date_added")) ??
+        new Date().toISOString().slice(0, 10),
       ...(intOrUndef(tag(block, "num_pages"))
         ? { pages: intOrUndef(tag(block, "num_pages")) }
         : {}),
