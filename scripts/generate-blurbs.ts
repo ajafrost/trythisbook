@@ -104,7 +104,8 @@ async function draftBlurb(
     .map((c) => c.text)
     .join("")
     .trim();
-  if (!text || /^skip$/i.test(text)) return null;
+  // The model sometimes adds punctuation ("SKIP."), so match loosely.
+  if (!text || /^\W*skip\W*$/i.test(text)) return null;
   return text.replace(/^["']|["']$/g, "");
 }
 
