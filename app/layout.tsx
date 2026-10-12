@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
@@ -83,6 +84,7 @@ export default function RootLayout({
             </a>
           </p>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
