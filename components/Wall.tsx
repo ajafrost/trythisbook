@@ -58,6 +58,7 @@ export default function Wall({ books, shelves }: Props) {
   const lengthSel = single("length"); // "" | short | medium | long | project
   const sort = single("sort"); // "" (recently read) | "pub" | "title"
   const view = single("view") === "list" ? "list" : "covers";
+  const urlQuery = single("q"); // free-text title/author search
 
   // Mutate the query and navigate to wallBase?qs (only fires on wall paths).
   const setParams = useCallback(
@@ -99,21 +100,44 @@ export default function Wall({ books, shelves }: Props) {
   const setSort = (v: string) =>
     setParams((p) => (v ? p.set("sort", v) : p.delete("sort")));
 
+  // The search box keeps its own text so typing feels instant, and pushes it
+  // into the url (?q=) after a short pause. If the url changes some other way
+  // (Clear filters, back button), the box follows it — but not when the url is
+  // just catching up to what we pushed, or it would eat letters typed meanwhile.
+  const [query, setQuery] = useState(urlQuery);
+  const pushedQuery = useRef(urlQuery);
+  useEffect(() => {
+    if (urlQuery !== pushedQuery.current) {
+      pushedQuery.current = urlQuery;
+      setQuery(urlQuery);
+    }
+  }, [urlQuery]);
+  useEffect(() => {
+    if (onBook) return;
+    const next = query.trim();
+    if (next === pushedQuery.current) return;
+    const t = setTimeout(() => {
+      pushedQuery.current = next;
+      setParams((p) => (next ? p.set("q", next) : p.delete("q")));
+    }, 250);
+    return () => clearTimeout(t);
+  }, [query, onBook, setParams]);
+
   // Each book has one clean, canonical URL — no filter query is ever appended,
   // however you reached it. Opening a book therefore doesn't carry the wall's
   // active filter; closing returns to the (unfiltered) wall at "/".
   const bookHref = (slug: string) => `/book/${slug}`;
 
-  // Clear drops genre (→ base "/"), shelf and length; sort/view are kept.
+  // Clear drops genre (→ base "/"), shelf, length and search; sort/view are kept.
   const clearAll = () => {
     const p = new URLSearchParams(params.toString());
-    ["shelf", "length"].forEach((k) => p.delete(k));
+    ["shelf", "length", "q"].forEach((k) => p.delete(k));
     const qs = p.toString();
     router.replace(qs ? `/?${qs}` : "/", { scroll: false });
   };
 
   // ── filter + sort (shared with the book modal via lib/wall) ────────────────
-  const filterKey = `${shelfSel.join(",")}|${genreSel.join(",")}|${lengthSel}`;
+  const filterKey = `${shelfSel.join(",")}|${genreSel.join(",")}|${lengthSel}|${urlQuery}`;
   const sorted = useMemo(
     () =>
       orderWall(books, {
@@ -121,6 +145,7 @@ export default function Wall({ books, shelves }: Props) {
         genre: genreSel,
         length: lengthSel,
         sort,
+        q: urlQuery,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [books, filterKey, sort]
@@ -136,7 +161,8 @@ export default function Wall({ books, shelves }: Props) {
     setWallOrder(sorted.map((b) => b.slug));
   }, [liveHref, sorted]);
 
-  const anyFilter = shelfSel.length || genreSel.length || lengthSel;
+  const anyFilter =
+    shelfSel.length || genreSel.length || lengthSel || urlQuery;
 
   // ── infinite scroll: reveal PAGE more as the sentinel nears the viewport ────
   const [visible, setVisible] = useState(PAGE);
@@ -221,7 +247,8 @@ export default function Wall({ books, shelves }: Props) {
 
         {/* Results */}
         <div className="min-w-0 flex-1">
-          <div className="mb-5 flex flex-wrap items-center justify-end gap-3">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <SearchBox value={query} onChange={setQuery} />
             <div className="flex items-center gap-3">
               <label className="flex items-center gap-1.5 text-sm text-ink-soft">
                 <span className="font-mono text-xs uppercase tracking-wider text-ink-faint">
@@ -259,7 +286,7 @@ export default function Wall({ books, shelves }: Props) {
           </div>
 
           {sorted.length === 0 ? (
-            <EmptyState onClear={clearAll} />
+            <EmptyState onClear={clearAll} query={urlQuery} />
           ) : view === "covers" ? (
             <div className="grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
               {shown.map((b, i) => (
@@ -446,19 +473,79 @@ function Chip({
   );
 }
 
-function EmptyState({ onClear }: { onClear: () => void }) {
+function SearchBox({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  return (
+    <div className="relative w-full sm:w-72">
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 16 16"
+        aria-hidden
+        className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint"
+      >
+        <circle cx="7" cy="7" r="4.75" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path d="m10.5 10.5 3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+      <input
+        type="search"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onKeyDown={(e) => e.key === "Escape" && onChange("")}
+        placeholder="Search titles or authors"
+        aria-label="Search books by title or author"
+        className="w-full rounded-full border border-ink/15 bg-canvas py-1.5 pl-9 pr-8 text-sm text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+      />
+      {value && (
+        <button
+          type="button"
+          onClick={() => onChange("")}
+          aria-label="Clear search"
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full px-1.5 text-ink-faint hover:text-ink"
+        >
+          ×
+        </button>
+      )}
+    </div>
+  );
+}
+
+function EmptyState({
+  onClear,
+  query,
+}: {
+  onClear: () => void;
+  query: string;
+}) {
   return (
     <div className="rounded-xl border border-dashed border-line bg-white/40 px-6 py-16 text-center">
       <p className="font-serif text-xl text-ink">
-        Nothing matches all of that (even I have limits).
+        {query
+          ? `Nothing I’ve loved matches “${query}” (yet).`
+          : "Nothing matches all of that (even I have limits)."}
       </p>
-      <p className="mt-2 text-ink-soft">
-        Try dropping a filter, or{" "}
-        <a href="/shelves" className="text-accent-deep underline">
-          browse the shelves
-        </a>
-        .
-      </p>
+      {query ? (
+        <p className="mt-2 text-ink-soft">
+          Check the spelling, or{" "}
+          <a href="/ask" className="text-accent-deep underline">
+            ask for a custom rec
+          </a>{" "}
+          instead.
+        </p>
+      ) : (
+        <p className="mt-2 text-ink-soft">
+          Try dropping a filter, or{" "}
+          <a href="/shelves" className="text-accent-deep underline">
+            browse the shelves
+          </a>
+          .
+        </p>
+      )}
       <button
         onClick={onClear}
         className="mt-4 rounded-full bg-sand px-4 py-2 text-sm font-medium text-ink hover:bg-sand-deep"

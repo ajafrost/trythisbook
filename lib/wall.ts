@@ -21,6 +21,7 @@ export type WallParams = {
   genre: string[];
   length: string;
   sort: string;
+  q?: string; // free-text search over title + author
 };
 
 export function readWallParams(sp: URLSearchParams): WallParams {
@@ -30,7 +31,24 @@ export function readWallParams(sp: URLSearchParams): WallParams {
     genre: list("genre"),
     length: sp.get("length") ?? "",
     sort: sp.get("sort") ?? "",
+    q: sp.get("q") ?? "",
   };
+}
+
+// Lowercase, drop accents and punctuation, so "bronte" finds "Brontë" and
+// "dont" finds "Don't".
+const norm = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/['’.]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+// Every word typed has to show up somewhere in the title or author.
+export function searchWords(q: string | undefined): string[] {
+  return q ? norm(q).split(" ").filter(Boolean) : [];
 }
 
 const sortTitle = (t: string) => t.replace(/^(the|a|an)\s+/i, "").toLowerCase();
@@ -38,7 +56,12 @@ const sortTitle = (t: string) => t.replace(/^(the|a|an)\s+/i, "").toLowerCase();
 // Filter (within-category OR, across-category AND) then sort. Returns a new array.
 export function orderWall(books: WallBook[], p: WallParams): WallBook[] {
   const lengthDef = LENGTHS.find((l) => l.key === p.length);
+  const words = searchWords(p.q);
   const filtered = books.filter((b) => {
+    if (words.length) {
+      const hay = norm(`${b.title} ${b.author}`);
+      if (!words.every((w) => hay.includes(w))) return false;
+    }
     if (p.shelf.length && !b.shelfSlugs.some((s) => p.shelf.includes(s)))
       return false;
     if (p.genre.length && !b.genres.some((g) => p.genre.includes(g)))
